@@ -21,13 +21,15 @@ export default function Detail() {
   const hosts = (item.hostIds || []).map(personById)
   const similar = similarTo(item)
   const inLists = lists.filter((l) => l.itemIds.includes(item.id))
-  const listenHref = item.links?.apple || item.links?.spotify
+  const listenHref = item.links?.librivox || item.links?.apple || item.links?.applebooks || item.links?.spotify
   const longDesc = (item.desc || '').length > 180
 
   const stats = [
-    item.chartRank != null && { v: `🏆 Platz ${item.chartRank}`, k: 'Deutsche Podcast-Charts' },
+    item.chartRank != null && { v: `🏆 Platz ${item.chartRank}`, k: item.type === 'hoerbuch' ? 'Deutsche Hörbuch-Charts' : 'Deutsche Podcast-Charts' },
+    item.free && { v: '🆓 Kostenlos', k: 'gemeinfrei · LibriVox' },
     item.rating != null && { v: `⭐ ${item.rating.toFixed(1).replace('.', ',')}`, k: `${(item.ratings || 0).toLocaleString('de-DE')} Bewertungen` },
     item.episodes != null && { v: `🎙 ${item.episodes.toLocaleString('de-DE')}`, k: 'Folgen' },
+    item.chapters != null && { v: `📑 ${item.chapters}`, k: 'Kapitel' },
     item.duration != null && { v: `⏱ ${fmtDuration(item.duration)}`, k: item.episodes ? 'pro Folge' : 'Gesamtlänge' },
     item.year != null && { v: `📅 ${item.year}`, k: item.episodes ? 'aktiv seit' : 'erschienen' },
   ].filter(Boolean)
@@ -51,6 +53,7 @@ export default function Detail() {
           <div className="byline">
             {author && <>von <Link to={`/person/${author.id}`}>{author.name}</Link></>}
             {!author && <>von {item.by}</>}
+            {item.speaker && <> · gelesen von <span style={{ color: 'var(--text)', fontWeight: 600 }}>{item.speaker}</span></>}
             {speakers.length > 0 && <> · gelesen von {speakers.map((s, i) => (
               <span key={s.id}>{i > 0 && ', '}<Link to={`/person/${s.id}`}>{s.name}</Link></span>
             ))}</>}

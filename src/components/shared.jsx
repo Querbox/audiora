@@ -29,7 +29,9 @@ export function TitleCard({ item }) {
         <div className="tr">
           {item.rating != null
             ? <><span className="star">★</span> {item.rating.toFixed(1)}</>
-            : item.chartRank != null && <span className="star">Platz {item.chartRank}</span>}
+            : item.free
+              ? <span className="star">Kostenlos</span>
+              : item.chartRank != null && <span className="star">Platz {item.chartRank}</span>}
           <span style={{ color: 'var(--text-faint)' }}>
             {item.duration != null ? `· ${fmtDuration(item.duration)}` : item.episodes != null ? `· ${item.episodes} Folgen` : ''}
           </span>
@@ -67,7 +69,7 @@ export function PlatformButtons({ ids, links }) {
     <div className="platform-cards">
       {ids.map((p) => {
         const href = links?.[p]
-        const sub = p === 'youtube' ? 'Video ansehen →' : 'Jetzt hören →'
+        const sub = p === 'youtube' ? 'Video ansehen →' : p === 'librivox' ? 'Kostenlos hören →' : 'Jetzt hören →'
         return (
           <a
             key={p}

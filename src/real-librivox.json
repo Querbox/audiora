@@ -1,0 +1,217 @@
+[
+  {
+    "id": "lv-2689",
+    "type": "hoerbuch",
+    "real": true,
+    "free": true,
+    "title": "Die Verwandlung",
+    "by": "Franz Kafka",
+    "year": 1915,
+    "duration": 128,
+    "image": null,
+    "hue": 61,
+    "emoji": "🪲",
+    "genres": [
+      "Klassiker"
+    ],
+    "moods": [
+      "lange",
+      "entspannen"
+    ],
+    "situations": [
+      "einschlafen",
+      "lange"
+    ],
+    "topics": [
+      "Gemeinfrei",
+      "Kafka",
+      "Novelle"
+    ],
+    "desc": "\"Als Gregor Samsa eines Morgens aus unruhigen Träumen erwachte, fand er sich in seinem Bett zu einem ungeheueren Ungeziefer verwandelt...\" So beginnt Kafka diesen Klassiker und beschreibt in seinem typischen Stil wie sich die plötzliche Verwandlung auf das…",
+    "platforms": [
+      "librivox"
+    ],
+    "links": {
+      "librivox": "https://librivox.org/die-verwandlung-von-franz-kafka/"
+    }
+  },
+  {
+    "id": "lv-8143",
+    "type": "hoerbuch",
+    "real": true,
+    "free": true,
+    "title": "Der Sandmann",
+    "by": "E. T. A. Hoffmann",
+    "year": 1819,
+    "duration": 97,
+    "image": null,
+    "hue": 231,
+    "emoji": "🌑",
+    "genres": [
+      "Klassiker"
+    ],
+    "moods": [
+      "lange",
+      "entspannen"
+    ],
+    "situations": [
+      "einschlafen",
+      "lange"
+    ],
+    "topics": [
+      "Gemeinfrei",
+      "Romantik",
+      "Schauergeschichte"
+    ],
+    "desc": "Der Student Nathanael glaubt in einem Wetterglashändler namens Coppola einen Mann wieder zu erkennen, der in seiner Kindheit als Advokat Coppelius regelmäßig abends seinen Vater besuchte und mit diesem offenbar alchimistische Experimente machte, bei denen d…",
+    "platforms": [
+      "librivox"
+    ],
+    "links": {
+      "librivox": "https://librivox.org/der-sandmann-by-e-t-a-hoffmann/"
+    }
+  },
+  {
+    "id": "lv-1210",
+    "type": "hoerbuch",
+    "real": true,
+    "free": true,
+    "title": "Effi Briest",
+    "by": "Theodor Fontane",
+    "year": 1894,
+    "duration": 683,
+    "image": null,
+    "hue": 97,
+    "emoji": "🌾",
+    "genres": [
+      "Klassiker"
+    ],
+    "moods": [
+      "lange",
+      "entspannen"
+    ],
+    "situations": [
+      "einschlafen",
+      "lange"
+    ],
+    "topics": [
+      "Gemeinfrei",
+      "Realismus",
+      "Gesellschaftsroman"
+    ],
+    "desc": "Effi Briest ist die Titelfigur des gleichnamigen Romans von Theodor Fontane, der in Buchform erstmals 1895 erschienen ist. Als Erscheinungsjahr wurde auf dem Titelblatt 1896 angegeben. Der Gesellschaftsroman wird dem bürgerlichen Realismus zugeordnet und sp…",
+    "platforms": [
+      "librivox"
+    ],
+    "links": {
+      "librivox": "https://librivox.org/effi-briest-by-theodor-fontane/"
+    }
+  },
+  {
+    "id": "lv-182",
+    "type": "hoerbuch",
+    "real": true,
+    "free": true,
+    "title": "Die Leiden des jungen Werther",
+    "by": "Johann Wolfgang von Goethe",
+    "year": 1774,
+    "duration": 297,
+    "image": null,
+    "hue": 355,
+    "emoji": "💌",
+    "genres": [
+      "Klassiker"
+    ],
+    "moods": [
+      "lange",
+      "entspannen"
+    ],
+    "situations": [
+      "einschlafen",
+      "lange"
+    ],
+    "topics": [
+      "Gemeinfrei",
+      "Sturm und Drang",
+      "Briefroman"
+    ],
+    "desc": "Die Leiden des jungen Werther beschreibt die unglückliche Liebe eines jungen Mannes (Werther) zu einer verlobten, später verheirateten Frau. Der Roman ist aus einer radikal subjektiven Perspektive geschrieben: er besteht nur aus Briefen von Werther vor alle…",
+    "platforms": [
+      "librivox"
+    ],
+    "links": {
+      "librivox": "https://librivox.org/die-leiden-des-jungen-werthers-by-johann-wolfgang-von-goethe/"
+    }
+  },
+  {
+    "id": "lv-66",
+    "type": "hoerbuch",
+    "real": true,
+    "free": true,
+    "title": "Kinder- und Hausmärchen",
+    "by": "Jacob & Wilhelm Grimm",
+    "year": null,
+    "duration": null,
+    "image": null,
+    "hue": 57,
+    "emoji": "🏰",
+    "genres": [
+      "Klassiker"
+    ],
+    "moods": [
+      "lange",
+      "entspannen"
+    ],
+    "situations": [
+      "einschlafen",
+      "lange"
+    ],
+    "topics": [
+      "Gemeinfrei",
+      "Märchen",
+      "Für Kinder"
+    ],
+    "desc": "Anfang des 19. Jahrhunderts begannen die Brüder Jacob und Wilhelm Grimm, traditionelle, bisher vor allem mündlich weitergegebene Erzählungen zusammenzutragen. Diese Sammlung ist als die Märchen der Gebrüder Grimm weltbekannt geworden und umfaßt so berühmte…",
+    "platforms": [
+      "librivox"
+    ],
+    "links": {
+      "librivox": "https://librivox.org/maerchen-by-grimm-index/"
+    }
+  },
+  {
+    "id": "lv-20184",
+    "type": "hoerbuch",
+    "real": true,
+    "free": true,
+    "title": "Traumnovelle",
+    "by": "Arthur Schnitzler",
+    "year": 1926,
+    "duration": 208,
+    "image": null,
+    "hue": 258,
+    "emoji": "🎭",
+    "genres": [
+      "Klassiker"
+    ],
+    "moods": [
+      "lange",
+      "entspannen"
+    ],
+    "situations": [
+      "einschlafen",
+      "lange"
+    ],
+    "topics": [
+      "Gemeinfrei",
+      "Wiener Moderne"
+    ],
+    "desc": "Der Arzt Fridolin und seine Frau Albertine führen eine anscheinend glückliche Ehe, doch unter der Oberfläche gären unausgesprochene und ungestillte sexuellen Fantasien. Als die beiden sich eines Abends davon erzählen, bekommt die harmonische Fassade Risse.…",
+    "platforms": [
+      "librivox"
+    ],
+    "links": {
+      "librivox": "https://librivox.org/traumnovelle-by-arthur-schnitzler/"
+    }
+  }
+]

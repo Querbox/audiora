@@ -34,8 +34,10 @@ function ContinueRow() {
 }
 
 export default function Home() {
-  const charts = items.filter((i) => i.chartRank).sort((a, b) => a.chartRank - b.chartRank)
-  const popular = charts.length ? charts.slice(0, 12) : [...items].sort((a, b) => (b.ratings || 0) - (a.ratings || 0)).slice(0, 8)
+  const podcastCharts = items.filter((i) => i.chartRank && i.type === 'podcast').sort((a, b) => a.chartRank - b.chartRank)
+  const audiobookCharts = items.filter((i) => i.chartRank && i.type === 'hoerbuch').sort((a, b) => a.chartRank - b.chartRank)
+  const classics = items.filter((i) => i.free)
+  const popular = podcastCharts.length ? podcastCharts.slice(0, 12) : [...items].sort((a, b) => (b.ratings || 0) - (a.ratings || 0)).slice(0, 8)
   const recommended = [...items].sort((a, b) => (b.rating || 0) - (a.rating || 0)).slice(0, 8)
   const becauseOf = items.filter((i) => i.genres.includes('Fantasy') && i.id !== 'tintenherz')
 
@@ -77,6 +79,18 @@ export default function Home() {
       <Section title="Beliebt in Deutschland" sub="Die echten deutschen Podcast-Charts – automatisch importiert und täglich aktualisiert." moreTo="/suche?q=podcast">
         <Rail items={popular} />
       </Section>
+
+      {audiobookCharts.length > 0 && (
+        <Section title="Hörbuch-Charts Deutschland" sub="Die meistgekauften Hörbücher – live aus den Apple-Charts." moreTo="/suche?q=hörbuch">
+          <Rail items={audiobookCharts.slice(0, 12)} />
+        </Section>
+      )}
+
+      {classics.length > 0 && (
+        <Section title="Klassiker kostenlos hören" sub="Gemeinfreie Hörbücher von LibriVox – vollständig, legal und für immer kostenlos.">
+          <Rail items={classics} />
+        </Section>
+      )}
 
       <Section title="Weil dir „Tintenherz“ gefallen hat" moreTo="/titel/tintenherz">
         <Rail items={becauseOf} />

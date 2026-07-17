@@ -4,6 +4,8 @@
 // erzeugt von scripts/import-podcasts.mjs. Hörbücher/Hörspiele sind kuratiert.
 
 import realPodcasts from './real-podcasts.json'
+import realAudiobooks from './real-audiobooks.json'
+import realLibrivox from './real-librivox.json'
 import media from './media.json'
 
 // Logos: echte Markenlogos via simple-icons-CDN, sonst Lettermark in Markenfarbe
@@ -16,6 +18,8 @@ export const PLATFORMS = {
   podimo:    { name: 'Podimo',         color: '#5a31f4' },
   bookbeat:  { name: 'BookBeat',       color: '#f5c518' },
   nextory:   { name: 'Nextory',        color: '#e6455a' },
+  librivox:  { name: 'LibriVox',       color: '#7a9e4f' },
+  applebooks:{ name: 'Apple Books',    logo: 'https://cdn.simpleicons.org/apple/F28C3A' },
 }
 
 export const TYPE_LABEL = {
@@ -207,8 +211,9 @@ export const curated = [
 curated.forEach((i) => { if (media.covers[i.id]) i.image = media.covers[i.id] })
 people.forEach((p) => { if (media.people[p.id]) p.image = media.people[p.id] })
 
-// Echte Top-Podcasts + kuratierte Titel = ein einheitliches Datenmodell
-export const items = [...realPodcasts, ...curated]
+// Echte Top-Podcasts, Hörbuch-Charts, freie Klassiker + kuratierte Titel –
+// alles ein einheitliches Datenmodell
+export const items = [...realPodcasts, ...realAudiobooks, ...realLibrivox, ...curated]
 
 // Folgen (Beispiel für Objekt-Verknüpfung Folge ↔ Gast)
 export const episodes = [

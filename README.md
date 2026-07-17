@@ -27,17 +27,23 @@ npm run dev        # → http://localhost:5180
 
 ## Echte Daten – kostenlos, ohne API-Key
 
-Die **Top 30 der deutschen Podcast-Charts sind echt** und werden automatisch importiert:
+Drei Importer laufen **jede Nacht** im GitHub-Actions-Workflow und deployen neu.
+Schlägt eine Quelle fehl, dient die eingecheckte JSON als Fallback.
 
-- **Apple Podcast-Charts** (`rss.marketingtools.apple.com`) → Rangliste, Cover, Genres
-- **iTunes Lookup** → RSS-Feed-URL, Folgenzahl, Links
-- **Offene RSS-Feeds** → Beschreibung, neueste Folgen, Dauer
+| Importer | Quelle | Liefert |
+|---|---|---|
+| `import-podcasts.mjs` | Apple Podcast-Charts + iTunes Lookup + offene RSS-Feeds | Top 30 DE-Podcasts: Cover, Beschreibung, neueste Folgen, Dauer |
+| `import-audiobooks.mjs` | Apple Hörbuch-Charts (Legacy-RSS) + iTunes Lookup | Top 30 DE-Hörbücher: Cover, Beschreibung, Apple-Books-Link |
+| `import-librivox.mjs` | LibriVox API | Gemeinfreie deutsche Klassiker – komplett & legal kostenlos hörbar |
 
-`node scripts/import-podcasts.mjs` erzeugt daraus `src/real-podcasts.json` im
-Audiora-Datenmodell (inkl. abgeleiteter Stimmungen/Situationen aus den Genres).
-Der GitHub-Actions-Workflow führt den Import **jede Nacht** aus und deployt neu –
-die Live-Seite hält sich also selbst aktuell. Schlägt der Import fehl, dient die
-eingecheckte JSON als Fallback.
+Dazu einmalig `enrich-media.mjs` (iTunes-Cover + Wikipedia-Fotos für kuratierte Inhalte).
+
+**Optional: Spotify-Anreicherung.** Der Hörbuch-Importer nutzt automatisch die
+kostenlose Spotify Web API (Sprecher, Kapitelzahl, Direktlinks), sobald die
+Repo-Secrets `SPOTIFY_CLIENT_ID` und `SPOTIFY_CLIENT_SECRET` gesetzt sind
+(App anlegen unter developer.spotify.com/dashboard, dann
+`gh secret set SPOTIFY_CLIENT_ID` / `gh secret set SPOTIFY_CLIENT_SECRET`).
+Ohne Secrets läuft der Import unverändert – nur ohne Sprecherangaben.
 
 ## Datenstrategie (Roadmap)
 

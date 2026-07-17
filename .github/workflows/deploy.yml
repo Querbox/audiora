@@ -28,6 +28,13 @@ jobs:
       - run: npm ci
       - name: Echte Podcast-Daten importieren (Fallback auf eingecheckte Daten)
         run: node scripts/import-podcasts.mjs || echo "Import fehlgeschlagen – nutze committete real-podcasts.json"
+      - name: Echte Hörbuch-Charts importieren (Fallback auf eingecheckte Daten)
+        env:
+          SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
+          SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
+        run: node scripts/import-audiobooks.mjs || echo "Import fehlgeschlagen – nutze committete real-audiobooks.json"
+      - name: LibriVox-Klassiker importieren (Fallback auf eingecheckte Daten)
+        run: node scripts/import-librivox.mjs || echo "Import fehlgeschlagen – nutze committete real-librivox.json"
       - run: npm run build
       - uses: actions/configure-pages@v5
         with:
