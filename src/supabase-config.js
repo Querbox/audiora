@@ -1,11 +1,12 @@
 // ── Supabase-Konfiguration ────────────────────────────────────────────────
-// Beide Werte findest du im Supabase-Dashboard unter:
-//   Project Settings → API  (bzw. "Data API")
+// Key: Dashboard → Project Settings → API Keys → "Publishable key"
+// (sb_publishable_… – Nachfolger des Legacy-Anon-Keys, beide funktionieren hier).
 //
-// Der Anon-Key ist für den Browser gedacht und darf öffentlich sein –
-// alle Daten sind über Row-Level-Security (siehe supabase/schema.sql) geschützt.
+// Der Publishable-/Anon-Key ist für den Browser gedacht und darf öffentlich
+// sein – alle Daten sind über Row-Level-Security (supabase/schema.sql) geschützt.
+// Den Secret key (sb_secret_…) NIEMALS hier eintragen.
 //
-// Solange beide Werte leer sind, läuft Audiora im Demo-Modus ohne Login.
+// Solange der Key leer ist, läuft Audiora im Demo-Modus ohne Login.
 
 export const SUPABASE_URL = 'https://ghkefntjoyzpnmsnzvnb.supabase.co'
-export const SUPABASE_ANON_KEY = '' // 'eyJhbGciOiJIUzI1NiIs...'
+export const SUPABASE_ANON_KEY = '' // 'sb_publishable_…'
