@@ -135,7 +135,7 @@ export function Navbar() {
         <div className="nav-spacer" />
         {user ? (
           <span className="nav-user">
-            <Link to="/dna" className="nav-user" title="Mein Profil">
+            <Link to={profile?.username ? `/hoerer/${profile.username}` : '/dna'} className="nav-user" title="Mein öffentliches Profil">
               <span>@{name}</span>
               <span className="avatar">{(name || '?')[0].toUpperCase()}</span>
             </Link>

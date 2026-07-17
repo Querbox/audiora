@@ -9,6 +9,7 @@ import Person from './pages/Person.jsx'
 import Graph from './pages/Graph.jsx'
 import Dna from './pages/Dna.jsx'
 import Login from './pages/Login.jsx'
+import Hoerer from './pages/Hoerer.jsx'
 import { ListsOverview, ListDetail } from './pages/Lists.jsx'
 
 function ScrollToTop() {
@@ -33,6 +34,7 @@ export default function App() {
           <Route path="/listen/:id" element={<ListDetail />} />
           <Route path="/dna" element={<Dna />} />
           <Route path="/anmelden" element={<Login />} />
+          <Route path="/hoerer/:username" element={<Hoerer />} />
         </Routes>
       </main>
       <Footer />

@@ -598,6 +598,56 @@ a.chip:hover, button.chip:hover { color: var(--text); border-color: rgba(167,139
 .nav-logout { color: var(--text-faint); font-size: 12.5px; margin-left: 10px; }
 .nav-logout:hover { color: var(--text); }
 
+/* ── Listen erstellen & Sammlung-Picker ── */
+.list-create { display: flex; gap: 10px; margin-top: 6px; max-width: 560px; }
+.list-create input {
+  flex: 1; background: var(--bg-elev); border: 1px solid var(--line);
+  border-radius: 999px; padding: 12px 20px;
+  color: var(--text); font-family: inherit; font-size: 14.5px; outline: none;
+  transition: border-color 0.2s;
+}
+.list-create input:focus { border-color: rgba(167,139,250,0.5); }
+.list-covers-empty {
+  height: 52px; display: grid; place-items: center;
+  color: var(--text-faint); font-size: 12.5px; width: 100%;
+  border: 1px dashed var(--line); border-radius: 10px;
+}
+.lc-curator { color: var(--accent); }
+.lc-curator:hover { text-decoration: underline; }
+
+.picker {
+  position: absolute; top: calc(100% + 10px); left: 0; z-index: 30;
+  width: 300px;
+  background: var(--bg-card); border: 1px solid rgba(167,139,250,0.3);
+  border-radius: var(--radius-sm); padding: 14px;
+  box-shadow: var(--shadow);
+  animation: rise 0.25s var(--ease);
+}
+.picker-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-size: 14px; }
+.picker-head button { color: var(--text-faint); font-size: 13px; }
+.picker-head button:hover { color: var(--text); }
+.picker-row {
+  display: flex; align-items: center; gap: 10px; width: 100%;
+  padding: 8px 6px; border-radius: 8px; text-align: left; font-size: 14px;
+  transition: background 0.15s;
+}
+.picker-row:hover { background: rgba(255,255,255,0.05); }
+.picker-check {
+  width: 20px; height: 20px; border-radius: 6px; flex-shrink: 0;
+  border: 1.5px solid var(--line); display: grid; place-items: center;
+  font-size: 12px; color: #fff;
+}
+.picker-check.on { background: var(--accent-strong); border-color: var(--accent-strong); }
+.picker-title { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.picker-count { color: var(--text-faint); font-size: 12.5px; }
+.picker-new { display: flex; gap: 8px; margin-top: 10px; }
+.picker-new input {
+  flex: 1; background: var(--bg-elev); border: 1px solid var(--line);
+  border-radius: var(--radius-sm); padding: 9px 12px;
+  color: var(--text); font-family: inherit; font-size: 13.5px; outline: none;
+}
+.picker-new .btn { padding: 8px 14px; }
+
 /* ── Footer ── */
 footer {
   margin-top: 70px; border-top: 1px solid var(--line);

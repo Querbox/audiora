@@ -6,6 +6,71 @@ import {
 } from '../data.js'
 import { Cover, PlatformButtons, Section, Rail } from '../components/shared.jsx'
 import { useAuth, useUserItem } from '../auth.jsx'
+import { fetchMyLists, createList, setListItem, isMissingSchema } from '../lib/community.js'
+import { useEffect } from 'react'
+
+// Popover: Titel zu eigenen Listen hinzufügen
+function CollectionPicker({ itemId, onClose }) {
+  const { user } = useAuth()
+  const [myLists, setMyLists] = useState(null)
+  const [newTitle, setNewTitle] = useState('')
+  const [hint, setHint] = useState('')
+
+  useEffect(() => {
+    fetchMyLists(user.id)
+      .then(setMyLists)
+      .catch((e) => setHint(isMissingSchema(e) ? 'Bitte zuerst supabase/schema_v2.sql ausführen.' : e.message))
+  }, [user.id])
+
+  const toggle = async (list) => {
+    const on = !list.itemIds.includes(itemId)
+    setMyLists((ls) => ls.map((l) => (
+      l.id === list.id
+        ? { ...l, itemIds: on ? [...l.itemIds, itemId] : l.itemIds.filter((i) => i !== itemId) }
+        : l
+    )))
+    try { await setListItem(list.id, itemId, on) } catch (e) { setHint(e.message) }
+  }
+
+  const create = async (e) => {
+    e.preventDefault()
+    if (newTitle.trim().length < 3) return
+    try {
+      const id = await createList(user.id, newTitle.trim())
+      await setListItem(id, itemId, true)
+      setMyLists((ls) => [{ id, title: newTitle.trim(), itemIds: [itemId] }, ...(ls || [])])
+      setNewTitle('')
+    } catch (err) {
+      setHint(isMissingSchema(err) ? 'Bitte zuerst supabase/schema_v2.sql ausführen.' : err.message)
+    }
+  }
+
+  return (
+    <div className="picker">
+      <div className="picker-head">
+        <b>Zu Liste hinzufügen</b>
+        <button onClick={onClose} title="Schließen">✕</button>
+      </div>
+      {hint && <div className="auth-error" style={{ margin: '8px 0' }}>{hint}</div>}
+      {myLists === null && !hint && <div style={{ color: 'var(--text-faint)', padding: '8px 0' }}>Lädt…</div>}
+      {myLists?.map((l) => {
+        const on = l.itemIds.includes(itemId)
+        return (
+          <button key={l.id} className="picker-row" onClick={() => toggle(l)}>
+            <span className={`picker-check ${on ? 'on' : ''}`}>{on ? '✓' : ''}</span>
+            <span className="picker-title">{l.title}</span>
+            <span className="picker-count">{l.itemIds.length}</span>
+          </button>
+        )
+      })}
+      {myLists?.length === 0 && <div style={{ color: 'var(--text-faint)', padding: '6px 0', fontSize: 13.5 }}>Du hast noch keine Listen.</div>}
+      <form className="picker-new" onSubmit={create}>
+        <input value={newTitle} onChange={(e) => setNewTitle(e.target.value)} placeholder="Neue Liste erstellen…" maxLength={80} />
+        <button className="btn" type="submit">＋</button>
+      </form>
+    </div>
+  )
+}
 
 export default function Detail() {
   const { id } = useParams()
@@ -28,6 +93,7 @@ export default function Detail() {
     else setLocal((s) => ({ ...s, [field]: !s[field] }))
   }
   const [expanded, setExpanded] = useState(false)
+  const [pickerOpen, setPickerOpen] = useState(false)
 
   if (!item) return <div className="shell empty">Titel nicht gefunden.</div>
 
@@ -109,7 +175,18 @@ export default function Detail() {
             <button className={`btn ${fav ? 'on' : ''}`} onClick={() => toggle('fav')}>
               {fav ? '♥ Favorit' : '♡ Favorit'}
             </button>
-            <button className="btn">＋ Sammlung</button>
+            <span style={{ position: 'relative' }}>
+              <button
+                className={`btn ${pickerOpen ? 'on' : ''}`}
+                onClick={() => {
+                  if (!user) { if (isConfigured) nav('/anmelden'); return }
+                  setPickerOpen(!pickerOpen)
+                }}
+              >
+                ＋ Sammlung
+              </button>
+              {pickerOpen && user && <CollectionPicker itemId={item.id} onClose={() => setPickerOpen(false)} />}
+            </span>
             <Link to={`/graph?titel=${item.id}`} className="btn">✦ Audio Graph</Link>
           </div>
 

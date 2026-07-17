@@ -71,6 +71,8 @@ Einrichtung in 3 Schritten:
 
 1. **Schema anlegen:** Inhalt von `supabase/schema.sql` im Dashboard unter
    *SQL Editor → New query* ausführen (Profile, User-Items, RLS-Policies, Signup-Trigger).
+   Danach `supabase/schema_v2.sql` für die Community-Funktionen
+   (eigene Listen, Likes, Folgen, öffentliche Profile unter `/hoerer/<name>`).
 2. **Credentials eintragen:** In `src/supabase-config.js` die Project-URL und den
    Anon-Key aus *Project Settings → API* einsetzen (der Anon-Key darf öffentlich sein,
    Row-Level-Security schützt alle Daten), dann committen/deployen.
