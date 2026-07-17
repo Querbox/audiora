@@ -1,6 +1,7 @@
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
 import { Navbar, Footer } from './components/shared.jsx'
+import InstallBanner from './components/InstallBanner.jsx'
 import { AuthProvider } from './auth.jsx'
 import Home from './pages/Home.jsx'
 import Search from './pages/Search.jsx'
@@ -38,6 +39,7 @@ export default function App() {
         </Routes>
       </main>
       <Footer />
+      <InstallBanner />
     </AuthProvider>
   )
 }
