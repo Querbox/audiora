@@ -454,27 +454,47 @@ a.chip:hover, button.chip:hover { color: var(--text); border-color: rgba(167,139
 .ki-note .spark { font-size: 18px; }
 
 /* ── Suche ── */
+.filter-bar {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+  margin: 16px 0 2px;
+}
+.filter-toggle {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 13.5px; font-weight: 600; color: var(--text-dim);
+  border: 1px solid var(--line); border-radius: 999px;
+  padding: 7px 15px; background: rgba(255, 255, 255, 0.02);
+  transition: all 0.2s var(--ease);
+}
+.filter-toggle:hover { color: var(--text); border-color: rgba(167, 139, 250, 0.45); }
+.filter-toggle.open { color: var(--text); border-color: rgba(167, 139, 250, 0.5); background: var(--accent-soft); }
+.filter-toggle .fi { opacity: 0.7; }
+.filter-toggle .caret { font-size: 9px; opacity: 0.7; }
+.chip-remove { cursor: pointer; }
+.chip-remove .x { opacity: 0.6; font-size: 11px; margin-left: 2px; }
+.chip-remove:hover .x { opacity: 1; }
+
 .filters {
-  display: flex; flex-direction: column; gap: 14px;
-  margin: 26px 0 6px;
-  padding: 22px 24px;
+  display: flex; flex-direction: column; gap: 12px;
+  margin: 12px 0 4px;
+  padding: 18px 20px;
   border: 1px solid var(--line);
-  border-radius: var(--radius);
+  border-radius: var(--radius-sm);
   background: rgba(255, 255, 255, 0.015);
+  animation: rise 0.25s var(--ease);
 }
 .filter-group { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
 .filter-label {
   flex: 0 0 150px;
-  font-size: 12.5px; font-weight: 700; letter-spacing: 0.04em;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.04em;
   text-transform: uppercase; color: var(--text-faint);
 }
 .filters .chip { cursor: pointer; }
 .results-head {
-  display: flex; align-items: center; justify-content: space-between;
-  margin: 22px 0 4px;
-  font-size: 14px; color: var(--text-dim);
+  display: flex; align-items: center;
+  margin: 20px 0 4px;
+  font-size: 13.5px; color: var(--text-faint);
 }
-.reset-link { color: var(--accent); font-size: 13.5px; font-weight: 600; }
+.reset-link { color: var(--accent); font-size: 13px; font-weight: 600; }
 .reset-link:hover { text-decoration: underline; }
 .signal-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 8px; }
 .results-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; padding: 20px 0 60px; }

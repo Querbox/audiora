@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import { useSearchParams, Link } from 'react-router-dom'
 import { smartSearch, MOODS, TYPE_LABEL, items } from '../data.js'
 import { SearchBar, TitleCard } from '../components/shared.jsx'
@@ -39,6 +39,18 @@ export default function Search() {
     setParams(next)
   }
 
+  const [open, setOpen] = useState(false)
+
+  // Aktive Filter als kompakte Chips (immer sichtbar, einzeln entfernbar)
+  const activeChips = [
+    ...typeF.map((t) => ({ key: 'type', val: t, label: TYPE_LABEL[t] || t })),
+    ...moodF.map((m) => {
+      const mo = MOODS.find((x) => x.id === m)
+      return { key: 'mood', val: m, label: mo ? `${mo.emoji} ${mo.label}` : m }
+    }),
+    ...genreF.map((g) => ({ key: 'genre', val: g, label: g })),
+  ]
+
   // Basismenge: Freitextergebnis oder alle Titel
   let signals = [], persons = []
   let base
@@ -74,32 +86,51 @@ export default function Search() {
       </div>
       <SearchBar initial={q} />
 
-      <div className="filters">
-        <div className="filter-group">
-          <span className="filter-label">Format</span>
-          {typeOptions.map((t) => (
-            <FilterChip key={t} active={typeF.includes(t)} onClick={() => toggle('type', t)}>
-              {TYPE_LABEL[t] || t}
-            </FilterChip>
-          ))}
-        </div>
-        <div className="filter-group">
-          <span className="filter-label">Stimmung & Situation</span>
-          {MOODS.map((m) => (
-            <FilterChip key={m.id} active={moodF.includes(m.id)} onClick={() => toggle('mood', m.id)}>
-              {m.emoji} {m.label}
-            </FilterChip>
-          ))}
-        </div>
-        <div className="filter-group">
-          <span className="filter-label">Genre</span>
-          {genreOptions.map((g) => (
-            <FilterChip key={g} active={genreF.includes(g)} onClick={() => toggle('genre', g)}>
-              {g}
-            </FilterChip>
-          ))}
-        </div>
+      <div className="filter-bar">
+        <button
+          className={`filter-toggle ${open ? 'open' : ''}`}
+          onClick={() => setOpen(!open)}
+          aria-expanded={open}
+        >
+          <span className="fi">⚙</span> Filter{activeChips.length ? ` · ${activeChips.length}` : ''}
+          <span className="caret">{open ? '▲' : '▾'}</span>
+        </button>
+        {activeChips.map((c) => (
+          <button key={`${c.key}-${c.val}`} className="chip accent chip-remove" onClick={() => toggle(c.key, c.val)}>
+            {c.label} <span className="x">✕</span>
+          </button>
+        ))}
+        {anyFilter ? <button className="reset-link" onClick={resetFilters}>Zurücksetzen</button> : null}
       </div>
+
+      {open && (
+        <div className="filters">
+          <div className="filter-group">
+            <span className="filter-label">Format</span>
+            {typeOptions.map((t) => (
+              <FilterChip key={t} active={typeF.includes(t)} onClick={() => toggle('type', t)}>
+                {TYPE_LABEL[t] || t}
+              </FilterChip>
+            ))}
+          </div>
+          <div className="filter-group">
+            <span className="filter-label">Stimmung & Situation</span>
+            {MOODS.map((m) => (
+              <FilterChip key={m.id} active={moodF.includes(m.id)} onClick={() => toggle('mood', m.id)}>
+                {m.emoji} {m.label}
+              </FilterChip>
+            ))}
+          </div>
+          <div className="filter-group">
+            <span className="filter-label">Genre</span>
+            {genreOptions.map((g) => (
+              <FilterChip key={g} active={genreF.includes(g)} onClick={() => toggle('genre', g)}>
+                {g}
+              </FilterChip>
+            ))}
+          </div>
+        </div>
+      )}
 
       {signals.length > 0 && (
         <div className="signal-row">
@@ -110,7 +141,6 @@ export default function Search() {
 
       <div className="results-head">
         <span>{results.length} {results.length === 1 ? 'Ergebnis' : 'Ergebnisse'}</span>
-        {anyFilter ? <button className="reset-link" onClick={resetFilters}>Filter zurücksetzen ✕</button> : null}
       </div>
 
       {persons.length > 0 && (
