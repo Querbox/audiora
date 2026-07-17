@@ -141,6 +141,7 @@ h1, h2, h3, .display { font-family: var(--font-display); letter-spacing: -0.015e
   box-shadow: 0 6px 20px rgba(124, 92, 255, 0.35);
 }
 .searchbar .go:hover { transform: translateY(-1px); box-shadow: 0 10px 26px rgba(124, 92, 255, 0.5); }
+.searchbar .go-lupe { display: none; }
 
 .search-hints {
   margin: 18px auto 0; display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
@@ -528,6 +529,7 @@ a.chip:hover, button.chip:hover { color: var(--text); border-color: rgba(167,139
   cursor: grab;
 }
 .graph-wrap:active { cursor: grabbing; }
+.graph-wrap { touch-action: none; } /* eigene Pan/Pinch-Gesten statt Seiten-Scroll */
 .graph-node { cursor: pointer; }
 .graph-legend {
   position: absolute; bottom: 16px; left: 16px;
@@ -752,6 +754,18 @@ footer {
   .continue-row { grid-template-columns: 1fr; }
   .filters { padding: 16px; }
   .filter-label { flex-basis: 100%; }
+
+  /* Suchleiste: nur Lupe statt „Suchen“-Button */
+  .searchbar { padding: 6px 6px 6px 18px; gap: 8px; }
+  .searchbar .sb-lupe { display: none; }
+  .searchbar .go-label { display: none; }
+  .searchbar .go-lupe { display: inline; font-size: 17px; }
+  .searchbar .go { padding: 12px 14px; border-radius: 50%; line-height: 1; }
+
+  /* Audio Graph: hohes Format, kompakte Legende */
+  .graph-wrap { height: min(72vh, 620px); }
+  .graph-hint { font-size: 11px; padding: 6px 12px; top: 10px; right: 10px; }
+  .graph-legend { font-size: 11px; gap: 9px; padding: 6px 12px; bottom: 10px; left: 10px; right: 10px; justify-content: center; }
   .detail-hero { grid-template-columns: 1fr; gap: 28px; padding-top: 44px; }
   .detail-hero .cover { max-width: 300px; }
   .statbar { flex-direction: column; }

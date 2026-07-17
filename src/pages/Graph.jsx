@@ -48,7 +48,8 @@ function layoutGraph(nodes, links, centerId, W, H) {
       if (!pa || !pb) return
       const dx = pb.x - pa.x, dy = pb.y - pa.y
       const d = Math.sqrt(dx * dx + dy * dy) || 1
-      const ideal = l.source === centerId || l.target === centerId ? 235 : 165
+      const compact = W < 800 ? 0.82 : 1 // schmales Viewport → etwas engere Abstände
+      const ideal = (l.source === centerId || l.target === centerId ? 235 : 165) * compact
       const k = 0.02 * (d - ideal)
       const fa = force.get(l.source), fb = force.get(l.target)
       fa.x += (dx / d) * k * 60; fa.y += (dy / d) * k * 60
@@ -73,18 +74,24 @@ export default function Graph() {
   const titleId = params.get('titel') || 'dune'
   const center = byId(titleId) || byId('dune')
 
-  const W = 1200, H = 640
+  // Mobil: Hochformat-Viewport – Knoten wirken größer, Layout nutzt die Höhe
+  const isNarrow = typeof window !== 'undefined' && window.matchMedia('(max-width: 780px)').matches
+  const W = isNarrow ? 700 : 1200
+  const H = isNarrow ? 760 : 640
   const { nodes, links } = useMemo(() => buildGraph(center.id), [center.id])
-  const pos = useMemo(() => layoutGraph(nodes, links, center.id, W, H), [nodes, links, center.id])
+  const pos = useMemo(() => layoutGraph(nodes, links, center.id, W, H), [nodes, links, center.id, W, H])
 
   const [view, setView] = useState({ x: 0, y: 0, k: 1 })
   const drag = useRef(null)
+  const touch = useRef(null)
   const svgRef = useRef(null)
 
   useEffect(() => { setView({ x: 0, y: 0, k: 1 }) }, [center.id])
 
+  const clampK = (k) => Math.max(0.45, Math.min(2.6, k))
+
   const onWheel = (e) => {
-    const k = Math.max(0.45, Math.min(2.6, view.k * (e.deltaY < 0 ? 1.12 : 0.89)))
+    const k = clampK(view.k * (e.deltaY < 0 ? 1.12 : 0.89))
     setView((v) => ({ ...v, k }))
   }
   const onDown = (e) => { drag.current = { sx: e.clientX, sy: e.clientY, ox: view.x, oy: view.y } }
@@ -93,6 +100,26 @@ export default function Graph() {
     setView((v) => ({ ...v, x: drag.current.ox + (e.clientX - drag.current.sx), y: drag.current.oy + (e.clientY - drag.current.sy) }))
   }
   const onUp = () => { drag.current = null }
+
+  // Touch: Ein-Finger-Ziehen (Pan), Zwei-Finger-Pinch (Zoom)
+  const pinchDist = (ts) => Math.hypot(ts[0].clientX - ts[1].clientX, ts[0].clientY - ts[1].clientY)
+  const onTouchStart = (e) => {
+    if (e.touches.length === 1) {
+      touch.current = { mode: 'pan', sx: e.touches[0].clientX, sy: e.touches[0].clientY, ox: view.x, oy: view.y }
+    } else if (e.touches.length === 2) {
+      touch.current = { mode: 'pinch', d0: pinchDist(e.touches), k0: view.k }
+    }
+  }
+  const onTouchMove = (e) => {
+    const t = touch.current
+    if (!t) return
+    if (t.mode === 'pan' && e.touches.length === 1) {
+      setView((v) => ({ ...v, x: t.ox + (e.touches[0].clientX - t.sx), y: t.oy + (e.touches[0].clientY - t.sy) }))
+    } else if (t.mode === 'pinch' && e.touches.length === 2) {
+      setView((v) => ({ ...v, k: clampK(t.k0 * (pinchDist(e.touches) / t.d0)) }))
+    }
+  }
+  const onTouchEnd = () => { touch.current = null }
 
   const clickNode = (n) => {
     if (n.kind === 'titel' && n.id !== center.id) setParams({ titel: n.id })
@@ -123,9 +150,12 @@ export default function Graph() {
         onMouseMove={onMove}
         onMouseUp={onUp}
         onMouseLeave={onUp}
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
       >
         <svg ref={svgRef} viewBox={`0 0 ${W} ${H}`} width="100%" height="100%">
-          <g transform={`translate(${view.x} ${view.y}) scale(${view.k})`} style={{ transformOrigin: '600px 320px' }}>
+          <g transform={`translate(${view.x} ${view.y}) scale(${view.k})`} style={{ transformOrigin: `${W / 2}px ${H / 2}px` }}>
             {links.map((l, i) => {
               const a = pos.get(l.source), b = pos.get(l.target)
               if (!a || !b) return null
@@ -171,7 +201,11 @@ export default function Graph() {
           </defs>
         </svg>
 
-        <div className="graph-hint">Scrollen zum Zoomen · Ziehen zum Verschieben · Klicken zum Erkunden</div>
+        <div className="graph-hint">
+          {isNarrow
+            ? 'Ziehen · Pinch-Zoom · Tippen zum Erkunden'
+            : 'Scrollen zum Zoomen · Ziehen zum Verschieben · Klicken zum Erkunden'}
+        </div>
         <div className="graph-legend">
           {Object.entries(KIND_LABEL).map(([k, label]) => (
             <span key={k}><span className="legend-dot" style={{ background: KIND_COLOR[k] }} />{label}</span>

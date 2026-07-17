@@ -98,20 +98,26 @@ export function PlatformButtons({ ids, links }) {
 export function SearchBar({ big = false, initial = '' }) {
   const [q, setQ] = useState(initial)
   const nav = useNavigate()
+  const small = typeof window !== 'undefined' && window.matchMedia('(max-width: 780px)').matches
   const submit = (e) => {
     e.preventDefault()
     if (q.trim()) nav(`/suche?q=${encodeURIComponent(q.trim())}`)
   }
   return (
     <form className="searchbar" onSubmit={submit} role="search">
-      <span style={{ opacity: 0.5 }}>🔍</span>
+      <span className="sb-lupe" style={{ opacity: 0.5 }}>🔍</span>
       <input
         value={q}
         onChange={(e) => setQ(e.target.value)}
-        placeholder="Suche nach Podcasts, Hörbüchern, Hörspielen, Autoren, Sprechern oder Themen..."
+        placeholder={small
+          ? 'Podcasts, Hörbücher, Themen…'
+          : 'Suche nach Podcasts, Hörbüchern, Hörspielen, Autoren, Sprechern oder Themen...'}
         aria-label="Suche"
       />
-      <button className="go" type="submit">Suchen</button>
+      <button className="go" type="submit" aria-label="Suchen">
+        <span className="go-label">Suchen</span>
+        <span className="go-lupe" aria-hidden="true">🔍</span>
+      </button>
     </form>
   )
 }
