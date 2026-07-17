@@ -362,12 +362,16 @@ export function smartSearch(query) {
   })
 
   const scored = pool.filter(([, s]) => s > 0).sort((a, b) => b[1] - a[1])
-  const results = (scored.length ? scored : pool.sort((a, b) => (b[0].rating || 0) - (a[0].rating || 0))).map(([i]) => i)
+  // Echte Treffer vollständig zurückgeben (damit Filter genug Material haben);
+  // nur der „Vielleicht gefällt dir"-Fallback ohne Treffer bleibt begrenzt.
+  const results = scored.length
+    ? scored.map(([i]) => i)
+    : pool.sort((a, b) => (b[0].rating || 0) - (a[0].rating || 0)).slice(0, 12).map(([i]) => i)
 
   // Personen-Treffer
   const persons = people.filter((p) => p.name.toLowerCase().includes(q) || words.some((w) => p.name.toLowerCase().includes(w)))
 
-  return { results: results.slice(0, 12), signals, persons }
+  return { results, signals, persons }
 }
 
 // ── Audio Graph ─────────────────────────────────────────────────────────
