@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { MOODS, GENRES, PLATFORMS, items, byId, similarTo } from '../data.js'
-import { SearchBar, Section, Rail, Cover } from '../components/shared.jsx'
+import { MOODS, GENRES, PLATFORMS, items, byId, similarTo, smartSearch } from '../data.js'
+import { SearchBar, Section, Rail, Cover, TitleCard } from '../components/shared.jsx'
 import { useAuth, useUserLibrary } from '../auth.jsx'
 import { getRecent } from '../lib/recent.js'
 import { fetchCommunityLists } from '../lib/community.js'
@@ -37,6 +37,65 @@ function personalRecs(rows) {
     .map(([i]) => i)
 }
 
+// Interaktive Such-Demo für die Landing Page: live tippen, live Ergebnisse
+function SearchDemo() {
+  const [q, setQ] = useState('')
+  const r = q.trim().length > 2 ? smartSearch(q) : null
+  const results = r ? r.results.slice(0, 6) : []
+
+  return (
+    <section className="section shell">
+      <div className="search-demo">
+        <div className="kicker">Live ausprobieren</div>
+        <h2>Eine Suche, die dich versteht</h2>
+        <p className="sd-sub">Sag einfach, wonach dir ist – ganze Sätze erlaubt. Probier’s aus:</p>
+
+        <form className="searchbar" onSubmit={(e) => e.preventDefault()} role="search">
+          <span className="sb-lupe" style={{ opacity: 0.5 }}>🔍</span>
+          <input
+            value={q}
+            onChange={(e) => setQ(e.target.value)}
+            placeholder="z. B. „Etwas Spannendes für eine Stunde Autofahrt“"
+            aria-label="Such-Demo"
+          />
+          {q && <button type="button" className="sd-clear" onClick={() => setQ('')} aria-label="Leeren">✕</button>}
+        </form>
+
+        <div className="search-hints">
+          {HINTS.map((h) => (
+            <button key={h} type="button" className={`hint-chip ${q === h ? 'active' : ''}`} onClick={() => setQ(h)}>
+              „{h}“
+            </button>
+          ))}
+        </div>
+
+        {r && r.signals.length > 0 && (
+          <div className="signal-row" style={{ justifyContent: 'center' }}>
+            <span style={{ fontSize: 13, color: 'var(--text-faint)', alignSelf: 'center' }}>✨ Verstanden:</span>
+            {r.signals.map((s, i) => <span key={i} className="chip accent">{s.label}</span>)}
+          </div>
+        )}
+
+        {r && (
+          results.length ? (
+            <>
+              <div className="results-grid sd-results">
+                {results.map((i) => <TitleCard key={i.id} item={i} />)}
+              </div>
+              <div className="sd-cta">
+                Gefällt dir was? Mit einem kostenlosen Konto kannst du es merken, sammeln und bewerten.{' '}
+                <Link to="/anmelden">Jetzt registrieren →</Link>
+              </div>
+            </>
+          ) : (
+            <div className="empty" style={{ padding: '20px 0' }}>Dazu haben wir (noch) nichts – probiere einen der Beispielsätze.</div>
+          )
+        )}
+      </div>
+    </section>
+  )
+}
+
 // ── Landing Page für nicht angemeldete Besucher ─────────────────────────
 function Landing({ podcastCharts, audiobookCharts }) {
   return (
@@ -57,6 +116,8 @@ function Landing({ podcastCharts, audiobookCharts }) {
           <Link to="/dna">🧬 Audio-DNA-Vorschau</Link> · <Link to="/graph">✦ Audio Graph</Link>
         </div>
       </header>
+
+      <SearchDemo />
 
       <section className="shell platform-strip">
         <span className="ps-label">Verlinkt dahin, wo du ohnehin hörst</span>

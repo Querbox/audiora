@@ -692,6 +692,38 @@ a.chip:hover, button.chip:hover { color: var(--text); border-color: rgba(167,139
 }
 .picker-new .btn { padding: 8px 14px; }
 
+/* ── Such-Demo auf der Landing Page ── */
+.search-demo {
+  border-radius: var(--radius);
+  border: 1px solid rgba(167, 139, 250, 0.28);
+  background:
+    radial-gradient(600px 300px at 50% -10%, rgba(124, 92, 255, 0.14), transparent 65%),
+    var(--bg-card);
+  padding: 40px 32px 34px;
+  text-align: center;
+}
+.search-demo h2 { font-size: clamp(24px, 3vw, 32px); font-weight: 700; margin-top: 6px; }
+.sd-sub { color: var(--text-dim); margin: 8px 0 6px; }
+.search-demo .searchbar { box-shadow: none; background: var(--bg); }
+.search-demo .search-hints { animation: none; }
+.hint-chip.active { color: var(--text); border-color: var(--accent); background: var(--accent-soft); }
+.sd-clear { color: var(--text-faint); padding: 10px 14px; font-size: 14px; }
+.sd-clear:hover { color: var(--text); }
+.sd-results { padding: 26px 0 6px; grid-template-columns: repeat(6, 1fr); text-align: left; }
+.sd-cta {
+  margin-top: 16px; font-size: 14px; color: var(--text-dim);
+  border-top: 1px solid var(--line); padding-top: 18px;
+}
+.sd-cta a { color: var(--accent); font-weight: 650; }
+.sd-cta a:hover { text-decoration: underline; }
+@media (max-width: 1080px) {
+  .sd-results { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 780px) {
+  .search-demo { padding: 28px 18px 26px; }
+  .sd-results { grid-template-columns: repeat(2, 1fr); }
+}
+
 /* ── Landing Page (nicht angemeldet) ── */
 .landing-hero { padding-bottom: 20px; }
 .landing-hero-cta {

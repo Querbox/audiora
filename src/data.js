@@ -210,7 +210,7 @@ export function smartSearch(query) {
     boost((i) => i.likeHarry || i.genres.includes('Fantasy'), 5, '✨ Wie Harry Potter', 'aehnlich')
     if (has('erwachsen')) boost((i) => i.likeHarry, 6, 'für Erwachsene', 'aehnlich')
   }
-  if (has('true crime', 'crime')) boost((i) => i.genres.includes('True Crime'), 6, '🔍 True Crime', 'genre')
+  if (has('true crime', 'crime', 'kriminal')) boost((i) => i.genres.includes('True Crime') || (i.topics || []).includes('Wahre Kriminalfälle'), 6, '🔍 True Crime', 'genre')
   if (has('ohne brutal', 'nicht brutal', 'ohne gewalt')) boost((i) => i.gentle, 6, 'ohne brutale Details', 'filter')
   if (has('fantasy')) boost((i) => i.genres.includes('Fantasy'), 6, '🐉 Fantasy', 'genre')
   if (has('sci-fi', 'science')) boost((i) => i.genres.includes('Science-Fiction'), 6, '🪐 Science-Fiction', 'genre')

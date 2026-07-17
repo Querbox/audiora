@@ -12,6 +12,11 @@ const CHARTS = `https://rss.marketingtools.apple.com/api/v2/de/podcasts/top/${TO
 // Apple-Genre → Audiora-Genre/Stimmung/Situation/Emoji
 const GENRE_MAP = {
   'True Crime':             { genre: 'True Crime',   moods: ['spannend'],            situations: ['autofahrt', 'haushalt'], emoji: '🔍' },
+  'Wahre Kriminalfälle':    { genre: 'True Crime',   moods: ['spannend'],            situations: ['autofahrt', 'haushalt'], emoji: '🔍' },
+  'Geldanlage':             { genre: 'Wirtschaft',   moods: ['lernen'],              situations: ['autofahrt'],             emoji: '💶' },
+  'Wirtschaftsnachrichten': { genre: 'Wirtschaft',   moods: ['lernen'],              situations: ['autofahrt'],             emoji: '📈' },
+  'Sportnews':              { genre: 'Gesellschaft', moods: ['lernen'],              situations: ['sport', 'autofahrt'],    emoji: '⚽' },
+  'Philosophie':            { genre: 'Wissenschaft', moods: ['lernen', 'entspannen'],situations: ['haushalt', 'lange'],     emoji: '🦉' },
   'Comedy':                 { genre: 'Comedy',       moods: ['lustig'],              situations: ['haushalt', 'sport'],     emoji: '😄' },
   'Comedy-Interviews':      { genre: 'Comedy',       moods: ['lustig'],              situations: ['haushalt', 'autofahrt'], emoji: '🎤' },
   'Nachrichten':            { genre: 'Gesellschaft', moods: ['lernen'],              situations: ['autofahrt', 'haushalt'], emoji: '🗞️' },
