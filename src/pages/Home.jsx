@@ -34,8 +34,9 @@ function ContinueRow() {
 }
 
 export default function Home() {
-  const popular = [...items].sort((a, b) => b.ratings - a.ratings).slice(0, 8)
-  const recommended = [...items].sort((a, b) => b.rating - a.rating).slice(0, 8)
+  const charts = items.filter((i) => i.chartRank).sort((a, b) => a.chartRank - b.chartRank)
+  const popular = charts.length ? charts.slice(0, 12) : [...items].sort((a, b) => (b.ratings || 0) - (a.ratings || 0)).slice(0, 8)
+  const recommended = [...items].sort((a, b) => (b.rating || 0) - (a.rating || 0)).slice(0, 8)
   const becauseOf = items.filter((i) => i.genres.includes('Fantasy') && i.id !== 'tintenherz')
 
   return (
@@ -73,7 +74,7 @@ export default function Home() {
         <Rail items={recommended} />
       </Section>
 
-      <Section title="Beliebt in Deutschland" moreTo="/suche?q=beliebt">
+      <Section title="Beliebt in Deutschland" sub="Die echten deutschen Podcast-Charts – automatisch importiert und täglich aktualisiert." moreTo="/suche?q=podcast">
         <Rail items={popular} />
       </Section>
 

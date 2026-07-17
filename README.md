@@ -25,6 +25,20 @@ npm run dev        # → http://localhost:5180
 | `/listen`, `/listen/:id` | Community-Listen & Aktivitäten |
 | `/dna` | Persönliche Audio-DNA mit Radar-Diagramm |
 
+## Echte Daten – kostenlos, ohne API-Key
+
+Die **Top 30 der deutschen Podcast-Charts sind echt** und werden automatisch importiert:
+
+- **Apple Podcast-Charts** (`rss.marketingtools.apple.com`) → Rangliste, Cover, Genres
+- **iTunes Lookup** → RSS-Feed-URL, Folgenzahl, Links
+- **Offene RSS-Feeds** → Beschreibung, neueste Folgen, Dauer
+
+`node scripts/import-podcasts.mjs` erzeugt daraus `src/real-podcasts.json` im
+Audiora-Datenmodell (inkl. abgeleiteter Stimmungen/Situationen aus den Genres).
+Der GitHub-Actions-Workflow führt den Import **jede Nacht** aus und deployt neu –
+die Live-Seite hält sich also selbst aktuell. Schlägt der Import fehl, dient die
+eingecheckte JSON als Fallback.
+
 ## Datenstrategie (Roadmap)
 
 Audiora hostet **keine Audiodateien** – es zeigt echte Metadaten und verlinkt zu den Anbietern.

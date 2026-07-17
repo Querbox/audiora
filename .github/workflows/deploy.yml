@@ -3,6 +3,8 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  schedule:
+    - cron: '17 3 * * *' # nächtlicher Import der aktuellen Podcast-Charts
   workflow_dispatch:
 
 permissions:
@@ -24,6 +26,8 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci
+      - name: Echte Podcast-Daten importieren (Fallback auf eingecheckte Daten)
+        run: node scripts/import-podcasts.mjs || echo "Import fehlgeschlagen – nutze committete real-podcasts.json"
       - run: npm run build
       - uses: actions/configure-pages@v5
         with:

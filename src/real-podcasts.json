@@ -1,0 +1,1714 @@
+[
+  {
+    "id": "it-1700432142",
+    "type": "podcast",
+    "real": true,
+    "chartRank": 1,
+    "title": "RONZHEIMER.",
+    "by": "Paul Ronzheimer",
+    "year": 2026,
+    "episodes": 762,
+    "duration": 44,
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts116/v4/16/ab/81/16ab81cb-e31f-5ea0-81a7-902a96dfd750/mza_17924075471806194431.jpg/600x600bb.jpg",
+    "hue": 7,
+    "emoji": "🏛️",
+    "genres": [
+      "Gesellschaft"
+    ],
+    "moods": [
+      "lernen"
+    ],
+    "situations": [
+      "autofahrt",
+      "haushalt"
+    ],
+    "topics": [
+      "Politik",
+      "Nachrichten",
+      "Nachrichten des Tages"
+    ],
+    "desc": "Der 2025 mit einem Bambi ausgezeichnete Podcast von Journalist und Kriegsreporter Paul Ronzheimer, Journalist des Jahres 2022. Täglich mit den großen Themen, die unser Land bewegen, innen- und außenpolitisch. Ob von der Frontlinie oder aus den Hinterzimmern der Macht - aber vor allem immer ganz n…",
+    "latest": [
+      {
+        "title": "Der neue Verbotsplan gegen die AfD. Mit Justus Bender",
+        "date": "17. Juli 2026",
+        "duration": 46
+      },
+      {
+        "title": "Wenn VW wirklich kippt. Mit Tim Kruithoff",
+        "date": "16. Juli 2026",
+        "duration": 38
+      },
+      {
+        "title": "Paul bei geheimer Ukraine-Mission: Angriff auf Putins größte Schwachstelle",
+        "date": "15. Juli 2026",
+        "duration": 49
+      }
+    ],
+    "platforms": [
+      "apple",
+      "spotify",
+      "youtube"
+    ],
+    "links": {
+      "apple": "https://podcasts.apple.com/de/podcast/ronzheimer/id1700432142?uo=4",
+      "spotify": "https://open.spotify.com/search/RONZHEIMER.",
+      "youtube": "https://www.youtube.com/results?search_query=RONZHEIMER.%20podcast"
+    }
+  },
+  {
+    "id": "it-1505993848",
+    "type": "podcast",
+    "real": true,
+    "chartRank": 2,
+    "title": "Apokalypse & Filterkaffee",
+    "by": "Micky Beisenherz & Studio Bummens",
+    "year": 2026,
+    "episodes": 1863,
+    "duration": 44,
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts221/v4/3b/02/55/3b025554-42de-ea37-04af-57d7403a57d0/mza_5608948556118137025.png/600x600bb.jpg",
+    "hue": 65,
+    "emoji": "🗞️",
+    "genres": [
+      "Gesellschaft"
+    ],
+    "moods": [
+      "lernen"
+    ],
+    "situations": [
+      "autofahrt",
+      "haushalt"
+    ],
+    "topics": [
+      "Nachrichten des Tages",
+      "Nachrichten",
+      "Politik"
+    ],
+    "desc": "Die frisch gebrühten Schlagzeilen des Tages, serviert von Micky Beisenherz. Micky wühlt sich für uns durch die wichtigsten Aufmacher, Titelthemen, Leitartikel und Tweets des Tages und serviert daraus - gemeinsam mit einem Gast - sein morgendliches News-Omelett. Täglich, verzehrfertig auf den Punk…",
+    "latest": [
+      {
+        "title": "Nietendeckel (mit Kevin Kühnert)",
+        "date": "17. Juli 2026",
+        "duration": 45
+      },
+      {
+        "title": "What a Messi! (mit Markus Preiß)",
+        "date": "16. Juli 2026",
+        "duration": 42
+      },
+      {
+        "title": "Wie war la France? (mit Hajo Schumacher)",
+        "date": "15. Juli 2026",
+        "duration": 46
+      }
+    ],
+    "platforms": [
+      "apple",
+      "spotify",
+      "youtube"
+    ],
+    "links": {
+      "apple": "https://podcasts.apple.com/de/podcast/apokalypse-filterkaffee/id1505993848?uo=4",
+      "spotify": "https://open.spotify.com/search/Apokalypse%20%26%20Filterkaffee",
+      "youtube": "https://www.youtube.com/results?search_query=Apokalypse%20%26%20Filterkaffee%20podcast"
+    }
+  },
+  {
+    "id": "it-1168045239",
+    "type": "podcast",
+    "real": true,
+    "chartRank": 3,
+    "title": "Hotel Matze",
+    "by": "Matze Hielscher & Mit Vergnügen",
+    "year": 2026,
+    "episodes": 650,
+    "duration": 118,
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts211/v4/8d/a1/17/8da117bb-470e-8964-48fb-25c145dd290d/mza_7149095789878383485.jpg/600x600bb.jpg",
+    "hue": 63,
+    "emoji": "🎭",
+    "genres": [
+      "Gesellschaft"
+    ],
+    "moods": [
+      "lernen",
+      "entspannen"
+    ],
+    "situations": [
+      "haushalt"
+    ],
+    "topics": [
+      "Gesellschaft und Kultur"
+    ],
+    "desc": "Das ist kein richtiges Hotel, sondern ein Interview-Podcast von Matze Hielscher. Hier treffe ich mich seit 2016 mit Menschen, die mich interessieren und versuche herauszufinden, wie die so ticken.",
+    "latest": [
+      {
+        "title": "Ilka Bessin – Lachen sie mit dir oder über dich?",
+        "date": "15. Juli 2026",
+        "duration": 123
+      },
+      {
+        "title": "Atze Schröder & Leon Windscheid (2026) – Macht uns Perfektion kaputt?",
+        "date": "7. Juli 2026",
+        "duration": 101
+      },
+      {
+        "title": "Sterbebegleiterin Johanna Klug – Was bleibt, wenn wir gehen?",
+        "date": "1. Juli 2026",
+        "duration": 131
+      }
+    ],
+    "platforms": [
+      "apple",
+      "spotify",
+      "youtube"
+    ],
+    "links": {
+      "apple": "https://podcasts.apple.com/de/podcast/hotel-matze/id1168045239?uo=4",
+      "spotify": "https://open.spotify.com/search/Hotel%20Matze",
+      "youtube": "https://www.youtube.com/results?search_query=Hotel%20Matze%20podcast"
+    }
+  },
+  {
+    "id": "it-1623077169",
+    "type": "podcast",
+    "real": true,
+    "chartRank": 4,
+    "title": "{ungeskriptet} - Der Meinungsfreiheit verpflichtet.",
+    "by": "Ben Berndt",
+    "year": 2026,
+    "episodes": 350,
+    "duration": 181,
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts211/v4/46/2e/a8/462ea801-30ac-431d-7cdc-7b19e5a5d25c/mza_7478545872300486383.jpg/600x600bb.jpg",
+    "hue": 9,
+    "emoji": "🌱",
+    "genres": [
+      "Achtsamkeit",
+      "Wissenschaft"
+    ],
+    "moods": [
+      "lernen",
+      "entspannen"
+    ],
+    "situations": [
+      "sport",
+      "autofahrt",
+      "haushalt"
+    ],
+    "topics": [
+      "Selbstverwirklichung",
+      "Bildung",
+      "Gesellschaft und Kultur"
+    ],
+    "desc": "Der Meinungsfreiheit verpflichtet. Ich bin Ben. Ich habe mich aus der Geschäftsführung meines Unternehmens zurückgezogen, um das zu tun, was mir wirklich Freude macht: Tiefe Gespräche mit besonderen Menschen zu führen. Dabei geht es mir primär darum, zu verstehen, was ich noch nicht weiß. Die unt…",
+    "latest": [
+      {
+        "title": "#313 - Masterclass: Alles, was du über KI wissen musst",
+        "date": "15. Juli 2026",
+        "duration": 163
+      },
+      {
+        "title": "#312 - Ex-BILD-Chef zerlegt meine größte Überzeugung",
+        "date": "11. Juli 2026",
+        "duration": 204
+      },
+      {
+        "title": "#311 - Merkel hat unsere Kinder geopfert (Arche-Gründer)",
+        "date": "8. Juli 2026",
+        "duration": 175
+      }
+    ],
+    "platforms": [
+      "apple",
+      "spotify",
+      "youtube"
+    ],
+    "links": {
+      "apple": "https://podcasts.apple.com/de/podcast/ungeskriptet-der-meinungsfreiheit-verpflichtet/id1623077169?uo=4",
+      "spotify": "https://open.spotify.com/search/%7Bungeskriptet%7D%20-%20Der%20Meinungsfreiheit%20verpflichtet.",
+      "youtube": "https://www.youtube.com/results?search_query=%7Bungeskriptet%7D%20-%20Der%20Meinungsfreiheit%20verpflichtet.%20podcast"
+    }
+  },
+  {
+    "id": "it-1694338196",
+    "type": "podcast",
+    "real": true,
+    "chartRank": 5,
+    "title": "Kaulitz Hills - Senf aus Hollywood",
+    "by": "Spotify & Bill und Tom Kaulitz",
+    "year": 2026,
+    "episodes": 248,
+    "duration": 74,
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts221/v4/e4/8e/f4/e48ef47b-1b45-8c90-52d9-b7c8a969e8e0/mza_6955658718956005231.jpg/600x600bb.jpg",
+    "hue": 199,
+    "emoji": "😄",
+    "genres": [
+      "Comedy"
+    ],
+    "moods": [
+      "lustig"
+    ],
+    "situations": [
+      "haushalt",
+      "sport"
+    ],
+    "topics": [
+      "Comedy"
+    ],
+    "desc": "Bill und Tom Kaulitz sprechen in ihrem Podcast “Kaulitz Hills - Senf aus Hollywood” über tagesaktuelle Themen und geben zu relevanten oder auch mal irrelevanten Geschichten aus ihrem Leben ihren Senf ab. Dafür treffen sich die beiden Brüder wöchentlich in ihrem eigenen Musikstudio in den Hollywoo…",
+    "latest": [
+      {
+        "title": "Entfolgt und verstritten",
+        "date": "15. Juli 2026",
+        "duration": 70
+      },
+      {
+        "title": "Bisschen Liebe, bisschen Rache",
+        "date": "8. Juli 2026",
+        "duration": 77
+      },
+      {
+        "title": "Als Arschloch geboren",
+        "date": "1. Juli 2026",
+        "duration": 74
+      }
+    ],
+    "platforms": [
+      "apple",
+      "spotify",
+      "youtube"
+    ],
+    "links": {
+      "apple": "https://podcasts.apple.com/de/podcast/kaulitz-hills-senf-aus-hollywood/id1694338196?uo=4",
+      "spotify": "https://open.spotify.com/search/Kaulitz%20Hills%20-%20Senf%20aus%20Hollywood",
+      "youtube": "https://www.youtube.com/results?search_query=Kaulitz%20Hills%20-%20Senf%20aus%20Hollywood%20podcast"
+    }
+  },
+  {
+    "id": "it-1292709842",
+    "type": "podcast",
+    "real": true,
+    "chartRank": 6,
+    "title": "Gemischtes Hack",
+    "by": "Felix Lobrecht & Tommi Schmitt",
+    "year": 2026,
+    "episodes": 369,
+    "duration": 76,
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts211/v4/04/a0/7c/04a07c84-9d9f-7235-d190-e70c42afb033/mza_7307873879153861621.jpeg/600x600bb.jpg",
+    "hue": 213,
+    "emoji": "😄",
+    "genres": [
+      "Comedy",
+      "Gesellschaft"
+    ],
+    "moods": [
+      "lustig",
+      "lernen",
+      "entspannen"
+    ],
+    "situations": [
+      "haushalt",
+      "sport"
+    ],
+    "topics": [
+      "Comedy",
+      "Gesellschaft und Kultur"
+    ],
+    "desc": "Felix Lobrecht (Comedian und Autor) und Tommi Schmitt (TV-Moderator und Kolumnist) haben einen Podcast. Jeden Mittwoch exklusiv als Video-Podcast auf Spotify.",
+    "latest": [
+      {
+        "title": "#353 UNSER ERSTES MAL - SOMMERHACK",
+        "date": "14. Juli 2026",
+        "duration": 85
+      },
+      {
+        "title": "#352 TOSKISCHE MÄNNLICHKEIT - SOMMERHACK",
+        "date": "7. Juli 2026",
+        "duration": 74
+      },
+      {
+        "title": "#351 RACHE IST KEIN SCHÖNES FERD - SOMMERHACK",
+        "date": "30. Juni 2026",
+        "duration": 70
+      }
+    ],
+    "platforms": [
+      "apple",
+      "spotify",
+      "youtube"
+    ],
+    "links": {
+      "apple": "https://podcasts.apple.com/de/podcast/gemischtes-hack/id1292709842?uo=4",
+      "spotify": "https://open.spotify.com/search/Gemischtes%20Hack",
+      "youtube": "https://www.youtube.com/results?search_query=Gemischtes%20Hack%20podcast"
+    }
+  },
+  {
+    "id": "it-1486608425",
+    "type": "podcast",
+    "real": true,
+    "chartRank": 7,
+    "title": "MORD AUF EX",
+    "by": "Leonie Bartsch & Linn Schütze",
+    "year": 2026,
+    "episodes": 326,
+    "duration": 69,
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts221/v4/b9/17/07/b91707ba-b4bf-2021-bafe-b4dd1e1f0196/mza_6370841172422755338.jpg/600x600bb.jpg",
+    "hue": 117,
+    "emoji": "🏺",
+    "genres": [
+      "Geschichte"
+    ],
+    "moods": [
+      "lernen",
+      "spannend"
+    ],
+    "situations": [
+      "autofahrt",
+      "lange"
+    ],
+    "topics": [
+      "Wahre Kriminalfälle",
+      "Geschichte"
+    ],
+    "desc": "Jeden Montag erzählen die Reporterinnen Leonie Bartsch und Linn Schütze von einem wahren Kriminalfall. Im Mittelpunkt stehen bewegende Geschichten, für die Linn und Leo tief in die Recherche eintauchen: Sie sprechen mit Überlebenden, Zeug:innen und Expert:innen, stehen an Tatorten, begleiten Proz…",
+    "latest": [
+      {
+        "title": "True Love – Titanic: Ihre letzte Reise",
+        "date": "13. Juli 2026",
+        "duration": 69
+      },
+      {
+        "title": "Der Fall Claudia Wuttke",
+        "date": "6. Juli 2026",
+        "duration": 70
+      },
+      {
+        "title": "Die Clique",
+        "date": "29. Juni 2026",
+        "duration": 69
+      }
+    ],
+    "platforms": [
+      "apple",
+      "spotify",
+      "youtube"
+    ],
+    "links": {
+      "apple": "https://podcasts.apple.com/de/podcast/mord-auf-ex/id1486608425?uo=4",
+      "spotify": "https://open.spotify.com/search/MORD%20AUF%20EX",
+      "youtube": "https://www.youtube.com/results?search_query=MORD%20AUF%20EX%20podcast"
+    }
+  },
+  {
+    "id": "it-1374777077",
+    "type": "podcast",
+    "real": true,
+    "chartRank": 8,
+    "title": "Verbrechen",
+    "by": "DIE ZEIT",
+    "year": 2026,
+    "episodes": 396,
+    "duration": 55,
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts211/v4/be/22/24/be2224ef-7d33-ad2a-a466-0cad62b4dcd3/mza_1379870103000080830.jpg/600x600bb.jpg",
+    "hue": 128,
+    "emoji": "🎭",
+    "genres": [
+      "Gesellschaft"
+    ],
+    "moods": [
+      "lernen",
+      "entspannen"
+    ],
+    "situations": [
+      "haushalt"
+    ],
+    "topics": [
+      "Wahre Kriminalfälle",
+      "Gesellschaft und Kultur"
+    ],
+    "desc": "Warum lässt eine Frau ihren Mann erschießen? Wie kommt ein Kommissar an ein Geständnis? Und warum lügen Zeugen manchmal? Was, wenn Polizisten kriminell handeln oder Sachverständige versuchen, ihre Irrtümer zu kaschieren? Und was, wenn Unschuldige in die Mühlen der Strafjustiz geraten – und nieman…",
+    "latest": [
+      {
+        "title": "Die Leiche im Gartenteich",
+        "date": "14. Juli 2026",
+        "duration": 54
+      },
+      {
+        "title": "Die Phantompatienten des Dr. O.",
+        "date": "30. Juni 2026",
+        "duration": 56
+      },
+      {
+        "title": "Tod am Großglockner – Teil 1: Auf den Spuren einer Toten",
+        "date": "23. Juni 2026",
+        "duration": 56
+      }
+    ],
+    "platforms": [
+      "apple",
+      "spotify",
+      "youtube"
+    ],
+    "links": {
+      "apple": "https://podcasts.apple.com/de/podcast/verbrechen/id1374777077?uo=4",
+      "spotify": "https://open.spotify.com/search/Verbrechen",
+      "youtube": "https://www.youtube.com/results?search_query=Verbrechen%20podcast"
+    }
+  },
+  {
+    "id": "it-1582828457",
+    "type": "podcast",
+    "real": true,
+    "chartRank": 9,
+    "title": "Lanz + Precht",
+    "by": "ZDF, Markus Lanz & Richard David Precht",
+    "year": 2026,
+    "episodes": 257,
+    "duration": 59,
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts211/v4/77/6b/e0/776be00d-6661-737d-a7dd-f5662c5fa110/mza_18360247097984895676.jpg/600x600bb.jpg",
+    "hue": 136,
+    "emoji": "🏛️",
+    "genres": [
+      "Gesellschaft"
+    ],
+    "moods": [
+      "lernen",
+      "entspannen"
+    ],
+    "situations": [
+      "autofahrt",
+      "haushalt"
+    ],
+    "topics": [
+      "Politik",
+      "Nachrichten",
+      "Gesellschaft und Kultur",
+      "Philosophie"
+    ],
+    "desc": "In dem ZDF-Podcast sprechen Markus Lanz (Journalist, Talkshow-Moderator) und Richard David Precht (Philosoph, Schriftsteller) über die gesellschaftlich und politisch relevanten Themen unserer Zeit. Informativ, inspirierend, kontrovers: „Lanz + Precht“ ist der wöchentliche Gedankenaustausch zweier…",
+    "latest": [
+      {
+        "title": "#254 (Sommergespräch mit Florence Gaub)",
+        "date": "17. Juli 2026",
+        "duration": 60
+      },
+      {
+        "title": "#253 (Ist der KI-Hype am Ende?)",
+        "date": "10. Juli 2026",
+        "duration": 60
+      },
+      {
+        "title": "#252 (Philosophie - ein Kompass in Krisenzeiten?)",
+        "date": "3. Juli 2026",
+        "duration": 58
+      }
+    ],
+    "platforms": [
+      "apple",
+      "spotify",
+      "youtube"
+    ],
+    "links": {
+      "apple": "https://podcasts.apple.com/de/podcast/lanz-precht/id1582828457?uo=4",
+      "spotify": "https://open.spotify.com/search/Lanz%20%2B%20Precht",
+      "youtube": "https://www.youtube.com/results?search_query=Lanz%20%2B%20Precht%20podcast"
+    }
+  },
+  {
+    "id": "it-1352434240",
+    "type": "podcast",
+    "real": true,
+    "chartRank": 10,
+    "title": "Handelsblatt Morning Briefing - News aus Wirtschaft, Politik und Finanzen",
+    "by": "Friederike Hofmann, Sven Prange und die Handelsblatt Redaktion, Handelsblatt",
+    "year": 2026,
+    "episodes": 2018,
+    "duration": 8,
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts211/v4/bb/bb/15/bbbb1508-1586-2eab-a6df-2e1087b2645b/mza_16582388684453278601.jpg/600x600bb.jpg",
+    "hue": 82,
+    "emoji": "📈",
+    "genres": [
+      "Wirtschaft",
+      "Gesellschaft"
+    ],
+    "moods": [
+      "lernen"
+    ],
+    "situations": [
+      "autofahrt",
+      "sport",
+      "haushalt"
+    ],
+    "topics": [
+      "Wirtschaft",
+      "Nachrichten",
+      "Wirtschaftsnachrichten"
+    ],
+    "desc": "Mit unserem Podcast Handelsblatt Morning Briefing starten Sie optimal in den Tag. Erhalten Sie börsentäglich noch vor dem Frühstück alle relevanten News aus Wirtschaft, Politik und Finanzen aus unserer weltweiten „24 Stunden“ Redaktion. Persönlich, meinungsstark und unterhaltsam aus der Feder der…",
+    "latest": [
+      {
+        "title": "Auto: Die Sorgen um VW sind übertrieben / Krieg: Verdeckte Attacken auf Deutschland",
+        "date": "17. Juli 2026",
+        "duration": 8
+      },
+      {
+        "title": "SpaceX: Bilanzielle Schwerkraft gilt auch für Elon Musk",
+        "date": "16. Juli 2026",
+        "duration": 8
+      },
+      {
+        "title": "Krise: Müssen Auto-Arbeiter auf ihre Privilegien verzichten?",
+        "date": "15. Juli 2026",
+        "duration": 9
+      }
+    ],
+    "platforms": [
+      "apple",
+      "spotify",
+      "youtube"
+    ],
+    "links": {
+      "apple": "https://podcasts.apple.com/de/podcast/handelsblatt-morning-briefing-news-aus-wirtschaft-politik/id1352434240?uo=4",
+      "spotify": "https://open.spotify.com/search/Handelsblatt%20Morning%20Briefing%20-%20News%20aus%20Wirtschaft%2C%20Politik%20und%20Finanzen",
+      "youtube": "https://www.youtube.com/results?search_query=Handelsblatt%20Morning%20Briefing%20-%20News%20aus%20Wirtschaft%2C%20Politik%20und%20Finanzen%20podcast"
+    }
+  },
+  {
+    "id": "it-1279335230",
+    "type": "podcast",
+    "real": true,
+    "chartRank": 11,
+    "title": "Was jetzt?",
+    "by": "DIE ZEIT",
+    "year": 2026,
+    "episodes": 2067,
+    "duration": 12,
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts221/v4/4f/4c/15/4f4c153d-b67a-4382-de92-07b5833d5f62/mza_9588800763383016553.jpg/600x600bb.jpg",
+    "hue": 355,
+    "emoji": "🗞️",
+    "genres": [
+      "Gesellschaft"
+    ],
+    "moods": [
+      "lernen"
+    ],
+    "situations": [
+      "autofahrt",
+      "haushalt"
+    ],
+    "topics": [
+      "Nachrichten"
+    ],
+    "desc": "Der Nachrichtenpodcast der ZEIT. Montag bis Freitag um 6 und um 17 Uhr, Samstag und Sonntag um 6 Uhr. Samstags vertiefen wir ein Thema in längeren Spezialfolgen. Noch mehr Hintergrundberichte zu aktuellen Nachrichten gibt es in der ZEIT und auf zeit.de. Jetzt 4 Wochen kostenlos testen unter www.z…",
+    "latest": [
+      {
+        "title": "Neuer Premier für Großbritannien: Was kann Andy Burnham?",
+        "date": "17. Juli 2026",
+        "duration": 13
+      },
+      {
+        "title": "Ukraine: Der Verteidigungsminister geht, das Volk protestiert (Update)",
+        "date": "16. Juli 2026",
+        "duration": 10
+      },
+      {
+        "title": "Was Hape Kerkeling gegen die AfD ausrichten soll",
+        "date": "16. Juli 2026",
+        "duration": 13
+      }
+    ],
+    "platforms": [
+      "apple",
+      "spotify",
+      "youtube"
+    ],
+    "links": {
+      "apple": "https://podcasts.apple.com/de/podcast/was-jetzt/id1279335230?uo=4",
+      "spotify": "https://open.spotify.com/search/Was%20jetzt%3F",
+      "youtube": "https://www.youtube.com/results?search_query=Was%20jetzt%3F%20podcast"
+    }
+  },
+  {
+    "id": "it-1488376434",
+    "type": "podcast",
+    "real": true,
+    "chartRank": 12,
+    "title": "Baywatch Berlin",
+    "by": "Klaas Heufer-Umlauf, Thomas Schmitt, Jakob Lundt & Studio Bummens",
+    "year": 2026,
+    "episodes": 344,
+    "duration": 73,
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts221/v4/1a/d0/0f/1ad00ff0-e318-cd1a-87c3-60e5589802f2/mza_7364194502885681078.jpg/600x600bb.jpg",
+    "hue": 45,
+    "emoji": "😄",
+    "genres": [
+      "Comedy",
+      "Gesellschaft"
+    ],
+    "moods": [
+      "lustig",
+      "lernen",
+      "entspannen"
+    ],
+    "situations": [
+      "haushalt",
+      "sport"
+    ],
+    "topics": [
+      "Comedy",
+      "Gesellschaft und Kultur"
+    ],
+    "desc": "Das Beautiful Mind Klaas Heufer-Umlauf probiert in diesem Podcast nach über 10 Jahren weltfremden Jet Set Spaß Kontakt zur echten Welt aufzunehmen. Wie einst in der Weihnachtsgeschichte wird er dabei von seinen Freunden Thomas Schmitt und Jakob Lundt an die Hand genommen und langsam wieder mit de…",
+    "latest": [
+      {
+        "title": "Der Karamell-Nuss-Charaktertest",
+        "date": "17. Juli 2026",
+        "duration": 75
+      },
+      {
+        "title": "ZENSUR! (Die verbotene Folge)",
+        "date": "10. Juli 2026",
+        "duration": 72
+      },
+      {
+        "title": "Boxenstop im Reich der Träume",
+        "date": "3. Juli 2026",
+        "duration": 71
+      }
+    ],
+    "platforms": [
+      "apple",
+      "spotify",
+      "youtube"
+    ],
+    "links": {
+      "apple": "https://podcasts.apple.com/de/podcast/baywatch-berlin/id1488376434?uo=4",
+      "spotify": "https://open.spotify.com/search/Baywatch%20Berlin",
+      "youtube": "https://www.youtube.com/results?search_query=Baywatch%20Berlin%20podcast"
+    }
+  },
+  {
+    "id": "it-1775202581",
+    "type": "podcast",
+    "real": true,
+    "chartRank": 13,
+    "title": "PLOT HOUSE",
+    "by": "Lottie & Studio Bummens",
+    "year": 2026,
+    "episodes": 53,
+    "duration": 111,
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts211/v4/97/b3/01/97b30174-1e39-640c-a30a-4b529c668431/mza_14145830276899952355.jpg/600x600bb.jpg",
+    "hue": 169,
+    "emoji": "🎭",
+    "genres": [
+      "Gesellschaft"
+    ],
+    "moods": [
+      "lernen",
+      "entspannen"
+    ],
+    "situations": [
+      "haushalt"
+    ],
+    "topics": [
+      "Wahre Kriminalfälle",
+      "Gesellschaft und Kultur"
+    ],
+    "desc": "Stellt euch vor, ihr betretet ein Haus und hinter jeder Tür wartet eine Geschichte auf euch. Geschichten über das Leben, den Tod und alles dazwischen. Mal tragisch, mal komisch, mal laut, mal leise. Eines haben all diese Geschichten aber gemeinsam: Sie sind wirklich passiert! Und damit herzlich w…",
+    "latest": [
+      {
+        "title": "#51- Am Mittwoch gibt’s Gehacktes (mit Timur)",
+        "date": "16. Juli 2026",
+        "duration": 134
+      },
+      {
+        "title": "#50 - Staatsfeind Nummer 1",
+        "date": "2. Juli 2026",
+        "duration": 136
+      },
+      {
+        "title": "#49 Poyais – verloren im Paradies",
+        "date": "25. Juni 2026",
+        "duration": 64
+      }
+    ],
+    "platforms": [
+      "apple",
+      "spotify",
+      "youtube"
+    ],
+    "links": {
+      "apple": "https://podcasts.apple.com/de/podcast/plot-house/id1775202581?uo=4",
+      "spotify": "https://open.spotify.com/search/PLOT%20HOUSE",
+      "youtube": "https://www.youtube.com/results?search_query=PLOT%20HOUSE%20podcast"
+    }
+  },
+  {
+    "id": "it-1549709271",
+    "type": "podcast",
+    "real": true,
+    "chartRank": 14,
+    "title": "Alles auf Aktien – Die täglichen Finanzen-News",
+    "by": "WELT",
+    "year": 2026,
+    "episodes": 1677,
+    "duration": 25,
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts221/v4/b2/58/51/b25851aa-8d3c-e07c-32ca-6448fd13ae58/mza_17262563778469826471.jpg/600x600bb.jpg",
+    "hue": 121,
+    "emoji": "📈",
+    "genres": [
+      "Wirtschaft",
+      "Gesellschaft"
+    ],
+    "moods": [
+      "lernen"
+    ],
+    "situations": [
+      "autofahrt",
+      "sport",
+      "haushalt"
+    ],
+    "topics": [
+      "Geldanlage",
+      "Wirtschaft",
+      "Nachrichten",
+      "Wirtschaftsnachrichten"
+    ],
+    "desc": "„Alles auf Aktien“ ist der tägliche Börsen-Shot mit den wichtigsten Nachrichten von den Finanzmärkten. Unser Team aus Wirtschafts- und Finanzjournalisten bespricht aktuelle Aktien, Fonds, ETFs und gibt wertvolle Tipps für eine erfolgreiche Geldanlage. In jeder Folge neue Finanz-Nachrichten und we…",
+    "latest": [
+      {
+        "title": "Der TSMC-Effekt und die neuen Machthaber an der Wall Street",
+        "date": "17. Juli 2026",
+        "duration": 24
+      },
+      {
+        "title": "Das ASML-Paradoxon und eine vielsagende Lieblings-ETF-Liste",
+        "date": "16. Juli 2026",
+        "duration": 26
+      },
+      {
+        "title": "IBM-Implosion, Lucid-Ängste und eine klare AAA-Empfehlung",
+        "date": "15. Juli 2026",
+        "duration": 24
+      }
+    ],
+    "platforms": [
+      "apple",
+      "spotify",
+      "youtube"
+    ],
+    "links": {
+      "apple": "https://podcasts.apple.com/de/podcast/alles-auf-aktien-die-t%C3%A4glichen-finanzen-news/id1549709271?uo=4",
+      "spotify": "https://open.spotify.com/search/Alles%20auf%20Aktien%20%E2%80%93%20Die%20t%C3%A4glichen%20Finanzen-News",
+      "youtube": "https://www.youtube.com/results?search_query=Alles%20auf%20Aktien%20%E2%80%93%20Die%20t%C3%A4glichen%20Finanzen-News%20podcast"
+    }
+  },
+  {
+    "id": "it-6789546684",
+    "type": "podcast",
+    "real": true,
+    "chartRank": 15,
+    "title": "The Pioneer Frontrunners – Das Live-Finanzmarkt-Update von Gabor Steingart",
+    "by": "The Pioneer",
+    "year": 2026,
+    "episodes": 5,
+    "duration": 10,
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts221/v4/f5/ae/49/f5ae4928-4a5c-740a-15bd-84b867c6389e/mza_5975324697374380349.jpeg/600x600bb.jpg",
+    "hue": 303,
+    "emoji": "📈",
+    "genres": [
+      "Wirtschaft",
+      "Gesellschaft"
+    ],
+    "moods": [
+      "lernen"
+    ],
+    "situations": [
+      "autofahrt",
+      "sport",
+      "haushalt"
+    ],
+    "topics": [
+      "Wirtschaft",
+      "Nachrichten",
+      "Wirtschaftsnachrichten"
+    ],
+    "desc": "Dieser Podcast ist ein Must-Hear für alle, die frühmorgens um 5.00 Uhr topaktuell über Börse und Kapitalmärkte informiert werden wollen. Die Redaktion von Gabor Steingart kuratiert gemeinsam mit dem Investment Team von The Pioneer die relevanten Nachrichten aus Weltwirtschaft, Politik und Aktienm…",
+    "latest": [
+      {
+        "title": "SpaceX | Alphabet | Netflix",
+        "date": "17. Juli 2026",
+        "duration": 11
+      },
+      {
+        "title": "Apple | Alibaba | United Airlines",
+        "date": "16. Juli 2026",
+        "duration": 9
+      },
+      {
+        "title": "IBM | Uber | Delivery Hero",
+        "date": "15. Juli 2026",
+        "duration": 10
+      }
+    ],
+    "platforms": [
+      "apple",
+      "spotify",
+      "youtube"
+    ],
+    "links": {
+      "apple": "https://podcasts.apple.com/de/podcast/the-pioneer-frontrunners-das-live-finanzmarkt-update/id6789546684?uo=4",
+      "spotify": "https://open.spotify.com/search/The%20Pioneer%20Frontrunners%20%E2%80%93%20Das%20Live-Finanzmarkt-Update%20von%20Gabor%20Steingart",
+      "youtube": "https://www.youtube.com/results?search_query=The%20Pioneer%20Frontrunners%20%E2%80%93%20Das%20Live-Finanzmarkt-Update%20von%20Gabor%20Steingart%20podcast"
+    }
+  },
+  {
+    "id": "it-1092957894",
+    "type": "podcast",
+    "real": true,
+    "chartRank": 16,
+    "title": "Lage der Nation - der Politik-Podcast aus Berlin",
+    "by": "Philip Banse & Ulf Buermeyer",
+    "year": 2026,
+    "episodes": 490,
+    "duration": 81,
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts113/v4/da/72/0b/da720b3e-9cb3-0239-fad9-0f80d5daff10/mza_7473842586054974690.png/600x600bb.jpg",
+    "hue": 241,
+    "emoji": "🏛️",
+    "genres": [
+      "Gesellschaft"
+    ],
+    "moods": [
+      "lernen",
+      "entspannen"
+    ],
+    "situations": [
+      "autofahrt",
+      "haushalt"
+    ],
+    "topics": [
+      "Politik",
+      "Nachrichten",
+      "Gesellschaft und Kultur"
+    ],
+    "desc": "Jede Woche lassen Philip Banse und Ulf Buermeyer die politische Woche Revue passieren und kommentieren die Lage der Nation.",
+    "latest": [
+      {
+        "title": "LdN487 Wartezeiten & Konkurrenz durch KI: Ist die Psychotherapie noch zu retten? (Prof. Eva-Lotta Brakemeier, Psychologin) - Teil 2",
+        "date": "15. Juli 2026",
+        "duration": 68
+      },
+      {
+        "title": "LdN486 Psychologie und Politik: Wie wir mit AfD-Wählern reden müssen (Prof. Eva-Lotta Brakemeier, Psychologin) - Teil 1",
+        "date": "8. Juli 2026",
+        "duration": 60
+      },
+      {
+        "title": "LdN485 Der \"Mafia-Staat\": Was ihr über Russland wissen solltet (Gesine Dornblüth, Osteuropa-Journalistin)",
+        "date": "1. Juli 2026",
+        "duration": 115
+      }
+    ],
+    "platforms": [
+      "apple",
+      "spotify",
+      "youtube"
+    ],
+    "links": {
+      "apple": "https://podcasts.apple.com/de/podcast/lage-der-nation-der-politik-podcast-aus-berlin/id1092957894?uo=4",
+      "spotify": "https://open.spotify.com/search/Lage%20der%20Nation%20-%20der%20Politik-Podcast%20aus%20Berlin",
+      "youtube": "https://www.youtube.com/results?search_query=Lage%20der%20Nation%20-%20der%20Politik-Podcast%20aus%20Berlin%20podcast"
+    }
+  },
+  {
+    "id": "it-1044844618",
+    "type": "podcast",
+    "real": true,
+    "chartRank": 17,
+    "title": "Geschichten aus der Geschichte",
+    "by": "Richard Hemmer und Daniel Meßner",
+    "year": 2026,
+    "episodes": 598,
+    "duration": 60,
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts122/v4/85/1a/a0/851aa005-ab82-58db-77ee-e72334245c6a/mza_16313729734616176279.jpg/600x600bb.jpg",
+    "hue": 300,
+    "emoji": "🏺",
+    "genres": [
+      "Geschichte",
+      "Wissenschaft"
+    ],
+    "moods": [
+      "lernen",
+      "spannend"
+    ],
+    "situations": [
+      "autofahrt",
+      "lange",
+      "haushalt"
+    ],
+    "topics": [
+      "Geschichte",
+      "Bildung"
+    ],
+    "desc": "Seit über zehn Jahren erzählen sich die Historiker Daniel Meßner und Richard Hemmer Woche für Woche eine Geschichte aus der Geschichte. Das Besondere daran: der eine weiß nie, was der andere ihm erzählen wird. Dabei geht es um vergessene Ereignisse, außergewöhnliche Persönlichkeiten und überrasch…",
+    "latest": [
+      {
+        "title": "GAG564: Sarah Winchester und ihr Mystery House",
+        "date": "15. Juli 2026",
+        "duration": 54
+      },
+      {
+        "title": "GAG563: Driftende Kontinente und Expeditionen ins Eis",
+        "date": "8. Juli 2026",
+        "duration": 68
+      },
+      {
+        "title": "GAG562: Chevalier John Taylor, Ophthalmiater",
+        "date": "1. Juli 2026",
+        "duration": 58
+      }
+    ],
+    "platforms": [
+      "apple",
+      "spotify",
+      "youtube"
+    ],
+    "links": {
+      "apple": "https://podcasts.apple.com/de/podcast/geschichten-aus-der-geschichte/id1044844618?uo=4",
+      "spotify": "https://open.spotify.com/search/Geschichten%20aus%20der%20Geschichte",
+      "youtube": "https://www.youtube.com/results?search_query=Geschichten%20aus%20der%20Geschichte%20podcast"
+    }
+  },
+  {
+    "id": "it-1814608156",
+    "type": "podcast",
+    "real": true,
+    "chartRank": 18,
+    "title": "Die OpenAI Story",
+    "by": "Deutschlandfunk",
+    "year": 2026,
+    "episodes": 15,
+    "duration": 35,
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts211/v4/64/b5/c7/64b5c7c9-dd9d-1476-a68d-651799c33fae/mza_1394172054956364363.jpg/600x600bb.jpg",
+    "hue": 223,
+    "emoji": "🎭",
+    "genres": [
+      "Gesellschaft"
+    ],
+    "moods": [
+      "lernen",
+      "entspannen"
+    ],
+    "situations": [
+      "haushalt"
+    ],
+    "topics": [
+      "Gesellschaft und Kultur"
+    ],
+    "desc": "Mit ChatGPT hat Sam Altman OpenAI in ein milliardenschweres Tech-Imperium verwandelt. Das ist die Geschichte der KI-Revolution, einer entfesselten Technik - und des Mannes, der sie geprägt hat. Von den Machern der Peter Thiel Story.",
+    "latest": [
+      {
+        "title": "Die Peter Thiel Story (1/6) - Willkommen im Thielverse",
+        "date": "27. Mai 2025",
+        "duration": 33
+      },
+      {
+        "title": "Die Peter Thiel Story (2/6) - Der Tod und die Steuern",
+        "date": "27. Mai 2025",
+        "duration": 34
+      },
+      {
+        "title": "Die Peter Thiel Story (3/6) - Dunkle Propheten",
+        "date": "4. Juni 2025",
+        "duration": 39
+      }
+    ],
+    "platforms": [
+      "apple",
+      "spotify",
+      "youtube"
+    ],
+    "links": {
+      "apple": "https://podcasts.apple.com/de/podcast/die-openai-story/id1814608156?uo=4",
+      "spotify": "https://open.spotify.com/search/Die%20OpenAI%20Story",
+      "youtube": "https://www.youtube.com/results?search_query=Die%20OpenAI%20Story%20podcast"
+    }
+  },
+  {
+    "id": "it-1413425371",
+    "type": "podcast",
+    "real": true,
+    "chartRank": 19,
+    "title": "Mordlust",
+    "by": "Paulina Krasa & Laura Wohlers",
+    "year": 2026,
+    "episodes": 253,
+    "duration": 66,
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts211/v4/33/fd/32/33fd32f2-d7ab-c1c8-07d8-e9453cfb960a/mza_15001598499224287928.jpg/600x600bb.jpg",
+    "hue": 78,
+    "emoji": "🎭",
+    "genres": [
+      "Gesellschaft"
+    ],
+    "moods": [
+      "lernen",
+      "entspannen"
+    ],
+    "situations": [
+      "haushalt"
+    ],
+    "topics": [
+      "Wahre Kriminalfälle",
+      "Gesellschaft und Kultur"
+    ],
+    "desc": "Im True Crime-Podcast \"Mordlust - Verbrechen und ihre Hintergründe” sprechen die Journalistinnen Paulina Krasa und Laura Wohlers über wahre Kriminalfälle aus Deutschland. In jeder Folge erzählen die Reporterinnen einen bedeutsamen wahren Kriminalfall nach, ordnen ihn ein, erörtern und diskutieren…",
+    "latest": [
+      {
+        "title": "#243 Das Rätsel vom Mondsee",
+        "date": "10. Juni 2026",
+        "duration": 65
+      },
+      {
+        "title": "#242 Mi vida, mi muerte",
+        "date": "3. Juni 2026",
+        "duration": 66
+      },
+      {
+        "title": "#241 Die Nachtschicht",
+        "date": "27. Mai 2026",
+        "duration": 67
+      }
+    ],
+    "platforms": [
+      "apple",
+      "spotify",
+      "youtube"
+    ],
+    "links": {
+      "apple": "https://podcasts.apple.com/de/podcast/mordlust/id1413425371?uo=4",
+      "spotify": "https://open.spotify.com/search/Mordlust",
+      "youtube": "https://www.youtube.com/results?search_query=Mordlust%20podcast"
+    }
+  },
+  {
+    "id": "it-1649729973",
+    "type": "podcast",
+    "real": true,
+    "chartRank": 20,
+    "title": "Zeigler & Köster - Der Fußball-Podcast von 11FREUNDE",
+    "by": "RTL+ / 11FREUNDE",
+    "year": 2026,
+    "episodes": 249,
+    "duration": 36,
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts211/v4/7d/3a/6b/7d3a6b87-de98-41af-52a8-73ebe89afc8a/mza_17270158396223021690.jpg/600x600bb.jpg",
+    "hue": 31,
+    "emoji": "⚽",
+    "genres": [
+      "Gesellschaft"
+    ],
+    "moods": [
+      "lustig",
+      "lernen"
+    ],
+    "situations": [
+      "sport",
+      "autofahrt",
+      "haushalt"
+    ],
+    "topics": [
+      "Fußball",
+      "Sport",
+      "Nachrichten",
+      "Sportnews"
+    ],
+    "desc": "Arnd Zeigler und Philipp Köster sortieren jeden Donnerstag das aktuelle Fußball-Geschehen, stimmen meinungsstark auf das Wochenende ein – und unternehmen regelmäßig Ausflüge in die Fußballgeschichte. Vereint in einem Podcast geben die beiden Großmeister der Fußballkultur immer mal wieder Einblick…",
+    "latest": [
+      {
+        "title": "WM-Tag 36: Das Wunschfinale ist schon am Samstag",
+        "date": "16. Juli 2026",
+        "duration": 43
+      },
+      {
+        "title": "WM-Tag 35: Das kommt uns spanisch vor!",
+        "date": "15. Juli 2026",
+        "duration": 34
+      },
+      {
+        "title": "WM-Tag 32: And after all steht England im Halbfinale",
+        "date": "12. Juli 2026",
+        "duration": 31
+      }
+    ],
+    "platforms": [
+      "apple",
+      "spotify",
+      "youtube"
+    ],
+    "links": {
+      "apple": "https://podcasts.apple.com/de/podcast/zeigler-k%C3%B6ster-der-fu%C3%9Fball-podcast-von-11freunde/id1649729973?uo=4",
+      "spotify": "https://open.spotify.com/search/Zeigler%20%26%20K%C3%B6ster%20-%20Der%20Fu%C3%9Fball-Podcast%20von%2011FREUNDE",
+      "youtube": "https://www.youtube.com/results?search_query=Zeigler%20%26%20K%C3%B6ster%20-%20Der%20Fu%C3%9Fball-Podcast%20von%2011FREUNDE%20podcast"
+    }
+  },
+  {
+    "id": "it-1733559978",
+    "type": "podcast",
+    "real": true,
+    "chartRank": 21,
+    "title": "Was bisher geschah - Geschichtspodcast",
+    "by": "Joachim Telgenbüscher, Nils Minkmar",
+    "year": 2026,
+    "episodes": 166,
+    "duration": 22,
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts221/v4/dd/4f/d6/dd4fd691-5f44-713c-6d9b-c19e06ad97d4/mza_12051381346103451589.jpeg/600x600bb.jpg",
+    "hue": 71,
+    "emoji": "🏺",
+    "genres": [
+      "Geschichte",
+      "Wissenschaft"
+    ],
+    "moods": [
+      "lernen",
+      "spannend"
+    ],
+    "situations": [
+      "autofahrt",
+      "lange",
+      "haushalt"
+    ],
+    "topics": [
+      "Geschichte",
+      "Bildung"
+    ],
+    "desc": "Wenn wir wissen, was bisher geschah, nehmen wir intensiver wahr, was heute passiert und verstehen, was morgen kommen kann. In Was bisher geschah sprechen Geschichtsjournalist Joachim Telgenbüscher und Historiker Nils Minkmar über die Dramen, Triumphe, Ereignisse und Persönlichkeiten der Geschicht…",
+    "latest": [
+      {
+        "title": "Livetour 2027 - Tickets ab sofort im VVK",
+        "date": "16. Juli 2026",
+        "duration": 2
+      },
+      {
+        "title": "Tenochtitlan, 1519 n. Chr. (WBG Sommerurlaub 2026)",
+        "date": "14. Juli 2026",
+        "duration": 29
+      },
+      {
+        "title": "Paris, 1789 n. Chr. (WBG Sommerurlaub 2026)",
+        "date": "7. Juli 2026",
+        "duration": 36
+      }
+    ],
+    "platforms": [
+      "apple",
+      "spotify",
+      "youtube"
+    ],
+    "links": {
+      "apple": "https://podcasts.apple.com/de/podcast/was-bisher-geschah-geschichtspodcast/id1733559978?uo=4",
+      "spotify": "https://open.spotify.com/search/Was%20bisher%20geschah%20-%20Geschichtspodcast",
+      "youtube": "https://www.youtube.com/results?search_query=Was%20bisher%20geschah%20-%20Geschichtspodcast%20podcast"
+    }
+  },
+  {
+    "id": "it-1837481313",
+    "type": "podcast",
+    "real": true,
+    "chartRank": 22,
+    "title": "TRUE CRIME 187",
+    "by": "Jacqueline Belle, Dr. Alexander Stevens",
+    "year": 2026,
+    "episodes": 48,
+    "duration": 94,
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts221/v4/21/b3/b0/21b3b023-c85b-c482-64a3-e05b11d0c75f/mza_17382203498614346757.jpg/600x600bb.jpg",
+    "hue": 312,
+    "emoji": "🎙️",
+    "genres": [
+      "Gesellschaft"
+    ],
+    "moods": [
+      "lernen"
+    ],
+    "situations": [
+      "autofahrt"
+    ],
+    "topics": [
+      "Wahre Kriminalfälle"
+    ],
+    "desc": "Jeden Freitag führen euch Moderatorin Jacqueline Belle und Deutschlands bekanntester Strafverteidiger Dr. Alexander Stevens in die echte Welt der Verbrechen – so nah wie niemand sonst: Wie fühlt es sich an, einem Mörder die Hand zu geben? Welche Wahrheiten offenbaren Angeklagte dem eigenen Anwalt…",
+    "latest": [
+      {
+        "title": "#46 Im Schlafzimmer der Mutter",
+        "date": "17. Juli 2026",
+        "duration": 79
+      },
+      {
+        "title": "#45 Lebensgefährliche Nacktfotos",
+        "date": "10. Juli 2026",
+        "duration": 87
+      },
+      {
+        "title": "#44 Tödlicher Babywunsch",
+        "date": "3. Juli 2026",
+        "duration": 116
+      }
+    ],
+    "platforms": [
+      "apple",
+      "spotify",
+      "youtube"
+    ],
+    "links": {
+      "apple": "https://podcasts.apple.com/de/podcast/true-crime-187/id1837481313?uo=4",
+      "spotify": "https://open.spotify.com/search/TRUE%20CRIME%20187",
+      "youtube": "https://www.youtube.com/results?search_query=TRUE%20CRIME%20187%20podcast"
+    }
+  },
+  {
+    "id": "it-1571345794",
+    "type": "podcast",
+    "real": true,
+    "chartRank": 23,
+    "title": "Sportschau Tourfunk",
+    "by": "sportschau.de",
+    "year": 2026,
+    "episodes": 228,
+    "duration": 28,
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts211/v4/e6/b6/a5/e6b6a5ee-0c00-54ec-b53c-f944e28a9440/mza_1529187550803469023.jpg/600x600bb.jpg",
+    "hue": 252,
+    "emoji": "⚽",
+    "genres": [
+      "Gesellschaft"
+    ],
+    "moods": [
+      "lustig",
+      "lernen"
+    ],
+    "situations": [
+      "sport",
+      "autofahrt"
+    ],
+    "topics": [
+      "Sport"
+    ],
+    "desc": "Im Tourfunk der Sportschau werden die aktuellen Themen des Radsports diskutiert und die Hintergründe beleuchtet. Bei der Tour berichten wir täglich über das Wichtigste rund um das größte Radrennen der Welt.",
+    "latest": [
+      {
+        "title": "12. Etappe: Die wilde Fahrt durch das Burgund",
+        "date": "16. Juli 2026",
+        "duration": 24
+      },
+      {
+        "title": "11. Etappe: Rekord! Nie war jemand so schnell wie Wærenskjold",
+        "date": "15. Juli 2026",
+        "duration": 24
+      },
+      {
+        "title": "10. Etappe: Pogacar ... und der neue Kampf ums Podium",
+        "date": "14. Juli 2026",
+        "duration": 35
+      }
+    ],
+    "platforms": [
+      "apple",
+      "spotify",
+      "youtube"
+    ],
+    "links": {
+      "apple": "https://podcasts.apple.com/de/podcast/sportschau-tourfunk/id1571345794?uo=4",
+      "spotify": "https://open.spotify.com/search/Sportschau%20Tourfunk",
+      "youtube": "https://www.youtube.com/results?search_query=Sportschau%20Tourfunk%20podcast"
+    }
+  },
+  {
+    "id": "it-1428670057",
+    "type": "podcast",
+    "real": true,
+    "chartRank": 24,
+    "title": "The Pioneer Morning Briefing - Nachrichten aus Politik und Wirtschaft",
+    "by": "The Pioneer",
+    "year": 2026,
+    "episodes": 737,
+    "duration": 27,
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts211/v4/b9/46/89/b946897a-544b-4e9a-10a4-a06476112912/mza_10637618897557523963.jpg/600x600bb.jpg",
+    "hue": 0,
+    "emoji": "🗞️",
+    "genres": [
+      "Gesellschaft"
+    ],
+    "moods": [
+      "lernen"
+    ],
+    "situations": [
+      "autofahrt",
+      "haushalt"
+    ],
+    "topics": [
+      "Nachrichten des Tages",
+      "Nachrichten",
+      "Politik"
+    ],
+    "desc": "Gabor Steingart, Alev Doğan, Chelsea Spieker und Karina Mößbauer präsentieren einen der meistgehörten News-Podcasts Deutschlands: Täglich ab 6 Uhr mit exklusiven Interviews, Nachrichten und Kommentaren zum politischen und wirtschaftlichen Weltgeschehen. Inspirierend, unabhängig und 100% werbefrei…",
+    "latest": [
+      {
+        "title": "Aktuell: Trumps Rede aus der Nacht | Ingrid Hengster von Barclays Germany über Brexit | Frontrunners",
+        "date": "17. Juli 2026",
+        "duration": 26
+      },
+      {
+        "title": "Sommerpause für Schwarz-Rot: Albrecht von Lucke zieht Bilanz | Softpower | Mick Jaggers Reue",
+        "date": "16. Juli 2026",
+        "duration": 26
+      },
+      {
+        "title": "Christian Sewing: „Finanzbildung müsste in der Schule starten” | Steingarts Stimmzwilling | Linda Ronstadt",
+        "date": "15. Juli 2026",
+        "duration": 30
+      }
+    ],
+    "platforms": [
+      "apple",
+      "spotify",
+      "youtube"
+    ],
+    "links": {
+      "apple": "https://podcasts.apple.com/de/podcast/the-pioneer-morning-briefing-nachrichten-aus-politik/id1428670057?uo=4",
+      "spotify": "https://open.spotify.com/search/The%20Pioneer%20Morning%20Briefing%20-%20Nachrichten%20aus%20Politik%20und%20Wirtschaft",
+      "youtube": "https://www.youtube.com/results?search_query=The%20Pioneer%20Morning%20Briefing%20-%20Nachrichten%20aus%20Politik%20und%20Wirtschaft%20podcast"
+    }
+  },
+  {
+    "id": "it-1449598446",
+    "type": "podcast",
+    "real": true,
+    "chartRank": 25,
+    "title": "Verbrechen von nebenan: True Crime aus der Nachbarschaft",
+    "by": "RTL+ / Philipp Fleiter",
+    "year": 2026,
+    "episodes": 197,
+    "duration": 81,
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts211/v4/99/ed/ca/99edca87-e413-ae52-e296-f73a085f2fb1/mza_14028260209326193247.jpg/600x600bb.jpg",
+    "hue": 62,
+    "emoji": "🎙️",
+    "genres": [
+      "Gesellschaft"
+    ],
+    "moods": [
+      "lernen"
+    ],
+    "situations": [
+      "autofahrt"
+    ],
+    "topics": [
+      "Wahre Kriminalfälle"
+    ],
+    "desc": "Die schlimmsten Verbrechen passieren meist nicht in der Großstadt, sondern direkt nebenan: Wenn die nette Nachbarin angeblich im Urlaub ist, in Wirklichkeit aber einbetoniert unter dem Garagenboden liegt oder wenn ein kleines Mädchen plötzlich spurlos vom elterlichen Bauernhof verschwindet, sind…",
+    "latest": [
+      {
+        "title": "#178 Tod aus der Tube: Die Jagd nach dem Thomy-Erpresser",
+        "date": "6. Juli 2026",
+        "duration": 65
+      },
+      {
+        "title": "Nebenan Weltweit 6: Das Monaco-Mysterium",
+        "date": "26. Juni 2026",
+        "duration": 86
+      },
+      {
+        "title": "#177 Der Jäger",
+        "date": "22. Juni 2026",
+        "duration": 92
+      }
+    ],
+    "platforms": [
+      "apple",
+      "spotify",
+      "youtube"
+    ],
+    "links": {
+      "apple": "https://podcasts.apple.com/de/podcast/verbrechen-von-nebenan-true-crime-aus-der-nachbarschaft/id1449598446?uo=4",
+      "spotify": "https://open.spotify.com/search/Verbrechen%20von%20nebenan%3A%20True%20Crime%20aus%20der%20Nachbarschaft",
+      "youtube": "https://www.youtube.com/results?search_query=Verbrechen%20von%20nebenan%3A%20True%20Crime%20aus%20der%20Nachbarschaft%20podcast"
+    }
+  },
+  {
+    "id": "it-1884661422",
+    "type": "podcast",
+    "real": true,
+    "chartRank": 26,
+    "title": "MARCANT PODCAST",
+    "by": "MARCANT PODCAST",
+    "year": 2026,
+    "episodes": 17,
+    "duration": 188,
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts211/v4/00/47/0f/00470f8b-e064-77c7-a1f6-51598372180b/mza_15896350007861190179.jpg/600x600bb.jpg",
+    "hue": 206,
+    "emoji": "🎭",
+    "genres": [
+      "Gesellschaft"
+    ],
+    "moods": [
+      "lernen",
+      "entspannen"
+    ],
+    "situations": [
+      "haushalt"
+    ],
+    "topics": [
+      "Gesellschaft und Kultur"
+    ],
+    "desc": "Jeden Sonntag besucht abwechselnd eine bekannte und eine unbekannte Person Marcants Podcast und erzählt von seiner Geschichte, besonderen Lebensumständen oder Meinungen im politischen, gesellschaftlichen und persönlichen Kontext.",
+    "latest": [
+      {
+        "title": "Ist er die LETZTE HOFFNUNG der LINKEN…? 🚩😳",
+        "date": "16. Juli 2026",
+        "duration": 163
+      },
+      {
+        "title": "Er überlebte einen NAZI-Anschlag...😳",
+        "date": "12. Juli 2026",
+        "duration": 228
+      },
+      {
+        "title": "Die WAHRHEIT hinter REMIGRATION...😳💙",
+        "date": "2. Juli 2026",
+        "duration": 174
+      }
+    ],
+    "platforms": [
+      "apple",
+      "spotify",
+      "youtube"
+    ],
+    "links": {
+      "apple": "https://podcasts.apple.com/de/podcast/marcant-podcast/id1884661422?uo=4",
+      "spotify": "https://open.spotify.com/search/MARCANT%20PODCAST",
+      "youtube": "https://www.youtube.com/results?search_query=MARCANT%20PODCAST%20podcast"
+    }
+  },
+  {
+    "id": "it-1780382816",
+    "type": "podcast",
+    "real": true,
+    "chartRank": 27,
+    "title": "Make Economy Great Again",
+    "by": "WELT",
+    "year": 2026,
+    "episodes": 93,
+    "duration": 55,
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts211/v4/82/db/f9/82dbf906-d128-c8ab-6c6b-aeedb5d0a7d2/mza_9509475948024793775.png/600x600bb.jpg",
+    "hue": 57,
+    "emoji": "📈",
+    "genres": [
+      "Wirtschaft",
+      "Gesellschaft"
+    ],
+    "moods": [
+      "lernen",
+      "entspannen"
+    ],
+    "situations": [
+      "autofahrt",
+      "sport",
+      "haushalt"
+    ],
+    "topics": [
+      "Wirtschaft",
+      "Gesellschaft und Kultur"
+    ],
+    "desc": "Deutschland schmiert ab. Die deutsche Wirtschaft und Industrie stagniert, die Stimmung unter Unternehmern ist mies, Investoren machen einen weiten Bogen um den Wirtschaftsstandort Deutschland. Die neue Regierung müsste die Wirtschaft ins Zentrum rücken, aber kaum jemand traut sich. Wie viel „Afue…",
+    "latest": [
+      {
+        "title": "Neue Wehrhaftigkeit, weltfremde Professoren und das deutsche Windkraftmärchen",
+        "date": "15. Juli 2026",
+        "duration": 54
+      },
+      {
+        "title": "52,5% Staatsquote, Eigentum als Befreiungsschlag und Palmer auf Afuera-Kurs",
+        "date": "9. Juli 2026",
+        "duration": 57
+      },
+      {
+        "title": "Der Pippi-Sprung, das WM-Aus und die Null-Prozent-Investitionsfalle",
+        "date": "2. Juli 2026",
+        "duration": 53
+      }
+    ],
+    "platforms": [
+      "apple",
+      "spotify",
+      "youtube"
+    ],
+    "links": {
+      "apple": "https://podcasts.apple.com/de/podcast/make-economy-great-again/id1780382816?uo=4",
+      "spotify": "https://open.spotify.com/search/Make%20Economy%20Great%20Again",
+      "youtube": "https://www.youtube.com/results?search_query=Make%20Economy%20Great%20Again%20podcast"
+    }
+  },
+  {
+    "id": "it-1542972491",
+    "type": "podcast",
+    "real": true,
+    "chartRank": 28,
+    "title": "Quarks Science Cops",
+    "by": "Quarks",
+    "year": 2026,
+    "episodes": 121,
+    "duration": 37,
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts211/v4/7b/36/19/7b361958-7fc2-49f9-1535-8931da0653ba/mza_6214749160383578611.jpg/600x600bb.jpg",
+    "hue": 238,
+    "emoji": "🎓",
+    "genres": [
+      "Wissenschaft"
+    ],
+    "moods": [
+      "lernen"
+    ],
+    "situations": [
+      "autofahrt",
+      "haushalt"
+    ],
+    "topics": [
+      "Bildung"
+    ],
+    "desc": "Jeden Tag wird in Deutschland wissenschaftlicher Unsinn erzählt. Es ist Aufgabe der Quarks Science Cops, diesen Unsinn aufzudecken und richtigzustellen. Das sind ihre Fälle.",
+    "latest": [
+      {
+        "title": "Die Akte Abnehm-Pflaster: Dicke Versprechen, dünne Evidenz",
+        "date": "11. Juli 2026",
+        "duration": 44
+      },
+      {
+        "title": "Kurz kein Podcast, dafür ein neues Format",
+        "date": "27. Juni 2026",
+        "duration": 2
+      },
+      {
+        "title": "Die Akte Healing Humans: Therapie oder Theater?",
+        "date": "13. Juni 2026",
+        "duration": 65
+      }
+    ],
+    "platforms": [
+      "apple",
+      "spotify",
+      "youtube"
+    ],
+    "links": {
+      "apple": "https://podcasts.apple.com/de/podcast/quarks-science-cops/id1542972491?uo=4",
+      "spotify": "https://open.spotify.com/search/Quarks%20Science%20Cops",
+      "youtube": "https://www.youtube.com/results?search_query=Quarks%20Science%20Cops%20podcast"
+    }
+  },
+  {
+    "id": "it-1530957169",
+    "type": "podcast",
+    "real": true,
+    "chartRank": 29,
+    "title": "0630 - der News-Podcast",
+    "by": "1LIVE für die ARD",
+    "year": 2026,
+    "episodes": 397,
+    "duration": 19,
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts221/v4/81/4a/b0/814ab0fc-3f0e-d284-861e-c0e58ea4ca97/mza_17358447949035240898.jpg/600x600bb.jpg",
+    "hue": 273,
+    "emoji": "🗞️",
+    "genres": [
+      "Gesellschaft"
+    ],
+    "moods": [
+      "lernen"
+    ],
+    "situations": [
+      "autofahrt",
+      "haushalt"
+    ],
+    "topics": [
+      "Nachrichten des Tages",
+      "Nachrichten"
+    ],
+    "desc": "Welche Nachrichten sind heute wichtig? Was musst du wissen, um mitreden zu können? Wir haben die Themen des Tages im Blick und stehen ziemlich früh auf, um sie dir zum Frühstück, im Bad oder auf dem Weg zur Arbeit zu servieren. Kompakt in um die 20 Minuten. Um 06:30 Uhr sortieren dir Caro, Matthi…",
+    "latest": [
+      {
+        "title": "Leihmutterschaft: Kritik an Jens Spahn | ZDF lädt Danger Dan aus | KI-Proteste in den USA",
+        "date": "17. Juli 2026",
+        "duration": 20
+      },
+      {
+        "title": "Wieder tödliche ICE-Einsätze | Digitalisierung: Arzt-Chat und Jobcenter-Videocall | 6,99 Euro für Bahntickets?",
+        "date": "16. Juli 2026",
+        "duration": 20
+      },
+      {
+        "title": "12 Euro für Zigaretten? | Dürre: Verbote in München & Folgen für Schifffahrt | Türkei 10 Jahre nach Putschversuch",
+        "date": "15. Juli 2026",
+        "duration": 17
+      }
+    ],
+    "platforms": [
+      "apple",
+      "spotify",
+      "youtube"
+    ],
+    "links": {
+      "apple": "https://podcasts.apple.com/de/podcast/0630-der-news-podcast/id1530957169?uo=4",
+      "spotify": "https://open.spotify.com/search/0630%20-%20der%20News-Podcast",
+      "youtube": "https://www.youtube.com/results?search_query=0630%20-%20der%20News-Podcast%20podcast"
+    }
+  },
+  {
+    "id": "it-1740744367",
+    "type": "podcast",
+    "real": true,
+    "chartRank": 30,
+    "title": "Politik mit Anne Will",
+    "by": "Anne Will",
+    "year": 2026,
+    "episodes": 180,
+    "duration": 95,
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts221/v4/32/d5/d8/32d5d848-a813-201a-2be3-84f16ef641c2/mza_10869431612818458796.jpg/600x600bb.jpg",
+    "hue": 32,
+    "emoji": "🏛️",
+    "genres": [
+      "Gesellschaft"
+    ],
+    "moods": [
+      "lernen"
+    ],
+    "situations": [
+      "autofahrt",
+      "haushalt"
+    ],
+    "topics": [
+      "Politik",
+      "Nachrichten"
+    ],
+    "desc": "Der Politik-Podcast von Anne Will – für alle, die Politik wirklich verstehen wollen. Zweimal pro Woche, immer donnerstags und samstags: fundierte Gespräche, präzise Analysen und Hintergründe zu den Themen, die Deutschland und die Welt bewegen. Mit Gästen aus Politik, Wissenschaft und Gesellschaft…",
+    "latest": [
+      {
+        "title": "Welchen Preis haben die Kürzungspläne der Regierung? Mit Maurice Höfgen",
+        "date": "16. Juli 2026",
+        "duration": 97
+      },
+      {
+        "title": "Was kostet uns eine “europäischere NATO”? Mit Claudia Major",
+        "date": "9. Juli 2026",
+        "duration": 93
+      },
+      {
+        "title": "Ist das Reformpaket jetzt der große Wurf? Mit Kristina Dunz",
+        "date": "3. Juli 2026",
+        "duration": 95
+      }
+    ],
+    "platforms": [
+      "apple",
+      "spotify",
+      "youtube"
+    ],
+    "links": {
+      "apple": "https://podcasts.apple.com/de/podcast/politik-mit-anne-will/id1740744367?uo=4",
+      "spotify": "https://open.spotify.com/search/Politik%20mit%20Anne%20Will",
+      "youtube": "https://www.youtube.com/results?search_query=Politik%20mit%20Anne%20Will%20podcast"
+    }
+  }
+]

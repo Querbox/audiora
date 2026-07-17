@@ -1,5 +1,9 @@
-// ── Audiora Mock-Datenbank ──────────────────────────────────────────────
+// ── Audiora Datenbank ───────────────────────────────────────────────────
 // Alles ist ein Audio-Objekt. Alles ist verbunden.
+// Echte Podcast-Daten (Apple-Charts + RSS) kommen aus real-podcasts.json,
+// erzeugt von scripts/import-podcasts.mjs. Hörbücher/Hörspiele sind kuratiert.
+
+import realPodcasts from './real-podcasts.json'
 
 export const PLATFORMS = {
   spotify:   { name: 'Spotify',        icon: '🟢' },
@@ -48,8 +52,8 @@ export const people = [
   { id: 'p-lauer',    name: 'Prof. Anna Lauer',  role: 'Gast',     claimed: false, hue: 220, bio: 'Astrophysikerin und gefragte Podcast-Gästin zu allem, was das Universum hergibt.' },
 ]
 
-// ── Audio-Objekte ───────────────────────────────────────────────────────
-export const items = [
+// ── Audio-Objekte (kuratiert) ───────────────────────────────────────────
+export const curated = [
   {
     id: 'dune', type: 'hoerbuch', title: 'Dune – Der Wüstenplanet', by: 'Frank Herbert',
     authorId: 'p-herbert', speakerIds: ['p-kaminski'], year: 2020, duration: 1220,
@@ -197,6 +201,9 @@ export const items = [
   },
 ]
 
+// Echte Top-Podcasts + kuratierte Titel = ein einheitliches Datenmodell
+export const items = [...realPodcasts, ...curated]
+
 // Folgen (Beispiel für Objekt-Verknüpfung Folge ↔ Gast)
 export const episodes = [
   { id: 'gz-201', parent: 'gruenderzeit', title: 'Folge 201 – Prof. Anna Lauer über Space-Startups', guestIds: ['p-lauer'], duration: 52 },
@@ -244,6 +251,7 @@ export const byId = (id) => items.find((i) => i.id === id)
 export const personById = (id) => people.find((p) => p.id === id)
 
 export function fmtDuration(min) {
+  if (min == null) return ''
   if (min >= 60) {
     const h = Math.floor(min / 60), m = min % 60
     return m ? `${h} Std. ${m} Min.` : `${h} Std.`
@@ -343,7 +351,7 @@ export function smartSearch(query) {
   })
 
   const scored = pool.filter(([, s]) => s > 0).sort((a, b) => b[1] - a[1])
-  const results = (scored.length ? scored : pool.sort((a, b) => b[1].rating - a[1].rating)).map(([i]) => i)
+  const results = (scored.length ? scored : pool.sort((a, b) => (b[0].rating || 0) - (a[0].rating || 0))).map(([i]) => i)
 
   // Personen-Treffer
   const persons = people.filter((p) => p.name.toLowerCase().includes(q) || words.some((w) => p.name.toLowerCase().includes(w)))
@@ -375,6 +383,10 @@ export function buildGraph(itemId) {
     const h = personById(hid)
     add({ id: h.id, label: h.name, kind: 'person', sub: h.role, ref: h }, 'Host')
   })
+  // Echte Podcasts: Host/Produzent aus den Importdaten
+  if (center.real && center.by) {
+    add({ id: `artist-${center.id}`, label: center.by, kind: 'person', sub: 'Host / Produktion', search: center.by }, 'Host')
+  }
   center.genres.forEach((g) => add({ id: `g-${g}`, label: g, kind: 'genre' }, 'Genre'))
   ;(center.topics || []).slice(0, 3).forEach((t) => add({ id: `t-${t}`, label: t, kind: 'thema' }, 'Thema'))
   center.moods.slice(0, 2).forEach((m) => {

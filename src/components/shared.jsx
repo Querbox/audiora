@@ -2,7 +2,7 @@ import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { PLATFORMS, TYPE_LABEL, fmtDuration, currentUser } from '../data.js'
 
-// Generierte Cover: Gradient aus Farbton + Emoji
+// Cover: echtes Artwork (importierte Podcasts) oder Gradient + Emoji (kuratiert)
 export function Cover({ item, className = '', showType = true }) {
   const h = item.hue ?? 260
   return (
@@ -12,8 +12,9 @@ export function Cover({ item, className = '', showType = true }) {
         background: `linear-gradient(140deg, hsl(${h} 60% 26%), hsl(${(h + 40) % 360} 70% 14%))`,
       }}
     >
+      {item.image && <img src={item.image} alt={item.title} loading="lazy" />}
       {showType && <span className="cover-type">{TYPE_LABEL[item.type] || 'Audio'}</span>}
-      <span>{item.emoji}</span>
+      {!item.image && <span>{item.emoji}</span>}
     </div>
   )
 }
@@ -26,8 +27,12 @@ export function TitleCard({ item }) {
         <div className="tt">{item.title}</div>
         <div className="tb">{item.by}</div>
         <div className="tr">
-          <span className="star">★</span> {item.rating.toFixed(1)}
-          <span style={{ color: 'var(--text-faint)' }}>· {fmtDuration(item.duration)}</span>
+          {item.rating != null
+            ? <><span className="star">★</span> {item.rating.toFixed(1)}</>
+            : item.chartRank != null && <span className="star">Platz {item.chartRank}</span>}
+          <span style={{ color: 'var(--text-faint)' }}>
+            {item.duration != null ? `· ${fmtDuration(item.duration)}` : item.episodes != null ? `· ${item.episodes} Folgen` : ''}
+          </span>
         </div>
       </div>
     </Link>
@@ -57,15 +62,26 @@ export function Rail({ items }) {
   )
 }
 
-export function PlatformButtons({ ids }) {
+export function PlatformButtons({ ids, links }) {
   return (
     <div className="platforms">
-      {ids.map((p) => (
-        <a key={p} className="platform-btn" href="#" onClick={(e) => e.preventDefault()} title={`Bei ${PLATFORMS[p].name} öffnen`}>
-          <span>{PLATFORMS[p].icon}</span> {PLATFORMS[p].name}
-          <span className="open">↗</span>
-        </a>
-      ))}
+      {ids.map((p) => {
+        const href = links?.[p]
+        return (
+          <a
+            key={p}
+            className="platform-btn"
+            href={href || '#'}
+            target={href ? '_blank' : undefined}
+            rel={href ? 'noreferrer' : undefined}
+            onClick={href ? undefined : (e) => e.preventDefault()}
+            title={`Bei ${PLATFORMS[p].name} öffnen`}
+          >
+            <span>{PLATFORMS[p].icon}</span> {PLATFORMS[p].name}
+            <span className="open">↗</span>
+          </a>
+        )
+      })}
     </div>
   )
 }

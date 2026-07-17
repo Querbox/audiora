@@ -40,10 +40,11 @@ export default function Detail() {
           </div>
 
           <div className="meta-row">
-            <span className="rating-big"><span className="star">★</span> {item.rating.toFixed(1)}</span>
-            <span>{item.ratings.toLocaleString('de-DE')} Bewertungen</span>
-            <span>{fmtDuration(item.duration)}{item.episodes ? ' pro Folge' : ''}</span>
-            <span>{item.year}</span>
+            {item.rating != null && <span className="rating-big"><span className="star">★</span> {item.rating.toFixed(1)}</span>}
+            {item.ratings != null && <span>{item.ratings.toLocaleString('de-DE')} Bewertungen</span>}
+            {item.chartRank != null && <span className="rating-big">📈 Platz {item.chartRank} der deutschen Podcast-Charts</span>}
+            {item.duration != null && <span>{fmtDuration(item.duration)}{item.episodes ? ' pro Folge' : ''}</span>}
+            {item.year != null && <span>seit {item.year}</span>}
           </div>
 
           <p className="desc">{item.desc}</p>
@@ -69,7 +70,7 @@ export default function Detail() {
 
           <div style={{ marginTop: 24 }}>
             <div className="kicker" style={{ marginBottom: 10 }}>Anhören bei</div>
-            <PlatformButtons ids={item.platforms} />
+            <PlatformButtons ids={item.platforms} links={item.links} />
           </div>
 
           <div style={{ marginTop: 24, display: 'flex', flexWrap: 'wrap', gap: 8 }}>
@@ -82,6 +83,20 @@ export default function Detail() {
           </div>
         </div>
       </div>
+
+      {(item.latest || []).length > 0 && (
+        <Section title="Neueste Folgen" sub="Live aus dem RSS-Feed importiert.">
+          <div className="activity">
+            {item.latest.map((ep, i) => (
+              <div key={i} className="activity-row">
+                <span style={{ fontSize: 18 }}>🎙️</span>
+                <span className="who">{ep.title}</span>
+                <span className="when">{ep.duration ? `${ep.duration} Min. · ` : ''}{ep.date || ''}</span>
+              </div>
+            ))}
+          </div>
+        </Section>
+      )}
 
       {inLists.length > 0 && (
         <Section title="In Community-Listen" moreTo="/listen">

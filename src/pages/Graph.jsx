@@ -96,7 +96,8 @@ export default function Graph() {
 
   const clickNode = (n) => {
     if (n.kind === 'titel' && n.id !== center.id) setParams({ titel: n.id })
-    else if (n.kind === 'person') nav(`/person/${n.id}`)
+    else if (n.kind === 'person' && n.ref) nav(`/person/${n.id}`)
+    else if (n.kind === 'person' && n.search) nav(`/suche?q=${encodeURIComponent(n.search)}`)
     else if (n.kind === 'liste') nav(`/listen/${n.id}`)
     else if (n.kind === 'genre') nav(`/suche?q=${encodeURIComponent(n.label)}`)
     else if (n.kind === 'thema') nav(`/suche?q=${encodeURIComponent(n.label.replace(/^# /, ''))}`)
@@ -181,7 +182,7 @@ export default function Graph() {
       <div className="section" style={{ paddingTop: 0 }}>
         <div className="section-head"><h2>Anderen Titel in den Mittelpunkt stellen</h2></div>
         <div className="graph-picker">
-          {items.map((i) => (
+          {items.filter((i) => !i.real || i.chartRank <= 10).map((i) => (
             <button
               key={i.id}
               className={`chip ${i.id === center.id ? 'accent' : ''}`}
