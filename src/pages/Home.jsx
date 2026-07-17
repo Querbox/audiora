@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { MOODS, GENRES, items, byId, similarTo } from '../data.js'
+import { MOODS, GENRES, PLATFORMS, items, byId, similarTo } from '../data.js'
 import { SearchBar, Section, Rail, Cover } from '../components/shared.jsx'
 import { useAuth, useUserLibrary } from '../auth.jsx'
 import { getRecent } from '../lib/recent.js'
@@ -37,41 +37,106 @@ function personalRecs(rows) {
     .map(([i]) => i)
 }
 
-function LandingCta() {
+// ── Landing Page für nicht angemeldete Besucher ─────────────────────────
+function Landing({ podcastCharts, audiobookCharts }) {
   return (
-    <section className="section shell">
-      <div className="landing-cta">
-        <div className="lc-head">
-          <h2>Deine persönliche Audio-Welt</h2>
-        <p>Kostenlos registrieren und aus Audiora deine Zentrale für alles Hörbare machen.</p>
-        </div>
-        <div className="lc-features">
-          <div className="lc-feature">
-            <span className="lf-icon">🧬</span>
-            <b>Audio-DNA</b>
-            <span>Dein Geschmack, automatisch analysiert und sichtbar gemacht.</span>
-          </div>
-          <div className="lc-feature">
-            <span className="lf-icon">📚</span>
-            <b>Listen & Community</b>
-            <span>Sammle Favoriten, erstelle Listen und folge anderen Hörern.</span>
-          </div>
-          <div className="lc-feature">
-            <span className="lf-icon">✦</span>
-            <b>Empfehlungen</b>
-            <span>Vorschläge, die zu dir passen – erklärbar statt Blackbox.</span>
-          </div>
-        </div>
-        <div className="lc-actions">
+    <>
+      <header className="hero shell landing-hero">
+        <div className="kicker" style={{ marginBottom: 14 }}>Kein Streamingdienst – dein Audio-Kompass</div>
+        <h1>Die Heimat für alles,<br />was <em>hörbar</em> ist.</h1>
+        <p className="sub">
+          Audiora ist das IMDb für Podcasts, Hörbücher und Hörspiele: entdecken,
+          sammeln, bewerten – gehört wird beim Anbieter deiner Wahl.
+        </p>
+        <div className="landing-hero-cta">
           <Link to="/anmelden" className="btn cta">Kostenlos registrieren</Link>
-          <Link to="/anmelden" className="btn">Schon dabei? Anmelden</Link>
+          <Link to="/anmelden" className="btn">Anmelden</Link>
         </div>
         <div className="lc-try">
           Erst mal ausprobieren?{' '}
           <Link to="/dna">🧬 Audio-DNA-Vorschau</Link> · <Link to="/graph">✦ Audio Graph</Link>
         </div>
-      </div>
-    </section>
+      </header>
+
+      <section className="shell platform-strip">
+        <span className="ps-label">Verlinkt dahin, wo du ohnehin hörst</span>
+        <div className="ps-logos">
+          {['spotify', 'audible', 'apple', 'youtube', 'ard', 'bookbeat'].map((p) => (
+            <span key={p} className="ps-logo" title={PLATFORMS[p].name}>
+              {PLATFORMS[p].logo
+                ? <img src={PLATFORMS[p].logo} alt={PLATFORMS[p].name} />
+                : <span className="pf-mark" style={{ background: PLATFORMS[p].color }}>{PLATFORMS[p].name[0]}</span>}
+              <em>{PLATFORMS[p].name}</em>
+            </span>
+          ))}
+        </div>
+      </section>
+
+      <Section title="Was Audiora besonders macht">
+        <div className="lc-features standalone">
+          <Link to="/dna" className="lc-feature">
+            <span className="lf-icon">🧬</span>
+            <b>Audio-DNA</b>
+            <span>Dein Geschmack, automatisch analysiert und als Diagramm sichtbar.</span>
+            <span className="lf-link">Vorschau ansehen →</span>
+          </Link>
+          <Link to="/graph" className="lc-feature">
+            <span className="lf-icon">✦</span>
+            <b>Audio Graph</b>
+            <span>Sprecher, Autoren, Themen, Stimmungen – alles ist verbunden, alles klickbar.</span>
+            <span className="lf-link">Live ausprobieren →</span>
+          </Link>
+          <Link to="/anmelden" className="lc-feature">
+            <span className="lf-icon">📚</span>
+            <b>Listen & Community</b>
+            <span>Sammle Favoriten, erstelle Listen und folge anderen Hörerinnen und Hörern.</span>
+            <span className="lf-link">Mitmachen →</span>
+          </Link>
+        </div>
+      </Section>
+
+      <Section title="So funktioniert’s">
+        <div className="steps">
+          <div className="step">
+            <span className="step-nr">1</span>
+            <b>Entdecken</b>
+            <span>Echte Charts, natürliche Suche und Stimmungen zeigen dir, was es gibt.</span>
+          </div>
+          <div className="step">
+            <span className="step-nr">2</span>
+            <b>Markieren</b>
+            <span>Favoriten, „Gehört“ und eigene Listen – ein Klick genügt.</span>
+          </div>
+          <div className="step">
+            <span className="step-nr">3</span>
+            <b>Verstehen</b>
+            <span>Deine Audio-DNA wächst automatisch – und macht Empfehlungen erklärbar.</span>
+          </div>
+        </div>
+      </Section>
+
+      <Section title="Live aus den deutschen Charts" sub="Echte Daten von Apple, Spotify & RSS – jede Nacht automatisch aktualisiert.">
+        <Rail items={podcastCharts.slice(0, 6)} />
+      </Section>
+
+      {audiobookCharts.length > 0 && (
+        <Section title="… und die Hörbuch-Bestseller">
+          <Rail items={audiobookCharts.slice(0, 6)} />
+        </Section>
+      )}
+
+      <section className="section shell">
+        <div className="landing-cta">
+          <div className="lc-head">
+            <h2>Bereit für deine Audio-Welt?</h2>
+            <p>Kostenlos registrieren – und Favoriten, Listen und deine Audio-DNA für immer behalten.</p>
+          </div>
+          <div className="lc-actions">
+            <Link to="/anmelden" className="btn cta">Jetzt kostenlos starten</Link>
+          </div>
+        </div>
+      </section>
+    </>
   )
 }
 
@@ -102,6 +167,11 @@ export default function Home() {
   }, [user, library])
   const becauseOf = lastFav ? similarTo(lastFav, 8) : []
 
+  // Nicht angemeldet → reine Landing Page statt App-Startseite
+  if (!user) {
+    return <Landing podcastCharts={podcastCharts} audiobookCharts={audiobookCharts} />
+  }
+
   return (
     <>
       <header className="hero shell">
@@ -128,8 +198,6 @@ export default function Home() {
           ))}
         </div>
       </Section>
-
-      {!user && <LandingCta />}
 
       {user && recent.length > 0 && (
         <Section title="Zuletzt angesehen" sub="Da weitermachen, wo du zuletzt gestöbert hast.">

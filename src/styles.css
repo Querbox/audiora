@@ -692,6 +692,54 @@ a.chip:hover, button.chip:hover { color: var(--text); border-color: rgba(167,139
 }
 .picker-new .btn { padding: 8px 14px; }
 
+/* ── Landing Page (nicht angemeldet) ── */
+.landing-hero { padding-bottom: 20px; }
+.landing-hero-cta {
+  display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+  margin-top: 34px;
+  animation: rise 0.7s 0.16s var(--ease) both;
+}
+.landing-hero .lc-try { animation: rise 0.7s 0.24s var(--ease) both; }
+
+.platform-strip {
+  display: flex; flex-direction: column; align-items: center; gap: 16px;
+  padding-top: 36px; padding-bottom: 8px;
+}
+.ps-label { font-size: 12.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-faint); }
+.ps-logos { display: flex; flex-wrap: wrap; gap: 26px; justify-content: center; }
+.ps-logo {
+  display: flex; align-items: center; gap: 8px;
+  opacity: 0.7; transition: opacity 0.25s;
+}
+.ps-logo:hover { opacity: 1; }
+.ps-logo img { width: 20px; height: 20px; object-fit: contain; }
+.ps-logo em { font-style: normal; font-size: 13.5px; color: var(--text-dim); font-weight: 550; }
+
+.lc-features.standalone { margin: 6px 0 10px; }
+.lc-feature { transition: all 0.3s var(--ease); }
+a.lc-feature:hover { transform: translateY(-4px); border-color: rgba(167, 139, 250, 0.45); background: var(--bg-card-hover); }
+.lf-link { color: var(--accent); font-weight: 600; font-size: 13.5px; margin-top: 6px; }
+
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.step {
+  display: flex; flex-direction: column; gap: 8px; align-items: flex-start;
+  padding: 24px 22px;
+  border: 1px solid var(--line); border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.015);
+  font-size: 14px; color: var(--text-dim);
+}
+.step b { color: var(--text); font-size: 16px; }
+.step-nr {
+  width: 30px; height: 30px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--accent-soft); color: var(--accent);
+  font-family: var(--font-display); font-weight: 700; font-size: 15px;
+}
+@media (max-width: 780px) {
+  .steps { grid-template-columns: 1fr; }
+  .ps-logos { gap: 16px; }
+}
+
 /* ── Landing-CTA (nicht angemeldet) ── */
 .landing-cta {
   border-radius: var(--radius);
