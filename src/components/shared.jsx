@@ -64,13 +64,14 @@ export function Rail({ items }) {
 
 export function PlatformButtons({ ids, links }) {
   return (
-    <div className="platforms">
+    <div className="platform-cards">
       {ids.map((p) => {
         const href = links?.[p]
+        const sub = p === 'youtube' ? 'Video ansehen →' : 'Jetzt hören →'
         return (
           <a
             key={p}
-            className="platform-btn"
+            className="platform-card"
             href={href || '#'}
             target={href ? '_blank' : undefined}
             rel={href ? 'noreferrer' : undefined}
@@ -80,8 +81,10 @@ export function PlatformButtons({ ids, links }) {
             {PLATFORMS[p].logo
               ? <img className="pf-logo" src={PLATFORMS[p].logo} alt="" />
               : <span className="pf-mark" style={{ background: PLATFORMS[p].color }}>{PLATFORMS[p].name[0]}</span>}
-            {PLATFORMS[p].name}
-            <span className="open">↗</span>
+            <span>
+              <div className="pc-name">{PLATFORMS[p].name}</div>
+              <div className="pc-sub">{sub}</div>
+            </span>
           </a>
         )
       })}

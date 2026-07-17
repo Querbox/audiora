@@ -12,6 +12,7 @@ export default function Detail() {
   const [heard, setHeard] = useState(currentUser.heard.includes(id))
   const [fav, setFav] = useState(currentUser.favorites.includes(id))
   const [liked, setLiked] = useState(currentUser.liked === id)
+  const [expanded, setExpanded] = useState(false)
 
   if (!item) return <div className="shell empty">Titel nicht gefunden.</div>
 
@@ -20,14 +21,33 @@ export default function Detail() {
   const hosts = (item.hostIds || []).map(personById)
   const similar = similarTo(item)
   const inLists = lists.filter((l) => l.itemIds.includes(item.id))
+  const listenHref = item.links?.apple || item.links?.spotify
+  const longDesc = (item.desc || '').length > 180
+
+  const stats = [
+    item.chartRank != null && { v: `🏆 Platz ${item.chartRank}`, k: 'Deutsche Podcast-Charts' },
+    item.rating != null && { v: `⭐ ${item.rating.toFixed(1).replace('.', ',')}`, k: `${(item.ratings || 0).toLocaleString('de-DE')} Bewertungen` },
+    item.episodes != null && { v: `🎙 ${item.episodes.toLocaleString('de-DE')}`, k: 'Folgen' },
+    item.duration != null && { v: `⏱ ${fmtDuration(item.duration)}`, k: item.episodes ? 'pro Folge' : 'Gesamtlänge' },
+    item.year != null && { v: `📅 ${item.year}`, k: item.episodes ? 'aktiv seit' : 'erschienen' },
+  ].filter(Boolean)
 
   return (
-    <>
+    <div className="detail-bg">
       <div className="shell detail-hero">
         <Cover item={item} showType={false} />
         <div>
-          <div className="kicker">{TYPE_LABEL[item.type]}{item.episodes ? ` · ${item.episodes} Folgen` : ''}</div>
-          <h1>{item.title}</h1>
+          <div className="kicker">{TYPE_LABEL[item.type]}{item.real ? ' · Live-Daten' : ''}</div>
+
+          <div className="title-row">
+            <h1>{item.title}</h1>
+            <div className="quick-actions">
+              <button className={`icon-btn ${heard ? 'on' : ''}`} title='Als „Gehört“ markieren' onClick={() => setHeard(!heard)}>✓</button>
+              <button className={`icon-btn ${liked ? 'on' : ''}`} title="Liken" onClick={() => setLiked(!liked)}>👍</button>
+              <button className="icon-btn" title="Mehr">⋯</button>
+            </div>
+          </div>
+
           <div className="byline">
             {author && <>von <Link to={`/person/${author.id}`}>{author.name}</Link></>}
             {!author && <>von {item.by}</>}
@@ -39,41 +59,56 @@ export default function Detail() {
             ))}</>}
           </div>
 
-          <div className="meta-row">
-            {item.rating != null && <span className="rating-big"><span className="star">★</span> {item.rating.toFixed(1)}</span>}
-            {item.ratings != null && <span>{item.ratings.toLocaleString('de-DE')} Bewertungen</span>}
-            {item.chartRank != null && <span className="rating-big">📈 Platz {item.chartRank} der deutschen Podcast-Charts</span>}
-            {item.duration != null && <span>{fmtDuration(item.duration)}{item.episodes ? ' pro Folge' : ''}</span>}
-            {item.year != null && <span>seit {item.year}</span>}
+          {stats.length > 0 && (
+            <div className="statbar">
+              {stats.map((s) => (
+                <div className="stat" key={s.k}>
+                  <span className="v">{s.v}</span>
+                  <span className="k">{s.k}</span>
+                </div>
+              ))}
+            </div>
+          )}
+
+          <div className="desc-block">
+            <p className={`desc ${longDesc && !expanded ? 'clamped' : ''}`}>{item.desc}</p>
+            {longDesc && (
+              <button className="desc-toggle" onClick={() => setExpanded(!expanded)}>
+                {expanded ? 'Weniger anzeigen ↑' : 'Mehr anzeigen ↓'}
+              </button>
+            )}
           </div>
 
-          <p className="desc">{item.desc}</p>
-
           <div className="actions">
-            <button className={`btn ${heard ? 'on' : ''}`} onClick={() => setHeard(!heard)}>
-              {heard ? '✓ Gehört' : 'Als „Gehört“ markieren'}
-            </button>
+            <a
+              className="btn cta"
+              href={listenHref || '#anhoeren'}
+              target={listenHref ? '_blank' : undefined}
+              rel={listenHref ? 'noreferrer' : undefined}
+            >
+              ▶ Jetzt anhören
+            </a>
             <button className={`btn ${fav ? 'on' : ''}`} onClick={() => setFav(!fav)}>
               {fav ? '♥ Favorit' : '♡ Favorit'}
             </button>
-            <button className={`btn ${liked ? 'on' : ''}`} onClick={() => setLiked(!liked)}>
-              {liked ? '👍 Gefällt dir' : '👍 Liken'}
-            </button>
-            <button className="btn">＋ Zu Liste hinzufügen</button>
-            <Link to={`/graph?titel=${item.id}`} className="btn primary">Im Audio Graph ansehen ✦</Link>
+            <button className="btn">＋ Sammlung</button>
+            <Link to={`/graph?titel=${item.id}`} className="btn">✦ Audio Graph</Link>
           </div>
 
-          <div className="ki-note">
-            <span className="spark">✦</span>
-            <span><b>KI-Empfehlung:</b> {explainRecommendation(item)}</span>
-          </div>
-
-          <div style={{ marginTop: 24 }}>
-            <div className="kicker" style={{ marginBottom: 10 }}>Anhören bei</div>
+          <div style={{ marginTop: 44 }} id="anhoeren">
+            <div className="kicker" style={{ marginBottom: 14 }}>Anhören bei</div>
             <PlatformButtons ids={item.platforms} links={item.links} />
           </div>
 
-          <div style={{ marginTop: 24, display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+          <div className="reco-card">
+            <div className="rc-kicker">✨ Für dich empfohlen</div>
+            <p>{explainRecommendation(item)} Basierend auf deiner Audio-DNA, <b>{currentUser.name}</b>.</p>
+            <Link to={`/suche?q=${encodeURIComponent(item.genres[0])}`} className="btn">
+              Mehr ähnliche Titel →
+            </Link>
+          </div>
+
+          <div style={{ marginTop: 40, display: 'flex', flexWrap: 'wrap', gap: 8 }}>
             {item.genres.map((g) => <Link key={g} to={`/suche?q=${encodeURIComponent(g)}`} className="chip">{g}</Link>)}
             {(item.topics || []).map((t) => <Link key={t} to={`/suche?q=${encodeURIComponent(t)}`} className="chip"># {t}</Link>)}
             {item.moods.map((m) => {
@@ -86,13 +121,24 @@ export default function Detail() {
 
       {(item.latest || []).length > 0 && (
         <Section title="Neueste Folgen" sub="Live aus dem RSS-Feed importiert.">
-          <div className="activity">
+          <div className="episodes">
             {item.latest.map((ep, i) => (
-              <div key={i} className="activity-row">
-                <span style={{ fontSize: 18 }}>🎙️</span>
-                <span className="who">{ep.title}</span>
-                <span className="when">{ep.duration ? `${ep.duration} Min. · ` : ''}{ep.date || ''}</span>
-              </div>
+              <a
+                key={i}
+                className="episode-row"
+                href={listenHref || '#'}
+                target={listenHref ? '_blank' : undefined}
+                rel={listenHref ? 'noreferrer' : undefined}
+                onClick={listenHref ? undefined : (e) => e.preventDefault()}
+              >
+                <span className="ep-play">▶</span>
+                <span className="ep-title">{ep.title}</span>
+                <span className="ep-meta">{ep.duration ? `${ep.duration} Min.` : ''}{ep.duration && ep.date ? ' · ' : ''}{ep.date || ''}</span>
+                <span className="ep-actions">
+                  <button onClick={(e) => e.preventDefault()} title="Favorit">♡</button>
+                  <button onClick={(e) => e.preventDefault()} title="Mehr">⋯</button>
+                </span>
+              </a>
             ))}
           </div>
         </Section>
@@ -111,6 +157,6 @@ export default function Detail() {
       <Section title="Das könnte dir auch gefallen" sub="Von der Audiora-KI aus dem Audio Graph abgeleitet.">
         <Rail items={similar} />
       </Section>
-    </>
+    </div>
   )
 }
