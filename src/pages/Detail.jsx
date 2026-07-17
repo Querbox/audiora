@@ -1,17 +1,32 @@
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import {
   byId, personById, similarTo, explainRecommendation, fmtDuration,
   TYPE_LABEL, MOODS, lists, currentUser,
 } from '../data.js'
 import { Cover, PlatformButtons, Section, Rail } from '../components/shared.jsx'
+import { useAuth, useUserItem } from '../auth.jsx'
 
 export default function Detail() {
   const { id } = useParams()
   const item = byId(id)
-  const [heard, setHeard] = useState(currentUser.heard.includes(id))
-  const [fav, setFav] = useState(currentUser.favorites.includes(id))
-  const [liked, setLiked] = useState(currentUser.liked === id)
+  const nav = useNavigate()
+  const { user, isConfigured, profile } = useAuth()
+  const [marks, toggleMark] = useUserItem(id)
+  // Ohne Login (bzw. im Demo-Modus) lokaler Zustand statt Datenbank
+  const [local, setLocal] = useState({
+    heard: currentUser.heard.includes(id),
+    fav: currentUser.favorites.includes(id),
+    liked: currentUser.liked === id,
+  })
+  const heard = user ? marks.heard : local.heard
+  const fav = user ? marks.fav : local.fav
+  const liked = user ? marks.liked : local.liked
+  const toggle = (field) => {
+    if (user) toggleMark(field)
+    else if (isConfigured) nav('/anmelden')
+    else setLocal((s) => ({ ...s, [field]: !s[field] }))
+  }
   const [expanded, setExpanded] = useState(false)
 
   if (!item) return <div className="shell empty">Titel nicht gefunden.</div>
@@ -44,8 +59,8 @@ export default function Detail() {
           <div className="title-row">
             <h1>{item.title}</h1>
             <div className="quick-actions">
-              <button className={`icon-btn ${heard ? 'on' : ''}`} title='Als „Gehört“ markieren' onClick={() => setHeard(!heard)}>✓</button>
-              <button className={`icon-btn ${liked ? 'on' : ''}`} title="Liken" onClick={() => setLiked(!liked)}>👍</button>
+              <button className={`icon-btn ${heard ? 'on' : ''}`} title='Als „Gehört“ markieren' onClick={() => toggle('heard')}>✓</button>
+              <button className={`icon-btn ${liked ? 'on' : ''}`} title="Liken" onClick={() => toggle('liked')}>👍</button>
               <button className="icon-btn" title="Mehr">⋯</button>
             </div>
           </div>
@@ -91,7 +106,7 @@ export default function Detail() {
             >
               ▶ Jetzt anhören
             </a>
-            <button className={`btn ${fav ? 'on' : ''}`} onClick={() => setFav(!fav)}>
+            <button className={`btn ${fav ? 'on' : ''}`} onClick={() => toggle('fav')}>
               {fav ? '♥ Favorit' : '♡ Favorit'}
             </button>
             <button className="btn">＋ Sammlung</button>
@@ -105,7 +120,7 @@ export default function Detail() {
 
           <div className="reco-card">
             <div className="rc-kicker">✨ Für dich empfohlen</div>
-            <p>{explainRecommendation(item)} Basierend auf deiner Audio-DNA, <b>{currentUser.name}</b>.</p>
+            <p>{explainRecommendation(item)} Basierend auf deiner Audio-DNA, <b>{profile?.username || currentUser.name}</b>.</p>
             <Link to={`/suche?q=${encodeURIComponent(item.genres[0])}`} className="btn">
               Mehr ähnliche Titel →
             </Link>

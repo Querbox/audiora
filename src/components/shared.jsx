@@ -1,6 +1,7 @@
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { PLATFORMS, TYPE_LABEL, fmtDuration, currentUser } from '../data.js'
+import { useAuth } from '../auth.jsx'
 
 // Cover: echtes Artwork (importierte Podcasts) oder Gradient + Emoji (kuratiert)
 export function Cover({ item, className = '', showType = true }) {
@@ -116,6 +117,9 @@ export function SearchBar({ big = false, initial = '' }) {
 }
 
 export function Navbar() {
+  const { user, profile, signOut, isConfigured } = useAuth()
+  const name = profile?.username || user?.email?.split('@')[0]
+
   return (
     <nav className="nav">
       <div className="shell nav-inner">
@@ -129,10 +133,22 @@ export function Navbar() {
           <NavLink to="/dna">Meine Audio-DNA</NavLink>
         </div>
         <div className="nav-spacer" />
-        <Link to="/dna" className="nav-user">
-          <span>{currentUser.handle}</span>
-          <span className="avatar">{currentUser.name[0]}</span>
-        </Link>
+        {user ? (
+          <span className="nav-user">
+            <Link to="/dna" className="nav-user" title="Mein Profil">
+              <span>@{name}</span>
+              <span className="avatar">{(name || '?')[0].toUpperCase()}</span>
+            </Link>
+            <button className="nav-logout" onClick={signOut} title="Abmelden">Abmelden</button>
+          </span>
+        ) : isConfigured ? (
+          <Link to="/anmelden" className="btn nav-login">Anmelden</Link>
+        ) : (
+          <Link to="/dna" className="nav-user" title="Demo-Profil">
+            <span>{currentUser.handle}</span>
+            <span className="avatar">{currentUser.name[0]}</span>
+          </Link>
+        )}
       </div>
     </nav>
   )

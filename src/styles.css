@@ -563,6 +563,41 @@ a.chip:hover, button.chip:hover { color: var(--text); border-color: rgba(167,139
 .activity-row .who { font-weight: 600; }
 .activity-row .when { margin-left: auto; color: var(--text-faint); font-size: 13px; white-space: nowrap; }
 
+/* ── Auth ── */
+.auth-wrap { display: grid; place-items: center; min-height: 70vh; padding: 60px 0; }
+.auth-card {
+  width: 100%; max-width: 440px;
+  background: var(--bg-card); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 36px;
+  box-shadow: var(--shadow);
+}
+.auth-card h1 { font-size: 30px; font-weight: 700; margin: 6px 0 4px; }
+.auth-sub { color: var(--text-dim); font-size: 14.5px; margin-bottom: 22px; }
+.auth-sub code { background: rgba(255,255,255,0.06); border-radius: 6px; padding: 2px 6px; font-size: 13px; }
+.auth-form { display: flex; flex-direction: column; gap: 16px; }
+.auth-form label { display: flex; flex-direction: column; gap: 6px; font-size: 13.5px; font-weight: 600; color: var(--text-dim); }
+.auth-form input {
+  background: var(--bg-elev); border: 1px solid var(--line);
+  border-radius: var(--radius-sm); padding: 12px 14px;
+  color: var(--text); font-family: inherit; font-size: 15px;
+  outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+}
+.auth-form input:focus { border-color: rgba(167,139,250,0.5); box-shadow: 0 0 0 3px rgba(124,92,255,0.12); }
+.auth-form .btn.cta { justify-content: center; width: 100%; }
+.auth-error {
+  background: rgba(244, 63, 94, 0.1); border: 1px solid rgba(244, 63, 94, 0.35);
+  color: #fda4af; border-radius: var(--radius-sm); padding: 10px 14px; font-size: 13.5px;
+}
+.auth-info {
+  background: rgba(52, 211, 153, 0.08); border: 1px solid rgba(52, 211, 153, 0.3);
+  color: #6ee7b7; border-radius: var(--radius-sm); padding: 10px 14px; font-size: 13.5px;
+}
+.auth-switch { margin-top: 18px; color: var(--accent); font-size: 13.5px; font-weight: 600; }
+.auth-switch:hover { text-decoration: underline; }
+.nav-login { padding: 9px 18px; font-size: 14px; }
+.nav-logout { color: var(--text-faint); font-size: 12.5px; margin-left: 10px; }
+.nav-logout:hover { color: var(--text); }
+
 /* ── Footer ── */
 footer {
   margin-top: 70px; border-top: 1px solid var(--line);

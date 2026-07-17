@@ -1,12 +1,14 @@
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
 import { Navbar, Footer } from './components/shared.jsx'
+import { AuthProvider } from './auth.jsx'
 import Home from './pages/Home.jsx'
 import Search from './pages/Search.jsx'
 import Detail from './pages/Detail.jsx'
 import Person from './pages/Person.jsx'
 import Graph from './pages/Graph.jsx'
 import Dna from './pages/Dna.jsx'
+import Login from './pages/Login.jsx'
 import { ListsOverview, ListDetail } from './pages/Lists.jsx'
 
 function ScrollToTop() {
@@ -17,7 +19,7 @@ function ScrollToTop() {
 
 export default function App() {
   return (
-    <>
+    <AuthProvider>
       <ScrollToTop />
       <Navbar />
       <main>
@@ -30,9 +32,10 @@ export default function App() {
           <Route path="/listen" element={<ListsOverview />} />
           <Route path="/listen/:id" element={<ListDetail />} />
           <Route path="/dna" element={<Dna />} />
+          <Route path="/anmelden" element={<Login />} />
         </Routes>
       </main>
       <Footer />
-    </>
+    </AuthProvider>
   )
 }

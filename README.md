@@ -63,6 +63,23 @@ dasselbe Audio-Objekt (siehe `src/data.js`) – neue Inhaltstypen sind nur ein w
 Der langfristige Wert liegt in dem, was APIs *nicht* liefern: Bewertungen, Community-Listen,
 Audio-DNA, KI-Tags und der Audio Graph.
 
+## Nutzerkonten (Supabase)
+
+Registrierung, Login, Favoriten, Gehört-Markierungen, Likes und die daraus live
+berechnete Audio-DNA laufen über [Supabase](https://supabase.com) (kostenloser Tier reicht).
+Einrichtung in 3 Schritten:
+
+1. **Schema anlegen:** Inhalt von `supabase/schema.sql` im Dashboard unter
+   *SQL Editor → New query* ausführen (Profile, User-Items, RLS-Policies, Signup-Trigger).
+2. **Credentials eintragen:** In `src/supabase-config.js` die Project-URL und den
+   Anon-Key aus *Project Settings → API* einsetzen (der Anon-Key darf öffentlich sein,
+   Row-Level-Security schützt alle Daten), dann committen/deployen.
+3. **Redirect-URL setzen:** Unter *Authentication → URL Configuration* als Site URL
+   `https://querbox.github.io/audiora/` eintragen, damit Bestätigungs-Mails korrekt
+   zurückführen.
+
+Ohne Konfiguration läuft die Seite im Demo-Modus (Beispiel-Profil, lokale Buttons).
+
 ## Deployment
 
 Jeder Push auf `main` baut die App via GitHub Actions und veröffentlicht sie auf GitHub Pages
