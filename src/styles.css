@@ -718,6 +718,9 @@ a.chip:hover, button.chip:hover { color: var(--text); border-color: rgba(167,139
 .lc-feature b { color: var(--text); font-size: 15px; }
 .lf-icon { font-size: 26px; }
 .lc-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.lc-try { margin-top: 18px; font-size: 13.5px; color: var(--text-faint); }
+.lc-try a { color: var(--accent); font-weight: 600; }
+.lc-try a:hover { text-decoration: underline; }
 @media (max-width: 780px) {
   .landing-cta { padding: 28px 20px; }
   .lc-features { grid-template-columns: 1fr; }
@@ -777,9 +780,34 @@ footer {
   .dna-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 780px) {
-  .shell { padding: 0 18px; }
+  .shell { padding: 0 20px; }
   .nav-links { display: none; }
-  .moods { grid-template-columns: repeat(3, 1fr); }
+
+  /* Mehr Luft: großzügiger vertikaler Rhythmus auf Mobil */
+  .hero { padding: 56px 0 26px; }
+  .hero p.sub { margin-top: 18px; }
+  .searchbar { margin-top: 30px; }
+  .search-hints { margin-top: 20px; gap: 10px; }
+  .hint-chip { padding: 8px 16px; }
+  .section { padding: 52px 0 16px; }
+  .section-head { margin-bottom: 22px; }
+  .section-sub { margin-top: 4px; }
+  .rail { gap: 14px; padding-bottom: 16px; }
+  .tcard { gap: 12px; }
+  .moods { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .mood-card { padding: 20px 8px 16px; gap: 10px; }
+  .continue-card { padding: 18px; }
+  .list-grid { gap: 16px; }
+  .page-head { padding: 44px 0 10px; }
+  .page-head p { margin-top: 10px; }
+  .actions { gap: 10px; margin-top: 30px; }
+  .desc-block { margin-top: 24px; }
+  .statbar { margin-top: 24px; }
+  .platform-cards { gap: 10px; }
+  .reco-card { margin-top: 34px; padding: 22px 20px; }
+  .episodes .episode-row { padding: 16px 18px; }
+  .profile-head { gap: 20px; padding-top: 40px; }
+  footer { margin-top: 56px; padding: 36px 0 84px; }
   .rail { grid-auto-columns: calc((100% - 16px) / 2.2); }
   .results-grid { grid-template-columns: repeat(2, 1fr); }
   .continue-row { grid-template-columns: 1fr; }

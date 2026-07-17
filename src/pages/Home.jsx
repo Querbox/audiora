@@ -66,6 +66,10 @@ function LandingCta() {
           <Link to="/anmelden" className="btn cta">Kostenlos registrieren</Link>
           <Link to="/anmelden" className="btn">Schon dabei? Anmelden</Link>
         </div>
+        <div className="lc-try">
+          Erst mal ausprobieren?{' '}
+          <Link to="/dna">🧬 Audio-DNA-Vorschau</Link> · <Link to="/graph">✦ Audio Graph</Link>
+        </div>
       </div>
     </section>
   )

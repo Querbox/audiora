@@ -62,19 +62,59 @@ export default function Dna() {
   const { user, profile, loading } = useAuth()
   const library = useUserLibrary()
 
-  // Ohne Login gibt es keine Audio-DNA – das ist ein persönlicher Bereich
+  // Ohne Login: vollwertige, klar gekennzeichnete Vorschau des Features
   if (!user) {
     if (loading) return <div className="shell empty">Lädt…</div>
+    const previewDna = [
+      { trait: 'Story Explorer', value: 92 },
+      { trait: 'Fantasy-Fan', value: 88 },
+      { trait: 'Sci-Fi-Fan', value: 83 },
+      { trait: 'Night Listener', value: 74 },
+      { trait: 'Wissenssammler', value: 61 },
+      { trait: 'True-Crime-Fan', value: 55 },
+    ]
     return (
-      <div className="shell auth-wrap">
-        <div className="auth-card" style={{ textAlign: 'center' }}>
-          <div style={{ fontSize: 44 }}>🧬</div>
-          <h1>Deine Audio-DNA</h1>
-          <p className="auth-sub">
-            Die Audio-DNA entsteht aus dem, was du hörst, markierst und sammelst.
-            Melde dich an, um deine persönliche Analyse aufzubauen.
-          </p>
-          <Link to="/anmelden" className="btn cta" style={{ justifyContent: 'center' }}>Kostenlos registrieren</Link>
+      <div className="shell">
+        <div className="profile-head">
+          <div className="profile-ava" style={{ background: 'linear-gradient(135deg, #7c5cff, #c4b5fd)' }}>🧬</div>
+          <div>
+            <div className="kicker">Feature-Vorschau</div>
+            <h1 style={{ fontSize: 'clamp(28px,4vw,42px)', fontWeight: 700 }}>Deine Audio-DNA</h1>
+            <p style={{ color: 'var(--text-dim)', marginTop: 8, maxWidth: 600 }}>
+              Audiora analysiert automatisch, was du hörst, markierst und sammelst – und macht
+              deinen Geschmack sichtbar. <b style={{ color: 'var(--text)' }}>So könnte deine DNA aussehen:</b>
+            </p>
+            <div style={{ display: 'flex', gap: 8, marginTop: 14, flexWrap: 'wrap' }}>
+              {previewDna.slice(0, 3).map((d) => (
+                <span key={d.trait} className="chip accent">✦ {d.trait}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="dna-grid preview-blur">
+          <DnaRadar dna={previewDna} />
+          <div className="dna-bars">
+            {previewDna.map((d, i) => (
+              <div className="dna-bar" key={d.trait}>
+                <div className="lbl"><b>{d.trait}</b><span>{d.value} %</span></div>
+                <div className="dna-track"><i style={{ width: `${d.value}%`, animationDelay: `${i * 0.08}s` }} /></div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="claim-banner" style={{ marginTop: 10 }}>
+          <span>
+            Das ist ein <b>Beispiel</b>. Deine echte Audio-DNA entsteht aus deinen eigenen
+            Favoriten, Markierungen und Listen – kostenlos und automatisch.
+          </span>
+          <Link to="/anmelden" className="btn primary">Kostenlos registrieren</Link>
+        </div>
+
+        <div className="actions" style={{ marginTop: 26, marginBottom: 50 }}>
+          <Link to="/graph" className="btn">✦ Auch cool: der Audio Graph</Link>
+          <Link to="/listen" className="btn">📚 Community-Listen ansehen</Link>
         </div>
       </div>
     )
@@ -108,6 +148,10 @@ export default function Dna() {
               {!empty && top.slice(0, 3).map((d) => (
                 <span key={d.trait} className="chip accent">✦ {d.trait}</span>
               ))}
+            </div>
+            <div className="actions" style={{ marginTop: 18 }}>
+              {profile?.username && <Link to={`/hoerer/${profile.username}`} className="btn">👤 Mein öffentliches Profil</Link>}
+              <Link to="/listen" className="btn">📚 Listen & Community</Link>
             </div>
           </div>
         </div>

@@ -135,7 +135,6 @@ export function Navbar() {
         <div className="nav-links">
           <NavLink to="/" end>Entdecken</NavLink>
           <NavLink to="/graph">Audio Graph</NavLink>
-          <NavLink to="/listen">Listen</NavLink>
           <NavLink to="/dna">Meine Audio-DNA</NavLink>
         </div>
         <div className="nav-spacer" />
