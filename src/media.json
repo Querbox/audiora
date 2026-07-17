@@ -1,0 +1,19 @@
+{
+  "covers": {
+    "dune": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/86/b9/16/86b91637-1544-2a19-a2ea-34c7033d0bb5/9783837153569.jpg/600x600bb.jpg",
+    "herr-der-ringe": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/d1/30/24/d13024b3-57f9-af96-8841-7cb8782b5027/9783844507164.jpg/600x600bb.jpg",
+    "tintenherz": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/d2/07/6d/d2076d33-71a0-2c4f-e6bf-daa5b5ab286c/cover.jpg/600x600bb.jpg",
+    "harry-erwachsen": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/1c/23/31/1c233197-a693-cfb3-0f43-6dbf2a3413c4/9783844508031.jpg/600x600bb.jpg",
+    "augenzeuge": "https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/8d/76/5d/8d765d59-d745-ed64-9097-d761a7a7d87a/rm_image.jpg/600x600bb.jpg",
+    "drachenreiter": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/3c/57/91/3c579115-0d9f-b58c-c9dc-47251d33f136/4260470420395_3000.jpg/600x600bb.jpg",
+    "drei-fragezeichen": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/ff/0b/2e/ff0b2e73-7d6b-e5d7-c050-07c0f48bb512/4064066048549.jpg/600x600bb.jpg"
+  },
+  "people": {
+    "p-rufus": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Rufus_Beck%2C_Frankfurter_Buchmesse_2023.jpg/330px-Rufus_Beck%2C_Frankfurter_Buchmesse_2023.jpg",
+    "p-funke": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Cornelia_Funke%2C_Frankfurter_Buchmesse_2023.jpg/330px-Cornelia_Funke%2C_Frankfurter_Buchmesse_2023.jpg",
+    "p-fitzek": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/MJK58351_Sebastian_Fitzek.jpg/330px-MJK58351_Sebastian_Fitzek.jpg",
+    "p-herbert": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Frank_Herbert_1984_%28square%29.jpg/330px-Frank_Herbert_1984_%28square%29.jpg",
+    "p-tolkien": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/J._R._R._Tolkien%2C_ca._1925.jpg/330px-J._R._R._Tolkien%2C_ca._1925.jpg",
+    "p-nachtmann": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Jenny_Rogneby_Julia_Nachtmann_2015.JPG/330px-Jenny_Rogneby_Julia_Nachtmann_2015.JPG"
+  }
+}

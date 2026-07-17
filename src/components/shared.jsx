@@ -77,7 +77,10 @@ export function PlatformButtons({ ids, links }) {
             onClick={href ? undefined : (e) => e.preventDefault()}
             title={`Bei ${PLATFORMS[p].name} öffnen`}
           >
-            <span>{PLATFORMS[p].icon}</span> {PLATFORMS[p].name}
+            {PLATFORMS[p].logo
+              ? <img className="pf-logo" src={PLATFORMS[p].logo} alt="" />
+              : <span className="pf-mark" style={{ background: PLATFORMS[p].color }}>{PLATFORMS[p].name[0]}</span>}
+            {PLATFORMS[p].name}
             <span className="open">↗</span>
           </a>
         )

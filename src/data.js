@@ -4,16 +4,18 @@
 // erzeugt von scripts/import-podcasts.mjs. Hörbücher/Hörspiele sind kuratiert.
 
 import realPodcasts from './real-podcasts.json'
+import media from './media.json'
 
+// Logos: echte Markenlogos via simple-icons-CDN, sonst Lettermark in Markenfarbe
 export const PLATFORMS = {
-  spotify:   { name: 'Spotify',        icon: '🟢' },
-  audible:   { name: 'Audible',        icon: '🟠' },
-  apple:     { name: 'Apple Podcasts', icon: '🟣' },
-  youtube:   { name: 'YouTube',        icon: '🔴' },
-  ard:       { name: 'ARD Audiothek',  icon: '🔵' },
-  podimo:    { name: 'Podimo',         icon: '⚫️' },
-  bookbeat:  { name: 'BookBeat',       icon: '🟡' },
-  nextory:   { name: 'Nextory',        icon: '⚪️' },
+  spotify:   { name: 'Spotify',        logo: 'https://cdn.simpleicons.org/spotify/1DB954' },
+  audible:   { name: 'Audible',        logo: 'https://cdn.simpleicons.org/audible/F8991C' },
+  apple:     { name: 'Apple Podcasts', logo: 'https://cdn.simpleicons.org/applepodcasts/9933CC' },
+  youtube:   { name: 'YouTube',        logo: 'https://cdn.simpleicons.org/youtube/FF0000' },
+  ard:       { name: 'ARD Audiothek',  color: '#0f4ea3' },
+  podimo:    { name: 'Podimo',         color: '#5a31f4' },
+  bookbeat:  { name: 'BookBeat',       color: '#f5c518' },
+  nextory:   { name: 'Nextory',        color: '#e6455a' },
 }
 
 export const TYPE_LABEL = {
@@ -116,12 +118,12 @@ export const curated = [
     desc: 'Schwarze Löcher, Dunkle Materie, Exoplaneten: Prof. Anna Lauer erklärt das Universum in 35 Minuten – verständlich und präzise.',
   },
   {
-    id: 'drei-fragezeichen', type: 'hoerspiel', title: 'Die drei ??? und der dunkle Wächter', by: 'Europa',
+    id: 'drei-fragezeichen', type: 'hoerspiel', title: 'Die drei ??? – Folge 2: Das Geisterschloss', by: 'Europa',
     speakerIds: [], year: 2024, duration: 72,
     rating: 4.4, ratings: 6800, hue: 205, emoji: '❓',
     genres: ['Krimi', 'Kinder'], moods: ['spannend'], situations: ['autofahrt', 'einschlafen'],
     topics: ['Detektive', 'Rocky Beach'], platforms: ['spotify', 'apple', 'youtube', 'bookbeat'],
-    desc: 'Justus, Peter und Bob ermitteln wieder – das dienstälteste Hörspiel-Trio Deutschlands in Bestform.',
+    desc: 'Justus, Peter und Bob ermitteln im Geisterschloss – ein Klassiker des dienstältesten Hörspiel-Trios Deutschlands.',
   },
   {
     id: 'sandmann-reisen', type: 'einschlafen', title: 'Sternenreisen – Einschlafgeschichten', by: 'Mara Weidner',
@@ -201,6 +203,10 @@ export const curated = [
   },
 ]
 
+// Echte Cover (iTunes) und Personenfotos (Wikipedia) aus media.json anreichern
+curated.forEach((i) => { if (media.covers[i.id]) i.image = media.covers[i.id] })
+people.forEach((p) => { if (media.people[p.id]) p.image = media.people[p.id] })
+
 // Echte Top-Podcasts + kuratierte Titel = ein einheitliches Datenmodell
 export const items = [...realPodcasts, ...curated]
 
@@ -215,20 +221,20 @@ export const lists = [
   { id: 'l-auto',      title: 'Beste Podcasts für Autofahrten', curator: 'Miriam K.', likes: 1240, itemIds: ['dunkle-akten', 'kosmos', 'gruenderzeit', 'lachlabor', 'zeitreise'] },
   { id: 'l-schlaf',    title: 'Hörbücher zum Einschlafen', curator: 'Nachtmensch', likes: 980, itemIds: ['sandmann-reisen', 'tintenherz', 'drachenreiter', 'doku-tiefsee'] },
   { id: 'l-hoerspiel', title: 'Die spannendsten Hörspiele', curator: 'HörspielHeld', likes: 860, itemIds: ['stimmen-der-nacht', 'drei-fragezeichen'] },
-  { id: 'l-gruender',  title: 'Podcasts für Gründer', curator: 'Jana F.', likes: 720, itemIds: ['gruenderzeit', 'kosmos'] },
+  { id: 'l-gruender',  title: 'Podcasts für Gründer', curator: 'Fabian', likes: 720, itemIds: ['gruenderzeit', 'kosmos'] },
   { id: 'l-unterschaetzt', title: 'Unterschätzte Hörbücher', curator: 'Leiselauscher', likes: 640, itemIds: ['harry-erwachsen', 'augenzeuge', 'dune'] },
 ]
 
 // ── Aktueller Nutzer ────────────────────────────────────────────────────
 export const currentUser = {
-  name: 'Jana',
-  handle: '@jana',
+  name: 'Fabian',
+  handle: '@fabian',
   dna: [
     { trait: 'Story Explorer', value: 92 },
     { trait: 'Fantasy-Fan', value: 88 },
     { trait: 'Night Listener', value: 74 },
     { trait: 'Wissenssammler', value: 61 },
-    { trait: 'True-Crime-Liebhaberin', value: 55 },
+    { trait: 'True-Crime-Liebhaber', value: 55 },
     { trait: 'Sci-Fi-Fan', value: 83 },
   ],
   favorites: ['dune', 'tintenherz', 'kosmos'],

@@ -41,7 +41,7 @@ export default function Search() {
           {persons.map((p) => (
             <Link key={p.id} to={`/person/${p.id}`} className="person-card">
               <span className="person-ava" style={{ background: `linear-gradient(135deg, hsl(${p.hue} 70% 70%), hsl(${p.hue + 40} 60% 55%))` }}>
-                {p.name[0]}
+                {p.image ? <img src={p.image} alt={p.name} /> : p.name[0]}
               </span>
               <span>
                 <div className="pn">{p.name}</div>

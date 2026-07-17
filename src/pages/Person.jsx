@@ -22,7 +22,9 @@ export default function Person() {
             className="profile-ava"
             style={{ background: `linear-gradient(135deg, hsl(${p.hue} 70% 72%), hsl(${p.hue + 45} 60% 52%))` }}
           >
-            {p.name.split(' ').map((w) => w[0]).slice(0, 2).join('')}
+            {p.image
+              ? <img src={p.image} alt={p.name} />
+              : p.name.split(' ').map((w) => w[0]).slice(0, 2).join('')}
           </div>
           <div>
             <div className="kicker">{p.role}-Profil</div>
