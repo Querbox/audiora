@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
-import { lists as demoLists, byId, currentUser } from '../data.js'
+import { byId } from '../data.js'
 import { Cover, TitleCard } from '../components/shared.jsx'
 import { useAuth } from '../auth.jsx'
 import {
@@ -138,30 +138,10 @@ export function ListsOverview() {
         </>
       )}
       {dbLists && dbLists.length === 0 && !schemaMissing && (
-        <p style={{ color: 'var(--text-faint)', margin: '24px 0' }}>
+        <p style={{ color: 'var(--text-faint)', margin: '24px 0 60px' }}>
           Noch keine Community-Listen – erstelle die allererste! 🎉
         </p>
       )}
-
-      <div className="section-head" style={{ marginTop: 28 }}>
-        <h2>Von der Redaktion</h2>
-      </div>
-      <div className="list-grid">
-        {demoLists.map((l) => <ListCard key={l.id} list={l} onChange={() => {}} />)}
-      </div>
-
-      <div className="section" style={{ padding: '10px 0 50px' }}>
-        <div className="section-head"><h2>Aktivitäten von Menschen, denen du folgst</h2></div>
-        <div className="activity">
-          {currentUser.activity.map((a, i) => (
-            <div key={i} className="activity-row">
-              <span className="avatar" style={{ background: `hsl(${(i * 90 + 200) % 360} 60% 65%)` }}>{a.user[0]}</span>
-              <span><span className="who">{a.user}</span> {a.action}</span>
-              <span className="when">{a.when}</span>
-            </div>
-          ))}
-        </div>
-      </div>
     </div>
   )
 }
@@ -170,20 +150,19 @@ export function ListDetail() {
   const { id } = useParams()
   const nav = useNavigate()
   const { user, isConfigured } = useAuth()
-  const demo = demoLists.find((l) => l.id === id)
   const [dbList, setDbList] = useState(undefined) // undefined=lädt, null=nicht gefunden
   const [schemaMissing, setSchemaMissing] = useState(false)
 
   useEffect(() => {
-    if (demo || !isConfigured) { setDbList(null); return }
+    if (!isConfigured) { setDbList(null); return }
     fetchList(id)
       .then(setDbList)
       .catch((e) => { if (isMissingSchema(e)) setSchemaMissing(true); setDbList(null) })
   }, [id, isConfigured])
 
-  const list = demo || dbList
+  const list = dbList
   if (schemaMissing) return <div className="shell"><SchemaHint /></div>
-  if (dbList === undefined && !demo) return <div className="shell empty">Lädt…</div>
+  if (dbList === undefined) return <div className="shell empty">Lädt…</div>
   if (!list) return <div className="shell empty">Liste nicht gefunden.</div>
 
   const isOwner = list.db && user && list.ownerId === user.id
@@ -198,7 +177,7 @@ export function ListDetail() {
   return (
     <div className="shell">
       <div className="page-head">
-        <div className="kicker">{list.db ? 'Community-Liste' : 'Redaktions-Liste'}</div>
+        <div className="kicker">Community-Liste</div>
         <h1>{list.title}</h1>
         {list.description && <p>{list.description}</p>}
         <p>

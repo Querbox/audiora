@@ -1,6 +1,6 @@
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
-import { PLATFORMS, TYPE_LABEL, fmtDuration, currentUser } from '../data.js'
+import { PLATFORMS, TYPE_LABEL, fmtDuration } from '../data.js'
 import { useAuth } from '../auth.jsx'
 
 // Cover: echtes Artwork (importierte Podcasts) oder Gradient + Emoji (kuratiert)
@@ -147,13 +147,8 @@ export function Navbar() {
             </Link>
             <button className="nav-logout" onClick={signOut} title="Abmelden">Abmelden</button>
           </span>
-        ) : isConfigured ? (
-          <Link to="/anmelden" className="btn nav-login">Anmelden</Link>
         ) : (
-          <Link to="/dna" className="nav-user" title="Demo-Profil">
-            <span>{currentUser.handle}</span>
-            <span className="avatar">{currentUser.name[0]}</span>
-          </Link>
+          <Link to="/anmelden" className="btn nav-login">Anmelden</Link>
         )}
       </div>
     </nav>

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { currentUser, byId } from '../data.js'
+import { byId } from '../data.js'
 import { Section, Rail } from '../components/shared.jsx'
 import { useAuth, useUserLibrary } from '../auth.jsx'
 
@@ -59,19 +59,36 @@ function computeDna(items) {
 }
 
 export default function Dna() {
-  const { user, profile, isConfigured } = useAuth()
+  const { user, profile, loading } = useAuth()
   const library = useUserLibrary()
 
-  const isLive = Boolean(user && library)
-  const libItems = isLive ? library.map((r) => ({ ...r, item: byId(r.item_id) })).filter((r) => r.item) : []
-  const favs = isLive ? libItems.filter((r) => r.fav).map((r) => r.item) : currentUser.favorites.map(byId)
-  const heard = isLive ? libItems.filter((r) => r.heard).map((r) => r.item) : currentUser.heard.map(byId)
-  const marked = isLive ? libItems.map((r) => r.item) : [...favs, ...heard]
+  // Ohne Login gibt es keine Audio-DNA – das ist ein persönlicher Bereich
+  if (!user) {
+    if (loading) return <div className="shell empty">Lädt…</div>
+    return (
+      <div className="shell auth-wrap">
+        <div className="auth-card" style={{ textAlign: 'center' }}>
+          <div style={{ fontSize: 44 }}>🧬</div>
+          <h1>Deine Audio-DNA</h1>
+          <p className="auth-sub">
+            Die Audio-DNA entsteht aus dem, was du hörst, markierst und sammelst.
+            Melde dich an, um deine persönliche Analyse aufzubauen.
+          </p>
+          <Link to="/anmelden" className="btn cta" style={{ justifyContent: 'center' }}>Kostenlos registrieren</Link>
+        </div>
+      </div>
+    )
+  }
 
-  const name = isLive ? (profile?.username || 'du') : currentUser.name
-  const dna = isLive && marked.length > 0 ? computeDna(marked) : currentUser.dna
+  const libItems = (library || []).map((r) => ({ ...r, item: byId(r.item_id) })).filter((r) => r.item)
+  const favs = libItems.filter((r) => r.fav).map((r) => r.item)
+  const heard = libItems.filter((r) => r.heard).map((r) => r.item)
+  const marked = libItems.map((r) => r.item)
+
+  const name = profile?.username || 'du'
+  const dna = marked.length > 0 ? computeDna(marked) : []
   const top = [...dna].sort((a, b) => b.value - a.value)
-  const empty = isLive && marked.length === 0
+  const empty = marked.length === 0
 
   return (
     <>
@@ -81,7 +98,7 @@ export default function Dna() {
             {name[0].toUpperCase()}
           </div>
           <div>
-            <div className="kicker">Hörer-Profil{isLive ? ' · Live' : isConfigured ? '' : ' · Demo'}</div>
+            <div className="kicker">Hörer-Profil · Live</div>
             <h1 style={{ fontSize: 'clamp(28px,4vw,42px)', fontWeight: 700 }}>{name[0].toUpperCase() + name.slice(1)}s Audio-DNA</h1>
             <p style={{ color: 'var(--text-dim)', marginTop: 8, maxWidth: 600 }}>
               Deine Audio-DNA entsteht automatisch aus dem, was du hörst, bewertest und speicherst.
@@ -94,13 +111,6 @@ export default function Dna() {
             </div>
           </div>
         </div>
-
-        {!user && isConfigured && (
-          <div className="claim-banner">
-            <span>Melde dich an, um deine echte Audio-DNA aufzubauen – Favoriten, Gehört-Markierungen und Likes werden dann dauerhaft gespeichert.</span>
-            <Link to="/anmelden" className="btn primary">Anmelden</Link>
-          </div>
-        )}
 
         {empty ? (
           <div className="claim-banner">
@@ -129,9 +139,7 @@ export default function Dna() {
             <span className="spark">✦</span>
             <span>
               <b>Deine KI-Analyse:</b>{' '}
-              {isLive
-                ? `Deine DNA basiert auf ${marked.length} markierten Titeln. ${top[0].value > 50 ? `Am stärksten ausgeprägt: ${top[0].trait}.` : 'Markiere mehr Titel, um dein Profil zu schärfen.'}`
-                : 'Du liebst lange, erzählerische Welten – vor allem Fantasy und Science-Fiction – und hörst am liebsten abends. Ruhige Stimmen halten dich bei der Stange, True Crime darf es sein, solange es unaufgeregt bleibt.'}
+              {`Deine DNA basiert auf ${marked.length} markierten Titeln. ${top[0].value > 50 ? `Am stärksten ausgeprägt: ${top[0].trait}.` : 'Markiere mehr Titel, um dein Profil zu schärfen.'}`}
             </span>
           </div>
         )}

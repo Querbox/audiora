@@ -90,7 +90,7 @@ export function useUserLibrary() {
     if (!supabase || !user) { setRows(null); return }
     supabase
       .from('user_items')
-      .select('item_id, fav, heard, liked')
+      .select('item_id, fav, heard, liked, updated_at')
       .eq('user_id', user.id)
       .then(({ data }) => setRows(data || []))
   }, [user])

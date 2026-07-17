@@ -1,6 +1,10 @@
+import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { MOODS, GENRES, items, lists, currentUser, byId, fmtDuration, PLATFORMS } from '../data.js'
+import { MOODS, GENRES, items, byId, similarTo } from '../data.js'
 import { SearchBar, Section, Rail, Cover } from '../components/shared.jsx'
+import { useAuth, useUserLibrary } from '../auth.jsx'
+import { getRecent } from '../lib/recent.js'
+import { fetchCommunityLists } from '../lib/community.js'
 
 const HINTS = [
   'Ich suche etwas Spannendes für eine Stunde Autofahrt.',
@@ -10,36 +14,89 @@ const HINTS = [
   'Podcasts über Startups.',
 ]
 
-function ContinueRow() {
+// Empfehlungen aus den echten Markierungen des Nutzers ableiten
+function personalRecs(rows) {
+  const marked = rows.map((r) => byId(r.item_id)).filter(Boolean)
+  if (!marked.length) return []
+  const gCount = {}, mCount = {}
+  marked.forEach((i) => {
+    ;(i.genres || []).forEach((g) => { gCount[g] = (gCount[g] || 0) + 1 })
+    ;(i.moods || []).forEach((m) => { mCount[m] = (mCount[m] || 0) + 1 })
+  })
+  const markedIds = new Set(rows.map((r) => r.item_id))
+  return items
+    .filter((i) => !markedIds.has(i.id))
+    .map((i) => [
+      i,
+      (i.genres || []).reduce((s, g) => s + (gCount[g] || 0), 0) * 2 +
+      (i.moods || []).reduce((s, m) => s + (mCount[m] || 0), 0),
+    ])
+    .filter(([, s]) => s > 0)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 8)
+    .map(([i]) => i)
+}
+
+function LandingCta() {
   return (
-    <div className="continue-row">
-      {currentUser.continue.map((c) => {
-        const item = byId(c.itemId)
-        return (
-          <div className="continue-card" key={c.itemId}>
-            <Link to={`/titel/${item.id}`}><Cover item={item} className="sm" showType={false} /></Link>
-            <div className="continue-info">
-              <Link to={`/titel/${item.id}`} className="t" style={{ display: 'block' }}>{item.title}</Link>
-              <div className="m">{c.progress} % gehört · Zuletzt {c.last} gehört{c.episode ? ` · ${c.episode}` : ''}</div>
-              <div className="progress"><i style={{ width: `${c.progress}%` }} /></div>
-              <a className="continue-cta" href="#" onClick={(e) => e.preventDefault()}>
-                Bei {PLATFORMS[c.platform].name} fortsetzen →
-              </a>
-            </div>
+    <section className="section shell">
+      <div className="landing-cta">
+        <div className="lc-head">
+          <h2>Deine persönliche Audio-Welt</h2>
+        <p>Kostenlos registrieren und aus Audiora deine Zentrale für alles Hörbare machen.</p>
+        </div>
+        <div className="lc-features">
+          <div className="lc-feature">
+            <span className="lf-icon">🧬</span>
+            <b>Audio-DNA</b>
+            <span>Dein Geschmack, automatisch analysiert und sichtbar gemacht.</span>
           </div>
-        )
-      })}
-    </div>
+          <div className="lc-feature">
+            <span className="lf-icon">📚</span>
+            <b>Listen & Community</b>
+            <span>Sammle Favoriten, erstelle Listen und folge anderen Hörern.</span>
+          </div>
+          <div className="lc-feature">
+            <span className="lf-icon">✦</span>
+            <b>Empfehlungen</b>
+            <span>Vorschläge, die zu dir passen – erklärbar statt Blackbox.</span>
+          </div>
+        </div>
+        <div className="lc-actions">
+          <Link to="/anmelden" className="btn cta">Kostenlos registrieren</Link>
+          <Link to="/anmelden" className="btn">Schon dabei? Anmelden</Link>
+        </div>
+      </div>
+    </section>
   )
 }
 
 export default function Home() {
+  const { user } = useAuth()
+  const library = useUserLibrary()
+  const [communityLists, setCommunityLists] = useState([])
+
+  useEffect(() => {
+    fetchCommunityLists()
+      .then((ls) => setCommunityLists(ls.sort((a, b) => b.likes - a.likes).slice(0, 3)))
+      .catch(() => {})
+  }, [])
+
   const podcastCharts = items.filter((i) => i.chartRank && i.type === 'podcast').sort((a, b) => a.chartRank - b.chartRank)
   const audiobookCharts = items.filter((i) => i.chartRank && i.type === 'hoerbuch').sort((a, b) => a.chartRank - b.chartRank)
   const classics = items.filter((i) => i.free)
-  const popular = podcastCharts.length ? podcastCharts.slice(0, 12) : [...items].sort((a, b) => (b.ratings || 0) - (a.ratings || 0)).slice(0, 8)
-  const recommended = [...items].sort((a, b) => (b.rating || 0) - (a.rating || 0)).slice(0, 8)
-  const becauseOf = items.filter((i) => i.genres.includes('Fantasy') && i.id !== 'tintenherz')
+
+  // Echte persönliche Daten (nur eingeloggt)
+  const recent = useMemo(() => (user ? getRecent().map(byId).filter(Boolean) : []), [user])
+  const recs = useMemo(() => (user && library ? personalRecs(library) : []), [user, library])
+  const lastFav = useMemo(() => {
+    if (!user || !library) return null
+    const fav = library
+      .filter((r) => r.fav)
+      .sort((a, b) => new Date(b.updated_at || 0) - new Date(a.updated_at || 0))[0]
+    return fav ? byId(fav.item_id) : null
+  }, [user, library])
+  const becauseOf = lastFav ? similarTo(lastFav, 8) : []
 
   return (
     <>
@@ -68,20 +125,39 @@ export default function Home() {
         </div>
       </Section>
 
-      <Section title="Weiterhören" sub="Nahtlos da weitermachen, wo du aufgehört hast – beim Anbieter deiner Wahl.">
-        <ContinueRow />
-      </Section>
+      {!user && <LandingCta />}
 
-      <Section title="Persönliche Empfehlungen" sub={`Basierend auf deiner Audio-DNA, ${currentUser.name}`} moreTo="/dna">
-        <Rail items={recommended} />
-      </Section>
+      {user && recent.length > 0 && (
+        <Section title="Zuletzt angesehen" sub="Da weitermachen, wo du zuletzt gestöbert hast.">
+          <Rail items={recent.slice(0, 8)} />
+        </Section>
+      )}
 
-      <Section title="Beliebt in Deutschland" sub="Die echten deutschen Podcast-Charts – automatisch importiert und täglich aktualisiert." moreTo="/suche?q=podcast">
-        <Rail items={popular} />
+      {user && recs.length > 0 && (
+        <Section title="Persönliche Empfehlungen" sub="Basierend auf deinen Favoriten und Markierungen." moreTo="/dna">
+          <Rail items={recs} />
+        </Section>
+      )}
+      {user && library && library.length === 0 && (
+        <Section title="Persönliche Empfehlungen">
+          <div className="claim-banner" style={{ margin: 0 }}>
+            <span>Markiere Titel als <b>♥ Favorit</b> oder <b>✓ Gehört</b> – dann entstehen hier deine persönlichen Empfehlungen.</span>
+          </div>
+        </Section>
+      )}
+
+      {lastFav && becauseOf.length > 0 && (
+        <Section title={`Weil dir „${lastFav.title}“ gefallen hat`} moreTo={`/titel/${lastFav.id}`}>
+          <Rail items={becauseOf} />
+        </Section>
+      )}
+
+      <Section title="Beliebt in Deutschland" sub="Die echten deutschen Podcast-Charts – automatisch importiert und täglich aktualisiert." moreTo="/suche?type=podcast">
+        <Rail items={podcastCharts.slice(0, 12)} />
       </Section>
 
       {audiobookCharts.length > 0 && (
-        <Section title="Hörbuch-Charts Deutschland" sub="Die meistgekauften Hörbücher – live aus den Apple-Charts." moreTo="/suche?q=hörbuch">
+        <Section title="Hörbuch-Charts Deutschland" sub="Die meistgekauften Hörbücher – live aus den Apple-Charts." moreTo="/suche?type=hoerbuch">
           <Rail items={audiobookCharts.slice(0, 12)} />
         </Section>
       )}
@@ -92,14 +168,10 @@ export default function Home() {
         </Section>
       )}
 
-      <Section title="Weil dir „Tintenherz“ gefallen hat" moreTo="/titel/tintenherz">
-        <Rail items={becauseOf} />
-      </Section>
-
       <Section title="Nach Genre entdecken">
         <div className="platforms">
           {GENRES.map((g) => (
-            <Link key={g} to={`/suche?q=${encodeURIComponent(g)}`} className="chip">{g}</Link>
+            <Link key={g} to={`/suche?genre=${encodeURIComponent(g)}`} className="chip">{g}</Link>
           ))}
         </div>
       </Section>
@@ -112,23 +184,30 @@ export default function Home() {
         </div>
       </Section>
 
-      <Section title="Community-Listen" sub="Kuratiert von Menschen, nicht von Algorithmen." moreTo="/listen">
-        <div className="list-grid">
-          {lists.slice(0, 3).map((l) => (
-            <Link key={l.id} to={`/listen/${l.id}`} className="list-card">
-              <div className="list-covers">
-                {l.itemIds.slice(0, 4).map((id) => <Cover key={id} item={byId(id)} showType={false} />)}
-              </div>
-              <h3>{l.title}</h3>
-              <div className="lc-meta">
-                <span>von {l.curator}</span>
-                <span>♥ {l.likes.toLocaleString('de-DE')}</span>
-                <span>{l.itemIds.length} Titel</span>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </Section>
+      {communityLists.length > 0 && (
+        <Section title="Community-Listen" sub="Kuratiert von echten Hörerinnen und Hörern." moreTo="/listen">
+          <div className="list-grid">
+            {communityLists.map((l) => {
+              const covers = l.itemIds.slice(0, 4).map(byId).filter(Boolean)
+              return (
+                <Link key={l.id} to={`/listen/${l.id}`} className="list-card">
+                  <div className="list-covers">
+                    {covers.length
+                      ? covers.map((i) => <Cover key={i.id} item={i} showType={false} />)
+                      : <div className="list-covers-empty">Noch keine Titel</div>}
+                  </div>
+                  <h3>{l.title}</h3>
+                  <div className="lc-meta">
+                    <span>von {l.curator}</span>
+                    <span>♥ {l.likes.toLocaleString('de-DE')}</span>
+                    <span>{l.itemIds.length} Titel</span>
+                  </div>
+                </Link>
+              )
+            })}
+          </div>
+        </Section>
+      )}
     </>
   )
 }

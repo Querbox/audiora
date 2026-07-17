@@ -2,8 +2,10 @@ import { useParams, Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import {
   byId, personById, similarTo, explainRecommendation, fmtDuration,
-  TYPE_LABEL, MOODS, lists, currentUser,
+  TYPE_LABEL, MOODS,
 } from '../data.js'
+import { trackRecent } from '../lib/recent.js'
+import { fetchCommunityLists as fetchAllLists } from '../lib/community.js'
 import { Cover, PlatformButtons, Section, Rail } from '../components/shared.jsx'
 import { useAuth, useUserItem } from '../auth.jsx'
 import { fetchMyLists, createList, setListItem, isMissingSchema } from '../lib/community.js'
@@ -78,22 +80,27 @@ export default function Detail() {
   const nav = useNavigate()
   const { user, isConfigured, profile } = useAuth()
   const [marks, toggleMark] = useUserItem(id)
-  // Ohne Login (bzw. im Demo-Modus) lokaler Zustand statt Datenbank
-  const [local, setLocal] = useState({
-    heard: currentUser.heard.includes(id),
-    fav: currentUser.favorites.includes(id),
-    liked: currentUser.liked === id,
-  })
-  const heard = user ? marks.heard : local.heard
-  const fav = user ? marks.fav : local.fav
-  const liked = user ? marks.liked : local.liked
+  const heard = user ? marks.heard : false
+  const fav = user ? marks.fav : false
+  const liked = user ? marks.liked : false
   const toggle = (field) => {
     if (user) toggleMark(field)
-    else if (isConfigured) nav('/anmelden')
-    else setLocal((s) => ({ ...s, [field]: !s[field] }))
+    else nav('/anmelden')
   }
   const [expanded, setExpanded] = useState(false)
   const [pickerOpen, setPickerOpen] = useState(false)
+  const [inLists, setInLists] = useState([])
+
+  // Echtes Verhalten: besuchte Titel für „Zuletzt angesehen“ merken
+  useEffect(() => { if (id) trackRecent(id) }, [id])
+
+  // Echte Community-Listen, die diesen Titel enthalten
+  useEffect(() => {
+    setInLists([])
+    fetchAllLists()
+      .then((ls) => setInLists(ls.filter((l) => l.itemIds.includes(id))))
+      .catch(() => {})
+  }, [id])
 
   if (!item) return <div className="shell empty">Titel nicht gefunden.</div>
 
@@ -101,7 +108,6 @@ export default function Detail() {
   const speakers = (item.speakerIds || []).map(personById)
   const hosts = (item.hostIds || []).map(personById)
   const similar = similarTo(item)
-  const inLists = lists.filter((l) => l.itemIds.includes(item.id))
   const listenHref = item.links?.librivox || item.links?.apple || item.links?.applebooks || item.links?.spotify
   const longDesc = (item.desc || '').length > 180
 
@@ -197,7 +203,10 @@ export default function Detail() {
 
           <div className="reco-card">
             <div className="rc-kicker">✨ Für dich empfohlen</div>
-            <p>{explainRecommendation(item)} Basierend auf deiner Audio-DNA, <b>{profile?.username || currentUser.name}</b>.</p>
+            <p>
+              {explainRecommendation(item)}
+              {profile?.username ? <> Basierend auf deiner Audio-DNA, <b>{profile.username}</b>.</> : <> Melde dich an, damit Empfehlungen zu deinem Geschmack passen.</>}
+            </p>
             <Link to={`/suche?q=${encodeURIComponent(item.genres[0])}`} className="btn">
               Mehr ähnliche Titel →
             </Link>
