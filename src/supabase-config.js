@@ -9,4 +9,4 @@
 // Solange der Key leer ist, läuft Audiora im Demo-Modus ohne Login.
 
 export const SUPABASE_URL = 'https://ghkefntjoyzpnmsnzvnb.supabase.co'
-export const SUPABASE_ANON_KEY = '' // 'sb_publishable_…'
+export const SUPABASE_ANON_KEY = 'sb_publishable_oqXjKBYOLiueGdQEgJjLGA_iT3QIuRu'
