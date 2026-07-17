@@ -7,5 +7,5 @@
 //
 // Solange beide Werte leer sind, läuft Audiora im Demo-Modus ohne Login.
 
-export const SUPABASE_URL = ''      // z. B. 'https://abcdefgh.supabase.co'
+export const SUPABASE_URL = 'https://ghkefntjoyzpnmsnzvnb.supabase.co'
 export const SUPABASE_ANON_KEY = '' // 'eyJhbGciOiJIUzI1NiIs...'
