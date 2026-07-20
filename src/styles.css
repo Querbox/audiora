@@ -96,7 +96,7 @@ h1, h2, h3, .display { font-family: var(--font-display); letter-spacing: -0.015e
 }
 
 /* ── Hero / Suche ── */
-.hero { padding: 76px 0 30px; text-align: center; }
+.hero { padding-top: 76px; padding-bottom: 30px; text-align: center; }
 .hero h1 {
   font-size: clamp(34px, 5vw, 56px);
   font-weight: 700; line-height: 1.06;
@@ -161,7 +161,7 @@ h1, h2, h3, .display { font-family: var(--font-display); letter-spacing: -0.015e
 }
 
 /* ── Stimmungskarten ── */
-.section { padding: 44px 0 12px; }
+.section { padding-top: 44px; padding-bottom: 12px; }
 .section-head {
   display: flex; align-items: baseline; justify-content: space-between;
   margin-bottom: 18px;
@@ -312,14 +312,15 @@ a.chip:hover, button.chip:hover { color: var(--text); border-color: rgba(167,139
     radial-gradient(900px 420px at 30% -10%, rgba(124, 92, 255, 0.16), transparent 65%),
     linear-gradient(180deg, rgba(124, 92, 255, 0.05), transparent 480px);
 }
-.detail-hero { display: grid; grid-template-columns: 340px 1fr; gap: 56px; padding: 72px 0 36px; align-items: start; }
+.detail-hero { display: grid; grid-template-columns: 340px 1fr; gap: 56px; padding-top: 72px; padding-bottom: 36px; align-items: start; }
 .detail-hero .cover {
   font-size: 120px; border-radius: var(--radius);
   box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.8), 0 0 60px -10px rgba(124, 92, 255, 0.25);
 }
 .kicker { font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
 .title-row { display: flex; align-items: flex-start; gap: 20px; }
-.title-row h1 { flex: 1; }
+.title-row h1 { flex: 1; min-width: 0; overflow-wrap: break-word; }
+.detail-hero > * { min-width: 0; } /* Grid-Kinder dürfen schrumpfen */
 .detail-hero h1 { font-size: clamp(34px, 4.5vw, 52px); font-weight: 700; margin: 8px 0 6px; line-height: 1.05; }
 .quick-actions { display: flex; gap: 8px; margin-top: 18px; }
 .icon-btn {
@@ -608,7 +609,7 @@ a.chip:hover, button.chip:hover { color: var(--text); border-color: rgba(167,139
 .activity-row .when { margin-left: auto; color: var(--text-faint); font-size: 13px; white-space: nowrap; }
 
 /* ── Auth ── */
-.auth-wrap { display: grid; place-items: center; min-height: 70vh; padding: 60px 0; }
+.auth-wrap { display: grid; place-items: center; min-height: 70vh; padding-top: 60px; padding-bottom: 60px; }
 .auth-card {
   width: 100%; max-width: 440px;
   background: var(--bg-card); border: 1px solid var(--line);
@@ -720,8 +721,9 @@ a.chip:hover, button.chip:hover { color: var(--text); border-color: rgba(167,139
   .sd-results { grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 780px) {
-  .search-demo { padding: 28px 18px 26px; }
-  .sd-results { grid-template-columns: repeat(2, 1fr); }
+  .search-demo { padding: 34px 22px 30px; }
+  .sd-results { grid-template-columns: repeat(2, 1fr); padding-top: 30px; }
+  .sd-cta { margin-top: 22px; padding-top: 22px; }
 }
 
 /* ── Landing Page (nicht angemeldet) ── */
@@ -802,8 +804,10 @@ a.lc-feature:hover { transform: translateY(-4px); border-color: rgba(167, 139, 2
 .lc-try a { color: var(--accent); font-weight: 600; }
 .lc-try a:hover { text-decoration: underline; }
 @media (max-width: 780px) {
-  .landing-cta { padding: 28px 20px; }
-  .lc-features { grid-template-columns: 1fr; }
+  .landing-cta { padding: 34px 24px; }
+  .lc-features { grid-template-columns: 1fr; gap: 18px; }
+  .lc-feature { padding: 24px 20px; }
+  .lc-actions { margin-top: 4px; }
 }
 
 /* ── Install-Banner (PWA) ── */
@@ -860,39 +864,51 @@ footer {
   .dna-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 780px) {
-  .shell { padding: 0 20px; }
+  /* Deutlich mehr Abstand zum Bildschirmrand */
+  .shell { padding: 0 26px; }
+  .nav-inner { height: 68px; }
   .nav-links { display: none; }
 
   /* Mehr Luft: großzügiger vertikaler Rhythmus auf Mobil */
-  .hero { padding: 56px 0 26px; }
-  .hero p.sub { margin-top: 18px; }
-  .searchbar { margin-top: 30px; }
-  .search-hints { margin-top: 20px; gap: 10px; }
-  .hint-chip { padding: 8px 16px; }
-  .section { padding: 52px 0 16px; }
-  .section-head { margin-bottom: 22px; }
-  .section-sub { margin-top: 4px; }
-  .rail { gap: 14px; padding-bottom: 16px; }
-  .tcard { gap: 12px; }
-  .moods { grid-template-columns: repeat(3, 1fr); gap: 12px; }
-  .mood-card { padding: 20px 8px 16px; gap: 10px; }
-  .continue-card { padding: 18px; }
-  .list-grid { gap: 16px; }
-  .page-head { padding: 44px 0 10px; }
-  .page-head p { margin-top: 10px; }
-  .actions { gap: 10px; margin-top: 30px; }
-  .desc-block { margin-top: 24px; }
-  .statbar { margin-top: 24px; }
-  .platform-cards { gap: 10px; }
-  .reco-card { margin-top: 34px; padding: 22px 20px; }
-  .episodes .episode-row { padding: 16px 18px; }
-  .profile-head { gap: 20px; padding-top: 40px; }
-  footer { margin-top: 56px; padding: 36px 0 84px; }
-  .rail { grid-auto-columns: calc((100% - 16px) / 2.2); }
-  .results-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero { padding-top: 72px; padding-bottom: 34px; }
+  .hero h1 { line-height: 1.12; }
+  .hero p.sub { margin-top: 22px; }
+  .searchbar { margin-top: 38px; }
+  .search-hints { margin-top: 26px; gap: 12px; }
+  .hint-chip { padding: 9px 16px; }
+  .section { padding-top: 68px; padding-bottom: 18px; }
+  .section-head { margin-bottom: 26px; }
+  .section-sub { margin-top: 6px; }
+  .rail { gap: 18px; padding-bottom: 18px; }
+  .tcard { gap: 13px; }
+  .moods { grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .mood-card { padding: 22px 8px 18px; gap: 11px; }
+  .continue-card { padding: 20px; }
+  .list-grid { gap: 20px; }
+  .list-card { padding: 24px; }
+  .page-head { padding: 56px 0 12px; }
+  .page-head p { margin-top: 12px; }
+  .actions { gap: 12px; margin-top: 36px; }
+  .desc-block { margin-top: 30px; }
+  .statbar { margin-top: 30px; }
+  .stat { padding: 16px 20px; }
+  .platform-cards { gap: 12px; }
+  .platform-card { padding: 18px 20px; }
+  .reco-card { margin-top: 42px; padding: 26px 22px; }
+  .episodes .episode-row { padding: 18px 20px; }
+  .activity-row { padding: 18px 20px; }
+  .profile-head { gap: 22px; padding-top: 52px; }
+  .claim-banner { padding: 18px 22px; margin: 28px 0; }
+  .auth-wrap { padding-top: 48px; padding-bottom: 48px; }
+  .auth-card { padding: 30px 24px; }
+  footer { margin-top: 72px; padding: 44px 0 92px; }
+  .rail { grid-auto-columns: calc((100% - 18px) / 2.15); }
+  .results-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
   .continue-row { grid-template-columns: 1fr; }
-  .filters { padding: 16px; }
+  .filter-bar { margin: 22px 0 2px; }
+  .filters { padding: 20px 18px; }
   .filter-label { flex-basis: 100%; }
+  .install-banner { left: 16px; right: 16px; bottom: 16px; padding: 16px 18px; }
 
   /* Suchleiste: nur Lupe statt „Suchen“-Button */
   .searchbar { padding: 6px 6px 6px 18px; gap: 8px; }
@@ -905,8 +921,15 @@ footer {
   .graph-wrap { height: min(72vh, 620px); }
   .graph-hint { font-size: 11px; padding: 6px 12px; top: 10px; right: 10px; }
   .graph-legend { font-size: 11px; gap: 9px; padding: 6px 12px; bottom: 10px; left: 10px; right: 10px; justify-content: center; }
-  .detail-hero { grid-template-columns: 1fr; gap: 28px; padding-top: 44px; }
+  .detail-hero { grid-template-columns: 1fr; gap: 32px; padding-top: 52px; }
   .detail-hero .cover { max-width: 300px; }
+  /* Titel bekommt eine eigene Zeile, Quick-Actions darunter */
+  .title-row { flex-wrap: wrap; gap: 14px; }
+  .title-row h1 { flex: 1 1 100%; }
+  .quick-actions { margin-top: 4px; }
+  .landing-hero-cta { margin-top: 38px; }
+  .platform-strip { padding-top: 44px; gap: 20px; }
+  .step { padding: 26px 24px; }
   .statbar { flex-direction: column; }
   .stat { border-right: none; border-bottom: 1px solid var(--line); }
   .stat:last-child { border-bottom: none; }
